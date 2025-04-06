@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'; 
 import { 
   FaPaperPlane, 
   FaUser, 
@@ -63,14 +63,28 @@ function Contato() {
     }
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log('Form submitted:', formData);
+      const response = await fetch(
+        'https://us-central1-SEU-PROJETO-ID.cloudfunctions.net/sendContactEmail',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nome: formData.contactname,
+            email: formData.email,
+            mensagem: formData.mensagem
+          })
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+  
       setSubmitSuccess(true);
       setFormData({ contactname: '', email: '', mensagem: '' });
-      setErrors({});
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error('Erro:', error);
+      setErrors({ submit: 'Erro ao enviar mensagem. Tente novamente.' });
     } finally {
       setIsSubmitting(false);
     }
