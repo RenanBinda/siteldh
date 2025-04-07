@@ -96,7 +96,7 @@ function Contato() {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="text-center mb-5">
-              <h1 id="contact-heading" className="display-5 fw-bold mb-3">
+              <h1 id="contact-heading" className="display-5 fw-bold mb-3 text-dark">
                 Vamos criar algo <span className="text-primary">juntos!</span>
               </h1>
               <p className="lead text-muted">
@@ -123,7 +123,7 @@ function Contato() {
                         São Paulo, SP
                       </li>
                     </ul>
-                    <div className="mt-4">
+                    <div className="mt-4 text-start">
                       <h3 className="h5 mb-3">Nos siga nas redes sociais</h3>
                       <div className="d-flex gap-3">
                         <a href="http://linkedin.com/company/leful-designhouse" className="text-white" aria-label="LinkedIn">
@@ -154,7 +154,7 @@ function Contato() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} noValidate>
-                      <div className="mb-4">
+                      <div className="mb-4 text-start">
                         <label htmlFor="contactname" className="form-label fw-semibold">
                           <FaUser className="me-2 text-primary" />
                           Nome completo
@@ -177,7 +177,7 @@ function Contato() {
                         )}
                       </div>
 
-                      <div className="mb-4">
+                      <div className="mb-4 text-start">
                         <label htmlFor="email" className="form-label fw-semibold">
                           <FaEnvelope className="me-2 text-primary" />
                           Email
@@ -200,7 +200,7 @@ function Contato() {
                         )}
                       </div>
 
-                      <div className="mb-4">
+                      <div className="mb-4 text-start">
                         <label htmlFor="mensagem" className="form-label fw-semibold">
                           <FaComment className="me-2 text-primary" />
                           Sua mensagem

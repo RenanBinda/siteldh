@@ -42,6 +42,9 @@ function Navbar() {
               <Link className="nav-link active me-2" style={{ color: '#FFFFFF' }} to="/projetos" title="Confira os principais projetos desenvolvidos">Projetos</Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link active me-2" style={{ color: '#FFFFFF' }} to="/sobre" title="Conheça mais sobre nossa história e equipe">Sobre</Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link active me-2" style={{ color: '#FFFFFF' }} to="/pesquisas" title="Saiba quais pesquisas estamos desenvolvendo">Pesquisas</Link>
             </li>
             <li className="nav-item">

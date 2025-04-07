@@ -1,7 +1,27 @@
-
-/* Add your custom styles here */
-body {
-  padding-top: 56px; /* Adjust based on your navbar height */
+/* global.css */
+:root {
+  --primary-color: #EB5F2C;
+  --secondary-color: #1a1a1a;
+  --text-dark: #2c3e50;
+  --text-muted: #7f8c8d;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Add any other global styles you need */
+body {
+  padding-top: 56px;
+  font-family: var(--font-primary);
+  color: var(--text-dark);
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}

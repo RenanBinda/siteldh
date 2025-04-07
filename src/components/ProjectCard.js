@@ -1,17 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import '../Styles/ProjectCard.css'; // Adicione esta linha
+import '../Styles/Projetos.css'; // Remova o import do ProjectCard.css
 
-const ProjectCard = ({ project }) => {
+export default function ProjectCard({ project, className }) {
   return (
-    <div className="project-card">
-      <h3>{project.title}</h3>
-      <p>Categoria: {project.category}</p>
-      <Link to={`/projeto/${project.id}`} className="project-link">
-        Ver detalhes
-      </Link>
+    <div className={`pentagram-card ${className}`}>
+      <img 
+        src={project.image} 
+        alt={project.title} 
+        loading="lazy"
+      />
+      <div className="project-info">
+        <h3>{project.title}</h3>
+        <p>{project.client}, {project.year}</p>
+        <p className="pentagram-description">{project.description}</p> {/* Classe atualizada */}
+      </div>
     </div>
   );
-};
-
-export default ProjectCard;
+}
