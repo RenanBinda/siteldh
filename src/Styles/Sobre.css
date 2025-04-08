@@ -1,0 +1,316 @@
+/* Estilos base */
+.sobre-page {
+  font-family: 'Inter', sans-serif;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.sobre-hero-section {
+  position: relative;
+  height: 65vh;
+  min-height: 500px;
+  background: url('https://firebasestorage.googleapis.com/v0/b/portifolio-renan.appspot.com/o/imagens%2FAcademy.png?alt=media&token=7bdb4b60-2339-4f34-8dac-33ddcfdb172b');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 20%;
+  text-align: start;
+  color: white;
+}
+
+.sobre-hero-content {
+  max-width: 600px;
+}
+
+.sobre-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.sobre-hero-content .lead {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* História Section */
+.historia-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 150px;
+}
+
+.historia-timeline:before {
+  content: '';
+  position: absolute;
+  left: 100px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: #EB5F2C;
+}
+
+.historia-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.historia-ano {
+  position: absolute;
+  left: -150px;
+  top: 0;
+  width: 100px;
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #EB5F2C;
+}
+
+.historia-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.historia-content:hover {
+  transform: translateY(-5px);
+}
+
+.historia-content h3 {
+  margin-top: 0;
+  color: #EB5F2C;
+}
+
+/* Equipe Section */
+.equipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.equipe-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.equipe-card:hover {
+  transform: translateY(-10px);
+}
+
+.equipe-foto img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.equipe-info {
+  padding: 25px;
+}
+
+.equipe-cargo {
+  display: block;
+  color: #EB5F2C;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.equipe-especialidades {
+  margin-top: 20px;
+}
+
+.equipe-especialidades h4 {
+  margin-bottom: 10px;
+  color: #EB5F2C;
+}
+
+.equipe-especialidades ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.equipe-especialidades li {
+  background: #f8f9fa;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Valores Section */
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.valor-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.valor-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.valor-icon {
+  margin-bottom: 20px;
+}
+
+.valor-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Diferenciais Section */
+.diferenciais-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.diferenciais-imagem img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.diferenciais-lista {
+  margin-top: 30px;
+}
+
+.diferencial-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.diferencial-item svg {
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.diferencial-item h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #EB5F2C;
+}
+
+/* CTA Section */
+.sobre-cta-section {
+  background: linear-gradient(135deg, #cde6f098 0%, #e6dcff50 50%);
+  color: rgb(32, 32, 32);
+  text-align: center;
+}
+
+.sobre-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sobre-cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.sobre-cta-content .lead {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .historia-timeline {
+    padding-left: 120px;
+  }
+  
+  .historia-timeline:before {
+    left: 70px;
+  }
+  
+  .historia-ano {
+    left: -120px;
+    width: 70px;
+  }
+  
+  .diferenciais-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .diferenciais-imagem {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .sobre-hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .sobre-hero-content .lead {
+    font-size: 1.2rem;
+  }
+  
+  .historia-timeline {
+    padding-left: 0;
+  }
+  
+  .historia-timeline:before {
+    display: none;
+  }
+  
+  .historia-ano {
+    position: static;
+    text-align: left;
+    width: auto;
+    margin-bottom: 10px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .sobre-hero-section {
+    height: 60vh;
+    min-height: 400px;
+  }
+  
+  .sobre-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .equipe-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .valores-grid {
+    grid-template-columns: 1fr;
+  }
+}

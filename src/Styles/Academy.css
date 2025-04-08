@@ -1,0 +1,78 @@
+/* Academy.css */
+/* Estilos específicos para a página Academy */
+
+/* Hero Section */
+#academy-hero {
+    background: linear-gradient(135deg, rgba(51, 51, 51, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%), 
+                url('https://firebasestorage.googleapis.com/v0/b/portifolio-renan.appspot.com/o/imagens%2FAcademy.png?alt=media&token=7bdb4b60-2339-4f34-8dac-33ddcfdb172b');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Cards de Modelos */
+  .model-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .model-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .model-card .card-body {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Eventos Cards */
+  .event-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .event-date {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    #academy-hero {
+      padding: 3rem 0 5rem;
+      text-align: center;
+    }
+    
+    .event-card .col-md-5 {
+      min-height: 200px;
+    }
+  }
+  
+  /* Animações */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  /* Delay para animações em sequência */
+  [data-animation-delay="100"] {
+    animation-delay: 0.1s;
+  }
+  
+  [data-animation-delay="200"] {
+    animation-delay: 0.2s;
+  }

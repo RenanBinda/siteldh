@@ -1,124 +1,43 @@
-// src/pages/Servicos.js
 import React from 'react';
-import { FaUniversalAccess, FaBrain, FaChalkboardTeacher, FaArrowRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaUniversalAccess, FaBrain, FaChalkboardTeacher, FaArrowRight, FaChevronLeft, FaChevronRight, FaStar, FaSearch, FaLightbulb, FaPencilRuler, FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../Styles/Servicos.css';
 
 export default function Servicos() {
-  const carouselItems = [
+  // Dados para o carrossel hero
+  const heroItems = [
     {
       id: 1,
-      title: "Fale com nossos especialistas",
-      description: "Converse diretamente com nossa equipe para entender como podemos ajudar seu projeto",
-      buttonText: "Agendar Consultoria",
+      title: "Design que Transforma Negócios",
+      description: "Soluções criativas e estratégicas para marcas que querem se destacar",
+      buttonText: "Fale com nosso time",
       link: "/contato",
       bgClass: "bg-primary",
-      ariaLabel: "Fale com nossos especialistas - Agendar Consultoria"
+      image: "/imagens/hero-services-1.jpg"
     },
     {
       id: 2,
-      title: "Ver Cursos e Treinamentos",
-      description: "Capacite sua equipe com nossos programas de formação em design inclusivo",
-      buttonText: "Explorar Cursos",
-      link: "/cursos",
-      bgClass: "bg-secondary",
-      ariaLabel: "Ver Cursos e Treinamentos - Explorar Cursos"
-    },
-    {
-      id: 3,
-      title: "Conheça nossos Cases",
-      description: "Veja projetos reais onde transformamos desafios em soluções inovadoras",
-      buttonText: "Ver Portfólio",
+      title: "Experiências Digitais Memoráveis",
+      description: "Criamos jornadas de usuário que encantam e convertem",
+      buttonText: "Ver portfólio",
       link: "/portfolio",
-      bgClass: "bg-dark",
-      ariaLabel: "Conheça nossos Cases - Ver Portfólio"
+      bgClass: "bg-secondary",
+      image: "/imagens/hero-services-2.jpg"
     }
   ];
 
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const itemsLength = carouselItems.length;
-  const carouselRef = React.useRef(null);
-
-  // Funções otimizadas com useCallback
-  const nextSlide = React.useCallback(() => {
-    setActiveIndex(prevIndex => 
-      prevIndex === itemsLength - 1 ? 0 : prevIndex + 1
-    );
-    setTimeout(() => {
-      const slides = carouselRef.current?.querySelectorAll('.carousel-item');
-      if (slides && slides[activeIndex]) {
-        slides[activeIndex].setAttribute('aria-hidden', 'true');
-        slides[(activeIndex + 1) % itemsLength].setAttribute('aria-hidden', 'false');
-        slides[(activeIndex + 1) % itemsLength].focus();
-      }
-    }, 100);
-  }, [itemsLength, activeIndex]); // Dependência corretamente declarada
-
-  const prevSlide = React.useCallback(() => {
-    setActiveIndex(prevIndex => 
-      prevIndex === 0 ? itemsLength - 1 : prevIndex - 1
-    );
-    setTimeout(() => {
-      const slides = carouselRef.current?.querySelectorAll('.carousel-item');
-      if (slides && slides[activeIndex]) {
-        slides[activeIndex].setAttribute('aria-hidden', 'true');
-        slides[(activeIndex - 1 + itemsLength) % itemsLength].setAttribute('aria-hidden', 'false');
-        slides[(activeIndex - 1 + itemsLength) % itemsLength].focus();
-      }
-    }, 100);
-  }, [itemsLength, activeIndex]); // Dependência corretamente declarada
-
-  // Efeito para auto-rotação
-  React.useEffect(() => {
-    let interval;
-  const carousel = carouselRef.current;
-  
-  // Verifica se o foco está dentro do carrossel
-  const isFocusInCarousel = () => {
-    return carousel.contains(document.activeElement);
-  };
-
-  const startInterval = () => {
-    if (!isFocusInCarousel()) {
-      interval = setInterval(nextSlide, 5000);
-    }
-  };
-
-  // Inicia o intervalo apenas se o foco não estiver no carrossel
-  startInterval();
-
-  const handleFocusIn = () => {
-    clearInterval(interval);
-  };
-
-  const handleFocusOut = () => {
-    startInterval();
-  };
-
-  carousel.addEventListener('focusin', handleFocusIn);
-  carousel.addEventListener('focusout', handleFocusOut);
-
-  return () => {
-    clearInterval(interval);
-    carousel.removeEventListener('focusin', handleFocusIn);
-    carousel.removeEventListener('focusout', handleFocusOut);
-  };
-}, [nextSlide]);
-
-
+  // Dados para áreas de atuação
   const areasAtuacao = [
     {
       id: 1,
       titulo: "Design Inclusivo",
       icone: <FaUniversalAccess className="text-primary" size={40} />,
-      descricao: "Desenvolvemos projetos centrados na diversidade humana, com foco em acessibilidade, usabilidade e equidade no uso de tecnologias digitais.",
-      objetivo: "Tornar as experiências digitais acessíveis, funcionais e significativas para o maior número possível de pessoas.",
-      atividades: [
-        "Consultoria em design inclusivo para produtos digitais",
-        "Auditoria de acessibilidade e usabilidade",
-        "Desenvolvimento de interfaces acessíveis",
-        "Acompanhamento de times em processos de design",
-        "Adaptação de fluxos e jornadas para UX"
+      descricao: "Desenvolvemos projetos centrados na diversidade humana, com foco em acessibilidade e usabilidade.",
+      beneficios: [
+        "Aumento do público alcançado",
+        "Melhoria na experiência de todos os usuários",
+        "Conformidade com diretrizes de acessibilidade",
+        "Design mais humano e empático"
       ],
       cta: {
         texto: "Solicitar Consultoria",
@@ -129,14 +48,12 @@ export default function Servicos() {
       id: 2,
       titulo: "Gestão do Conhecimento",
       icone: <FaBrain className="text-primary" size={40} />,
-      descricao: "Nos projetos de design, aplicamos práticas de gestão do conhecimento para registrar, estruturar e otimizar processos criativos e colaborativos.",
-      objetivo: "Transformar o conhecimento gerado em cada projeto em valor contínuo, promovendo consistência e eficiência.",
-      atividades: [
-        "Gestão e documentação de projetos",
-        "Modelagem de domínios de conhecimento em design",
-        "Organização e sistematização de informações",
-        "Construção de repositórios e frameworks",
-        "Apoio à inovação com base em dados e feedback"
+      descricao: "Sistematizamos e organizamos o conhecimento para melhorar processos criativos.",
+      beneficios: [
+        "Eficiência nos processos de design",
+        "Preservação e recuperação do conhecimento organizacional",
+        "Tomada de decisão baseada em dados e pesquisas",
+        "Inovação contínua"
       ],
       cta: {
         texto: "Conhecer Soluções",
@@ -145,106 +62,171 @@ export default function Servicos() {
     },
     {
       id: 3,
-      titulo: "Educação e Formação",
+      titulo: "Educação em Design",
       icone: <FaChalkboardTeacher className="text-primary" size={40} />,
-      descricao: "Oferecemos experiências formativas voltadas para o desenvolvimento de competências em design acessível e tecnologias inclusivas.",
-      objetivo: "Fortalecer capacidades técnicas e humanas em design inclusivo, promovendo a cultura da acessibilidade.",
-      atividades: [
-        "Treinamentos e workshops sobre acessibilidade ",
-        "Programas educacionais personalizados",
-        "Mentorias de equipes de design",
-        "Criação de materiais didáticos acessíveis",
-        "Formação de multiplicadores internos"
+      descricao: "Capacitação em abordagens e práticas de design, acessibilidade e metodologias criativas.",
+      beneficios: [
+        "Equipe capacitada em novas metodologias",
+        "Cultura de design na organização para a inovação",
+        "Melhores resultados em projetos orientados ao conhecimento",
+        "Atualização constante"
       ],
       cta: {
-        texto: "Ver Cursos Disponíveis",
+        texto: "Ver Cursos",
         link: "/cursos"
       }
     }
   ];
 
-  return (
-    <main className="servicos-page" aria-label="Página de Serviços">
-       {/* Carrossel Hero Section */}
-       <section className="carousel-hero position-relative overflow-hidden"
-          aria-label="Carrossel de serviços"
-          ref={carouselRef}
-       >
+  // Dados para o processo criativo
+  const processos = [
+    {
+      titulo: "Descoberta",
+      descricao: "Entendemos seu desafio",
+      detalhes: [
+        "Pesquisa de usuário: Investigação de necessidades, comportamentos e expectativas dos usuários.",
+        "Análise de concorrência: Estudo de soluções para identificar oportunidades e diferenciais estratégicos.",
+        "Definição de escopo: Delimitação dos objetivos, funcionalidades e restrições do projeto."
+      ]
+    },
+    {
+      titulo: "Definição",
+      descricao: "Estruturamos a solução ideal",
+      detalhes: [
+        "Personas e jornadas: Criação de perfis representativos de usuários e mapeamento de suas experiências.",
+        "Arquitetura de informação: Organização lógica e hierárquica do conteúdo e funcionalidades.",
+        "Estratégia de conteúdo: Planejamento de tom, linguagem e estrutura do conteúdo para comunicação."
+      ]
+    },
+    {
+      titulo: "Desenvolvimento",
+      descricao: "Prototipamos e testamos",
+      detalhes: [
+        "Wireframes e fluxos: Esboços estruturais das telas e caminhos de navegação para para testagem.",
+        "Testes de usabilidade: Avaliação prática da interface com usuários para identificar pontos de melhoria.",
+        "Design system: Padronização de componentes para garantir consistência, escalabilidade e eficiência no design."
+      ]
+    },
+    {
+      titulo: "Entrega",
+      descricao: "Implementamos a solução",
+      detalhes: [
+        "Desenvolvimento colaborativo: Integração entre design, desenvolvimento e outras áreas para agilidade na implementação.",
+        "Garantia de qualidade: Verificação de que a solução atende aos requisitos técnicos, funcionais e de acessibilidade.",
+        "Plano de evolução: Estruturação de ações futuras para aprimoramento contínuo com base em métricas e novas necessidades."
+      ]
+    }
+  ];
 
-        <div 
-          className="carousel-inner" 
-          style={{ 
-            transform: `translateX(-$(activeIndex * 100)%)`,
-            transition: 'transform 0.3s ease-in-out'
-          }}
-          role="group"
-          aria-live="off"
-          aria-atomic="false"
-          aria-relevant="additions removals"
-        >
+  // Dados para cases de sucesso
+  const cases = [
+    {
+      id: 1,
+      titulo: "Fotografia para Empoderamento Social",
+      categoria: "Design de Fotografia",
+      descricao: "Capacitação em produção de imagens a partir da fotografia para desenvolver a essêncial visual em uma região dos Pampas que obteve um selo da UNESCO",
+      imagem: "https://firebasestorage.googleapis.com/v0/b/portifolio-renan.appspot.com/o/imagens%2FID_Olhares_GEO_03.jpg?alt=media&token=6a9b9276-cb62-4a93-9693-d2afdb99ac78",
+      metrica: {
+        valor: "+95%",
+        label: "Aumento na sensação de pertencimento"
+      }
+    },
+    {
+      id: 2,
+      titulo: "Sistema de Saúde Digital",
+      categoria: "UX Research",
+      descricao: "Pesquisa e redesign de plataforma para agendamento de consultas médicas",
+      imagem: "/imagens/case-saude.jpg",
+      metrica: {
+        valor: "90%",
+        label: "Satisfação dos usuários"
+      }
+    }
+  ];
 
-          {carouselItems.map((item, index) => (
+  // Dados para depoimentos
+  const depoimentos = [
+    {
+      id: 1,
+      texto: "A LeFul transformou completamente nossa abordagem de design, tornando nossos produtos muito mais acessíveis e fáceis de usar.",
+      avaliacao: 5,
+      autor: {
+        nome: "Joana Silva",
+        cargo: "Diretora de Produto",
+        empresa: "EducaTech",
+        foto: "/imagens/avatar-joana.jpg"
+      }
+    },
+    {
+      id: 2,
+      texto: "O trabalho em gestão do conhecimento nos ajudou a organizar anos de pesquisa e dados em um sistema coerente e útil.",
+      avaliacao: 4,
+      autor: {
+        nome: "Carlos Mendes",
+        cargo: "CTO",
+        empresa: "HealthPlus",
+        foto: "/imagens/avatar-carlos.jpg"
+      }
+    }
+  ];
+
+  // Componente HeroSection
+  const HeroSection = ({ items }) => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    
+    const nextSlide = () => {
+      setActiveIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+    };
+    const prevSlide = () => {
+      setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+    };
+
+    React.useEffect(() => {
+      const interval = setInterval(nextSlide, 5000);
+      return () => clearInterval(interval);
+    }, [activeIndex]);
+
+    return (
+      <section className="hero-section" aria-label="Apresentação dos serviços">
+        <div className="hero-slides" role="group" aria-roledescription="carousel" 
+          aria-live="polite">
+          {items.map((item, index) => (
             <div 
               key={item.id}
-              className={`carousel-item ${item.bgClass} text-white py-8 py-lg-10 ${index === activeIndex ? 'active' : ''}`}
-              aria-label={item.ariaLabel}
-              aria-hidden={index !== activeIndex}
-              tabIndex={index === activeIndex ? 0 : -1}
+              className={`hero-slide ${index === activeIndex ? 'active' : ''}`}
+              style={{ backgroundImage: `url(${item.image})` }}
               role="group"
               aria-roledescription="slide"
-              id={`slide-${item.id}`}
-            
+              aria-hidden={index !== activeIndex}
+              aria-label={`Slide ${index + 1} de ${items.length}: ${item.title}`}
             >
-              <div className="container h-100 px-lg-0">
-                <div className="row align-items-center h-100 mx-0">
-                  <div className="col-12 col-lg-6 ps-lg-8 mb-4 mb-lg-0">
-                    <h1 className="display-4 fw-bold mb-3 mb-lg-4">{item.title}</h1>
-                    <p className="lead mb-4 mb-lg-5">{item.description}</p>
-                    <Link 
-                      to={item.link} 
-                      className="btn btn-light btn-lg px-5"
-                      aria-labelledby={`slide-${item.id}-title slide-${item.id}-desc`}
-                    >
-                      {item.buttonText} <FaArrowRight className="ms-2" aria-hidden="true"/>
-                    </Link>
-                  </div>
-                  <div className="col-12 col-lg-6 pe-lg-8 d-none d-lg-block">
-                    <div className="position-relative" style={{ height: '300px' }}>
-                      {/* Ícone ou ilustração decorativa */}
-                      <div className="position-absolute top-50 start-50 translate-middle" aria-hidden="true">
-                        {index === 0 && <FaChalkboardTeacher size={120} opacity={0.2} />}
-                        {index === 1 && <FaBrain size={120} opacity={0.2} />}
-                        {index === 2 && <FaUniversalAccess size={120} opacity={0.2} />}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="slide-overlay" aria-hidden="true"></div>
+              <div className="slide-content">
+                <h1>{item.title}</h1>
+                <p>{item.description}</p>
+                <Link 
+                  to={item.link} 
+                  className="btn btn-primary btn-lg"
+                  aria-label={`${item.buttonText} - ${item.title}`}
+                >
+                  {item.buttonText}
+                </Link>
               </div>
             </div>
           ))}
         </div>
         
-        {/* Controles do Carrossel */}
-        <button 
-          className="carousel-control prev" 
-          onClick={prevSlide}
-          aria-label="Slide anterior"
-          aria-controls={carouselItems.map(item => `slide-${item.id}`).join(' ')}
-        >
-          <FaChevronLeft size={24} />
+        <button className="carousel-control prev" onClick={prevSlide} 
+          aria-label="Slide anterior" aria-controls="hero-slides">
+          <FaChevronLeft aria-hidden="true" />
         </button>
-        <button 
-          className="carousel-control next" 
-          onClick={nextSlide}
-          aria-label="Próximo slide"
-          aria-controls={carouselItems.map(item => `slide-${item.id}`).join(' ')}
-        >
-          <FaChevronRight size={24} />
+        <button className="carousel-control next" 
+          onClick={nextSlide} aria-label="Próximo slide" aria-controls="hero-slides">
+          <FaChevronRight aria-hidden="true" />
         </button>
         
-        {/* Indicadores */}
-        <div className="carousel-indicators">
-          {carouselItems.map((_, index) => (
+        <div className="carousel-indicators" role="tablist">
+          {items.map((_, index) => (
             <button
               key={index}
               className={index === activeIndex ? 'active' : ''}
@@ -252,61 +234,196 @@ export default function Servicos() {
               aria-label={`Ir para slide ${index + 1}`}
               role="tab"
               aria-selected={index === activeIndex}
-              aria-controls={`slide-${carouselItems[index].id}`}
+              aria-controls={`slide-${index}`}
               tabIndex={index === activeIndex ? 0 : -1}
             />
           ))}
         </div>
       </section>
+    );
+  };
 
-      {/* Destaque de Serviços */}
-      <section className="py-6 py-lg-8" style={{ padding: '5rem 0' }} aria-labelledby="areas-atuacao-heading">
+  // Componente EspecialidadesSection
+  const EspecialidadesSection = ({ areas }) => {
+    return (
+      <section className="especialidades-section section"
+        aria-labelledby="especialidades-heading">
+        <div className="container" >
+          <div className="section-header">
+            <h2 id="especialidades-heading">Nossas <span className="text-primary">
+              Especialidades</span></h2>
+            <p>Oferecemos soluções completas em design estratégico, desde a concepção 
+              até a implementação</p>
+          </div>
+          
+          <div className="especialidades-grid" aria-describedby="especialidades-desc">
+          {areas.map((area) => (
+            <article 
+              key={area.id} 
+              className="especialidade-card" 
+              aria-labelledby={`especialidade-${area.id}-title`}
+            >
+              <div className="card-header mb-3">
+                <div className="card-icon" aria-hidden="true">{area.icone}</div>
+                <h3 id={`especialidade-${area.id}-title`}>{area.titulo}</h3>
+              </div>
+              <div className="card-body">
+                <p>{area.descricao}</p>
+                
+                <div className="card-features">
+                  <h4>Principais benefícios:</h4>
+                  <ul>
+                    {area.beneficios.map((beneficio, i) => (
+                      <li key={i}>{beneficio}</li>
+                    ))}
+                  </ul>
+                </div>
+                  
+                <Link 
+                  to={area.cta.link} 
+                  className="btn btn-outline-primary"
+                  aria-label={`${area.cta.texto} - ${area.titulo}`}
+                >
+                  {area.cta.texto} <FaArrowRight aria-hidden="true" />
+                </Link>
+              </div>
+            </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  // Componente ProcessoSection
+  const ProcessoSection = ({ processos }) => {
+    const [activeStep, setActiveStep] = React.useState(0);
+    const icons = [FaSearch, FaLightbulb, FaPencilRuler, FaRocket];
+  
+    return (
+      <section className="processo-section section bg-light" aria-labelledby="processo-heading">
         <div className="container">
-          <div className="row justify-content-center mb-6">
-            <div className="col-lg-8 text-center">
-              <h2 className="display-5 fw-bold mb-4">Nossas Áreas de Atuação</h2>
-              <p className="lead">
-                Soluções digitais interativas, acessíveis e orientadas ao conhecimento, 
-                capazes de responder aos desafios mais complexos da sua organização.
-              </p>
+          <div className="section-header">
+            <h2 id="processo-heading">Nosso <span className="text-primary">Processo</span> Criativo</h2>
+            <p>Metodologia ágil centrada no usuário para garantir os melhores resultados</p>
+          </div>
+          
+          <div className="processo-container">
+            <div className="processo-steps">
+              {processos.map((passo, index) => {
+                const Icon = icons[index];
+                return (
+                  <div 
+                    key={index} 
+                    className={`processo-step ${activeStep === index ? 'active' : ''}`}
+                    onClick={() => setActiveStep(index)}
+                    aria-expanded={activeStep === index}
+                    aria-controls={`step-content-${index}`}
+                  >
+                    <div className="step-icon-container">
+                      <Icon className="step-icon" />
+                    </div>
+                    <h3 className="step-title">{passo.titulo}</h3>
+                    <p className="step-description">{passo.descricao}</p>
+                  </div>
+                );
+              })}
+            </div>
+            
+            <div className="step-content" id={`step-content-${activeStep}`}>
+              <h4>Detalhes da etapa:</h4>
+              <ul className="step-details">
+                {processos[activeStep].detalhes.map((detalhe, i) => {
+                  const parts = detalhe.split(":");
+                  const title = parts[0];
+                  const description = parts.slice(1).join(":").trim();
+                  
+                  return (
+                    <li key={i}>
+                      <strong>{title}:</strong> {description}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
+        </div>
+      </section>
+    );
+  };
 
-          <div className="row g-4" style={{ padding: '3rem 0' }} role="list">
-            {areasAtuacao.map((area) => (
-              <div key={area.id} className="col-12 col-md-6 col-lg-4">
-                <div className="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                  <div className="card-body p-4">
-                    <div className="d-flex align-items-center mb-4">
-                      <div className="bg-light p-3 rounded-circle me-3" aria-hidden="true">
-                        {area.icone}
-                      </div>
-                      <h3 className="h4 mb-0">{area.titulo}</h3>
+  // Componente CasesSection
+  const CasesSection = ({ cases }) => {
+    return (
+      <section className="cases-section section" aria-labelledby="cases-heading">
+        <div className="container">
+          <div className="section-header">
+            <h2 id="cases-heading">Cases de <span className="text-primary">Sucesso</span></h2>
+            <p>Alguns dos projetos onde transformamos desafios em soluções inovadoras</p>
+          </div>
+          
+          <div className="cases-grid">
+            {cases.map((caseItem) => (
+              <div key={caseItem.id} className="case-card">
+                <div className="case-image">
+                  <img src={caseItem.imagem} alt={caseItem.titulo} loading="lazy" />
+                  <div className="case-overlay">
+                    <h3>{caseItem.titulo}</h3>
+                    <span className="case-category">{caseItem.categoria}</span>
+                  </div>
+                </div>
+                <div className="case-content">
+                  <p>{caseItem.descricao}</p>
+                  <div className="case-stats">
+                    <div className="stat-item">
+                      <span className="stat-value">{caseItem.metrica.valor}</span>
+                      <span className="stat-label">{caseItem.metrica.label}</span>
                     </div>
-                    
-                    <p className="mb-4">{area.descricao}</p>
-                    
-                    <div className="mb-4">
-                      <h4 className="h6 text-primary mb-2">Objetivo</h4>
-                      <p className="small">{area.objetivo}</p>
-                    </div>
-                    
-                    <div className="mb-4">
-                      <h4 className="h6 text-primary mb-2">Atividades principais</h4>
-                      <ul className="small">
-                        {area.atividades.map((atividade, index) => (
-                          <li key={index}>{atividade}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <Link 
-                      to={area.cta.link} 
-                      className="btn btn-outline-primary w-100 mt-auto"
-                      aria-label={`${area.cta.texto} - ${area.titulo}`}
-                    >
-                      {area.cta.texto} <FaArrowRight className="ms-2" aria-hidden="true"/>
-                    </Link>
+                  </div>
+                  <Link to={`/portfolio/${caseItem.id}`} className="btn btn-link">
+                    Ver estudo de caso <FaArrowRight />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-5">
+            <Link to="/portfolio" className="btn btn-primary btn-lg">
+              Ver todos os cases
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  // Componente DepoimentosSection
+  const DepoimentosSection = ({ depoimentos }) => {
+    return (
+      <section className="depoimentos-section section bg-dark" aria-labelledby="depoimentos-heading">
+        <div className="container">
+          <div className="section-header">
+            <h2 id="depoimentos-heading">O que nossos <span className="text-primary">clientes</span> dizem</h2>
+            <p>Confira a experiência de quem já trabalhou com nossa equipe</p>
+          </div>
+          
+          <div className="depoimentos-slider">
+            {depoimentos.map((depoimento) => (
+              <div key={depoimento.id} className="depoimento-card">
+                <div className="depoimento-rating">
+                  {[...Array(depoimento.avaliacao)].map((_, i) => (
+                    <FaStar key={i} className="star" />
+                  ))}
+                </div>
+                <blockquote>
+                  <p>"{depoimento.texto}"</p>
+                </blockquote>
+                <div className="depoimento-author">
+                  <img src={depoimento.autor.foto} alt={depoimento.autor.nome} />
+                  <div>
+                    <strong>{depoimento.autor.nome}</strong>
+                    <span>{depoimento.autor.cargo}, {depoimento.autor.empresa}</span>
                   </div>
                 </div>
               </div>
@@ -314,74 +431,40 @@ export default function Servicos() {
           </div>
         </div>
       </section>
+    );
+  };
 
-      {/* Seção de Cursos e Treinamentos */}
-      <section className="bg-light py-6 py-lg-8" style={{ padding: '9rem 0' }} aria-labelledby="formacao-heading">
+  // Componente CTASection
+  const CTASection = () => {
+    return (
+      <section className="cta-section section" aria-labelledby="cta-heading">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6 mb-4 mb-lg-0">
-              <h2 className="display-5 fw-bold mb-4">Programas de Formação</h2>
-              <p className="lead">
-                Capacite sua equipe com nossos treinamentos especializados em design inclusivo e acessibilidade digital.
-              </p>
-              <div className="d-flex flex-wrap gap-3 mt-4">
-                <Link to="/cursos" className="btn btn-primary px-4" aria-label="Ver todos os cursos">
-                  Ver Todos os Cursos
-                </Link>
-                <Link to="/empresas" className="btn btn-outline-primary px-4" aria-label="Soluções corporativas">
-                  Soluções Corporativas
-                </Link>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="card border-0 shadow-sm">
-                <div className="card-body p-4">
-                  <h3 className="h5 fw-bold mb-3">Próximos Eventos</h3>
-                  <ul className="list-unstyled">
-                    <li className="mb-3 pb-3 border-bottom">
-                      <h4 className="h6 mb-1">Workshop: Fundamentos de Acessibilidade Web</h4>
-                      <p className="small text-muted mb-1">15 de Outubro • Online</p>
-                      <Link to="/workshop-acessibilidade" className="small" aria-label="Saiba mais sobre o Workshop de Acessibilidade Web">
-                        Saiba mais e inscreva-se <FaArrowRight className="ms-1" aria-hidden="true"/>
-                      </Link>
-                    </li>
-                    <li className="mb-3 pb-3 border-bottom">
-                      <h4 className="h6 mb-1">Curso: Design Inclusivo na Prática</h4>
-                      <p className="small text-muted mb-1">5 de Novembro • Online</p>
-                      <Link to="/curso-design-inclusivo" className="small">
-                        Saiba mais e inscreva-se <FaArrowRight className="ms-1" />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/cursos" className="small text-primary" aria-label="Ver calendário completo de eventos">
-                        Ver calendário completo de eventos →
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+          <div className="cta-content">
+            <h2 id="cta-heading">Pronto para transformar sua marca?</h2>
+            <p className="lead">Vamos conversar sobre como podemos ajudar seu projeto a alcançar seu potencial máximo</p>
+            
+            <div className="cta-buttons">
+            <Link to="/orcamento" className="btn btn-primary text-light px-4 py-3">
+                Solicitar orçamento
+              </Link>
+              <Link to="/contato" className="btn btn-outline-primary px-4 py-3">
+                Agendar consultoria
+              </Link>
             </div>
           </div>
         </div>
       </section>
+    );
+  };
 
-      {/* CTA Final */}
-      <section className="py-6 py-lg-8 bg-dark text-white" style={{ padding: '6rem 0' }} aria-labelledby="cta-heading"> 
-        <div className="container text-center">
-          <h2 className="display-5 fw-bold mb-4">Pronto para começar seu projeto?</h2>
-          <p className="lead mb-5 mx-auto" style={{maxWidth: '700px'}}>
-            Entre em contato para uma consultoria gratuita e descubra como podemos ajudar sua organização a criar experiências digitais mais inclusivas e eficientes.
-          </p>
-          <div className="d-flex justify-content-center gap-3">
-            <Link to="/contato" className="btn btn-light btn-lg px-4" aria-label="Agendar consultoria">
-              Agendar Consultoria
-            </Link>
-            <Link to="/portfolio" className="btn btn-outline-light btn-lg px-4" aria-label="Ver cases de sucesso">
-              Ver Cases de Sucesso
-            </Link>
-          </div>
-        </div>
-      </section>
+  return (
+    <main className="servicos-page" aria-label="Página de Serviços">
+      <HeroSection items={heroItems} />
+      <EspecialidadesSection areas={areasAtuacao} />
+      <ProcessoSection processos={processos} />
+      <CasesSection cases={cases} />
+      <DepoimentosSection depoimentos={depoimentos} />
+      <CTASection />
     </main>
   );
 }

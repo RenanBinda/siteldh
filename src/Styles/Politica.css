@@ -1,0 +1,47 @@
+/* Politica.css */
+/* Estilos específicos para a página de Política de Privacidade */
+
+/* Estilo para os tópicos */
+.py-5 {
+    transition: background-color 0.3s ease;
+  }
+  
+  .py-5:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  
+  /* Estilo para os links de navegação */
+  .text-dark.text-decoration-none {
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+  }
+  
+  .text-dark.text-decoration-none:hover {
+    color: #EB5F2C !important;
+    transform: translateX(3px);
+  }
+  
+  /* Estilo para o botão de voltar ao topo */
+  .d-flex.flex-column.align-items-center a {
+    transition: opacity 0.2s ease;
+  }
+  
+  .d-flex.flex-column.align-items-center a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .offset-md-3 {
+      margin-left: 0 !important;
+    }
+    
+    .lead {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Animações suaves para rolagem */
+  html {
+    scroll-behavior: smooth;
+  }

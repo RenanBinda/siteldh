@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import '../Styles/global.css';
 
 function Home() {
   return (
@@ -56,9 +55,7 @@ function Home() {
                 ></div>
                 
                 <p className="text-start text-grey mt-3" style={{ fontSize: '1.1rem' }}>
-                  Desenvolvemos projetos <strong className="fw-bold">orientados ao conhecimento </strong>
-                  e <strong className="fw-bold">transformamos</strong> a maneira como as pessoas 
-                  <strong className="fw-bold">interagem </strong>com o <strong className="fw-bold">mundo digital</strong>.
+                  Desenvolvemos projetos <strong className="fw-bold">orientados ao conhecimento </strong>e <strong className="fw-bold">transformamos</strong> a maneira como as pessoas <strong className="fw-bold">interagem </strong>com o <strong className="fw-bold">mundo digital</strong>.
                 </p>
                 
                 <br />
@@ -66,7 +63,7 @@ function Home() {
                 <div className="row">
                   <div className="col mt-5 text-md-start text-center">
                     <Link 
-                      to="/manifesto" 
+                      to="/servicos" 
                       className="shadow" 
                       style={{ 
                         backgroundColor: '#DD5321', 
@@ -77,9 +74,9 @@ function Home() {
                         color: 'white',
                         display: 'inline-block'
                       }}
-                      aria-label="Leia nosso manifesto de design"
+                      aria-label="Conheça nossos serviços de design"
                     >
-                      Manifesto de Design
+                      Conheça Nossos Serviços
                     </Link>
                   </div>
                   
@@ -202,11 +199,11 @@ function Home() {
                 
                 <div className="col mt-5 text-center text-md-start">
                   <Link 
-                    to="/academy" 
+                    to="/pesquisas" 
                     className="shadow" 
                     style={{ 
                       backgroundColor: '#333333', 
-                      padding: '16px 32px', 
+                      padding: '10px 32px', 
                       border: 'none', 
                       borderRadius: '4px', 
                       textDecoration: 'none', 
@@ -277,124 +274,75 @@ function Home() {
 
         {/* Seção 5: Sobre */}
         <section 
-          id="sobre"
-          style={{ 
-            padding: '5rem 0',
-            backgroundColor: 'rgba(233, 232, 232, 0.56)'
-          }}
+          id="sobre" 
+          style={{ padding: '7rem 0' }}
+          className="bg-light py-6 py-lg-8" // Espaçamento responsivo com classes Bootstrap
           aria-labelledby="sobre-heading"
         >
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '0 5%',
-            gap: '3rem'
-          }}>
-            {/* Parte esquerda - Imagem */}
-            <div style={{
-              flex: '1 1 300px',
-              minWidth: '250px'
-            }}>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2FMarca_LeFul0.png?alt=media&token=2baaca17-03bb-4887-8163-63dae16ebdb8"
-                alt="Identidade Visual da LeFul Design House"
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  objectFit: 'contain',
-                  borderRadius: '8px'
-                }}
-                loading="lazy"
-                aria-describedby="image-description"
-              />
-              <span id="image-description" className="sr-only">Logotipo abstrato da LeFul Design House com formas geométricas modernas</span>
+          <div className="container">
+            {/* Cabeçalho com título e CTA */}
+            <div className="row justify-content-center ms-lg-5 mb-5 mb-lg-8">
+              <div className="col-12 col-lg-10 col-xl-8">
+                <h3 id="sobre-heading" className="display-6 fw-bold mb-4 text-start text-lg-start">
+                  Da ideia à experiência: <span className="text-primary fw-normal">juntos nessa jornada</span>.
+                </h3>
+              </div>
             </div>
 
-            {/* Parte direita - Conteúdo */}
-            <div style={{
-              flex: '1 1 500px'
-            }}>
-              <h2 id="sobre-heading" style={{
-                fontSize: 'clamp(1.5rem, 4vw, 2rem)', /* 50% menor */
-                fontWeight: '700',
-                lineHeight: '1.3',
-                marginBottom: '1.5rem',
-                color: '#1a1a1a'
-              }}>
-                Da ideia à experiência: <span style={{ color: '#D84315' }}>juntos nessa jornada</span>.
-              </h2>
+            {/* Conteúdo em grid responsivo */}
+            <div className="row justify-content-center gx-lg-8">
+              <div className="col-12 col-md-10 col-lg-5 mb-5 mb-lg-0 align-self-center">
+                <div className="pe-lg-4">
+                  <p className="fs-4 lh-base text-muted">
+                    Somos uma <span className="text-dark fw-bold">casa de design orientada ao conhecimento</span>. Oferecemos <span className="text-dark fw-bold">serviços de design</span> que vão desde criação de sistemas de identidade visual até projetos completos de:
+                  </p>
+                  <ul className="list-unstyled mt-4">
+                    <li className="mb-2 d-flex align-items-start">
+                      <span className="text-primary me-2">•</span>
+                      <span>Sinalização e wayfinding</span>
+                    </li>
+                    <li className="mb-2 d-flex align-items-start">
+                      <span className="text-primary me-2">•</span>
+                      <span>Produtos digitais e aplicativos</span>
+                    </li>
+                    <li className="mb-2 d-flex align-items-start">
+                      <span className="text-primary me-2">•</span>
+                      <span>Modelagem de serviços</span>
+                    </li>
+                    <li className="d-flex align-items-start">
+                      <span className="text-primary me-2">•</span>
+                      <span>Recursos educacionais digitais</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="d-flex flex-wrap gap-3 mt-5">
+                    <Link 
+                      to="/manifesto" 
+                      className="btn btn-primary px-3 py-2 fw-medium"
+                      aria-label="Leia nosso manifesto de design"
+                    >
+                      Manifesto →
+                    </Link>
+                    <Link 
+                      to="/politica"
+                      className="btn btn-outline-primary px-3 py-2 fw-medium"
+                      aria-label="Conheça nossa política de privacidade"
+                    >
+                      Política de Privacidade
+                    </Link>
+                  </div>
+              </div>
               
-              <div 
-                role="separator" 
-                aria-hidden="true"
-                style={{
-                  width: '80px',
-                  height: '2px',
-                  background: '#D84315',
-                  margin: '1.5rem 0'
-                }}
-              ></div>
-              
-              <p style={{
-                fontSize: '1.1rem',
-                lineHeight: '1.6',
-                marginBottom: '1.5rem',
-                color: '#333'
-              }}>
-                Somos uma <strong style={{ fontWeight: 'bold' }}>casa de design orientada ao conhecimento</strong>
-                . Oferecemos serviços que vão desde criação de sistemas de identidade visual até projetos completos de:
-              </p>
-              
-              <ul style={{
-                margin: '1.5rem 0',
-                paddingLeft: '1.5rem',
-                listStyleType: 'none'
-              }} aria-label="Nossos serviços">
-                <li style={{ marginBottom: '0.8rem', fontSize: '1.1rem' }}>• Treinamentos e Consultoria</li>
-                <li style={{ marginBottom: '0.8rem', fontSize: '1.1rem' }}>• Produtos digitais e aplicativos</li>
-                <li style={{ marginBottom: '0.8rem', fontSize: '1.1rem' }}>• Modelagem de serviços</li>
-                <li style={{ marginBottom: '0.8rem', fontSize: '1.1rem' }}>• Recursos educacionais digitais</li>
-              </ul>
-              
-              <div style={{
-                display: 'flex',
-                gap: '1rem',
-                flexWrap: 'wrap',
-                marginTop: '2rem'
-              }}>
-                <Link 
-                  to="/politica" 
-                  style={{
-                    background: '#D84315',
-                    color: 'white',
-                    padding: '1rem 2rem',
-                    borderRadius: '8px',
-                    textDecoration: 'none',
-                    fontWeight: '500',
-                    transition: 'all 0.3s ease'
-                  }}
-                  aria-label="Leia nossa política de design"
-                >
-                  Nossa Política →
-                </Link>
-                <Link 
-                  to="/servicos"
-                  style={{
-                    border: '1px solid #1a1a1a',
-                    padding: '1rem 2rem',
-                    borderRadius: '8px',
-                    textDecoration: 'none',
-                    fontWeight: '500',
-                    transition: 'all 0.3s ease',
-                    color: '#1a1a1a'
-                  }}
-                  aria-label="Conheça nossos serviços"
-                >
-                  Conheça Nossos Serviços
-                </Link>
+              <div className="col-12 col-md-10 col-lg-5">
+                <div className="p-4 p-lg-5 bg-white rounded-4 shadow-sm">
+                  <h3 className="h5 fw-bold mb-4 text-primary">Nosso diferencial</h3>
+                  <p className="fs-5 lh-base">
+                    Na <span className="text-dark fw-bold">LeFul DH</span>, a <span className="text-dark fw-bold">paixão pela educação</span> se traduz em treinamentos especializados e suporte contínuo para educadores e profissionais de tecnologia.
+                  </p>
+                  <p className="fs-5 lh-base mt-3">
+                    Desenvolvemos experiências digitais <span className="text-dark fw-bold">acessíveis e personalizadas</span>, garantindo que pessoas com diferentes habilidades possam interagir com nossos produtos de forma intuitiva e eficiente.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -411,11 +359,11 @@ function Home() {
             <div className="mx-auto" style={{ maxWidth: '800px' }}>
               {/* Cabeçalho com animação sutil */}
               <div className="mb-8" data-aos="fade-up">
-                <h3 id="cta-heading" className="fs-1 fw-normal mb-5 text-center">
+                <h3 id="cta-heading" className="display-5 fw-normal mb-5 text-center">
                   Pronto para transformar ideias em <span className="text-primary fw-bold">experiências memoráveis</span>?
                 </h3>
                 
-                <p className="fs-5 text-muted mb-6">
+                <p className="fs-4 text-muted mb-6">
                   Design estratégico começa com diálogo. Vamos conversar sobre como podemos criar <strong>soluções inteligentes</strong> para o seu negócio.
                 </p>
               </div>
@@ -429,7 +377,7 @@ function Home() {
               >
                 <Link 
                   to="/contato" 
-                  className="btn btn-primary fs-6 px-4 py-3 shadow-lg-hover fw-semibold"
+                  className="btn btn-primary btn-lg px-5 py-3 shadow-lg-hover fw-semibold"
                   aria-label="Fale conosco sobre seu projeto"
                   style={{
                     transition: 'all 0.3s ease',
@@ -443,7 +391,7 @@ function Home() {
                 
                 <a 
                   href="#inicio" 
-                  className="btn btn-outline-primary fs-6 px-4 py-3 fw-semibold"
+                  className="btn btn-outline-primary btn-lg px-5 py-3 fw-semibold"
                   aria-label="Voltar ao topo da página"
                 >
                   <i className="bi bi-arrow-up-circle me-2"></i> Voltar ao topo
@@ -455,9 +403,9 @@ function Home() {
                 <p className="small text-muted mb-2">NOSSOS PARCEIROS</p>
                 <div className="d-flex justify-content-center gap-4 opacity-75">
                   {/* Logos de parceiros ou selos de qualidade */}
-                  <span className="text-muted">Reference Minds</span>
-                  <span className="text-muted">LaMiD</span>
-                  <span className="text-muted">Santa i/o</span>
+                  <span className="text-muted">Empresa A</span>
+                  <span className="text-muted">Empresa B</span>
+                  <span className="text-muted">Empresa C</span>
                 </div>
               </div>
             </div>

@@ -6,7 +6,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Servicos = lazy(() => import('./pages/Servicos'));
 const Projetos = lazy(() => import('./pages/Projetos'));
 const Sobre = lazy(() => import('./pages/Sobre'));
-const Pesquisas = lazy(() => import('./pages/Pesquisas'));
+const Academy = lazy(() => import('./pages/Academy'));
 const Login = lazy(() => import('./pages/Login'));
 const Perfil = lazy(() => import('./pages/Perfil'));
 const Manifesto = lazy(() => import('./pages/Manifesto'));
@@ -22,7 +22,7 @@ export const routes = [
   { path: '/servicos', element: <Servicos /> },
   { path: '/projetos', element: <Projetos /> },
   { path: '/sobre', element: <Sobre /> },
-  { path: '/pesquisas', element: <Pesquisas /> },
+  { path: '/academy', element: <Academy /> },
   { path: '/login', element: <Login /> },
   { path: '/Manifesto', element: <Manifesto /> },
   { path: '/Politica', element: <Politica /> },

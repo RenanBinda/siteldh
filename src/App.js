@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Servicos from './pages/Servicos';
 import Projetos from './pages/Projetos';
 import Sobre from './pages/Sobre';
-import Pesquisas from './pages/Pesquisas';
+import Academy from './pages/Academy';
 import Contato from './pages/Contato';
 import Manifesto from './pages/Manifesto';
 import Politica from './pages/Politica';
@@ -27,7 +27,7 @@ function App() {
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/projetos" element={<Projetos />} />
             <Route path="/sobre" element={<Sobre />} />
-            <Route path="/pesquisas" element={<Pesquisas />} />
+            <Route path="/academy" element={<Academy />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/manifesto" element={<Manifesto />} />
             <Route path="/politica" element={<Politica />} />
