@@ -1,5 +1,7 @@
 import React from 'react';
-import { FaUniversalAccess, FaBrain, FaChalkboardTeacher, FaArrowRight, FaChevronLeft, FaChevronRight, FaStar, FaSearch, FaLightbulb, FaPencilRuler, FaRocket } from 'react-icons/fa';
+import { FaUniversalAccess, FaBrain, FaChalkboardTeacher, 
+  FaArrowRight, FaChevronLeft, FaChevronRight, FaStar, FaSearch, 
+  FaLightbulb, FaPencilRuler, FaRocket, FaPuzzlePiece, FaPalette } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../Styles/Servicos.css';
 
@@ -9,72 +11,20 @@ export default function Servicos() {
     {
       id: 1,
       title: "Design que Transforma Negócios",
-      description: "Soluções criativas e estratégicas para marcas que querem se destacar",
-      buttonText: "Fale com nosso time",
-      link: "/contato",
+      description: "Soluções criativas e estratégicas para negócios que querem se destacar",
+      buttonText: "Design Solutions",
+      link: "/solutions",
       bgClass: "bg-primary",
-      image: "/imagens/hero-services-1.jpg"
+      image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsolution2.jpg?alt=media&token=bb48cd48-68f6-4305-a86d-873386e05e5b"
     },
     {
       id: 2,
-      title: "Experiências Digitais Memoráveis",
+      title: "Experiências Digitais Impactantes",
       description: "Criamos jornadas de usuário que encantam e convertem",
-      buttonText: "Ver portfólio",
-      link: "/portfolio",
+      buttonText: "Ver projetos",
+      link: "/projetos",
       bgClass: "bg-secondary",
-      image: "/imagens/hero-services-2.jpg"
-    }
-  ];
-
-  // Dados para áreas de atuação
-  const areasAtuacao = [
-    {
-      id: 1,
-      titulo: "Design Inclusivo",
-      icone: <FaUniversalAccess className="text-primary" size={40} />,
-      descricao: "Desenvolvemos projetos centrados na diversidade humana, com foco em acessibilidade e usabilidade.",
-      beneficios: [
-        "Aumento do público alcançado",
-        "Melhoria na experiência de todos os usuários",
-        "Conformidade com diretrizes de acessibilidade",
-        "Design mais humano e empático"
-      ],
-      cta: {
-        texto: "Solicitar Consultoria",
-        link: "/contato?servico=design-inclusivo"
-      }
-    },
-    {
-      id: 2,
-      titulo: "Gestão do Conhecimento",
-      icone: <FaBrain className="text-primary" size={40} />,
-      descricao: "Sistematizamos e organizamos o conhecimento para melhorar processos criativos.",
-      beneficios: [
-        "Eficiência nos processos de design",
-        "Preservação e recuperação do conhecimento organizacional",
-        "Tomada de decisão baseada em dados e pesquisas",
-        "Inovação contínua"
-      ],
-      cta: {
-        texto: "Conhecer Soluções",
-        link: "/contato?servico=gestao-conhecimento"
-      }
-    },
-    {
-      id: 3,
-      titulo: "Educação em Design",
-      icone: <FaChalkboardTeacher className="text-primary" size={40} />,
-      descricao: "Capacitação em abordagens e práticas de design, acessibilidade e metodologias criativas.",
-      beneficios: [
-        "Equipe capacitada em novas metodologias",
-        "Cultura de design na organização para a inovação",
-        "Melhores resultados em projetos orientados ao conhecimento",
-        "Atualização constante"
-      ],
-      cta: {
-        texto: "Ver Cursos",
-        link: "/cursos"
-      }
+      image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsolution.jpg?alt=media&token=492a0763-e0b0-41e4-8e00-960402aa4c7c"
     }
   ];
 
@@ -170,6 +120,117 @@ export default function Servicos() {
     }
   ];
 
+  // Dados para áreas de atuação
+  const areasAtuacaoData = [
+    {
+      id: 1,
+      titulo: "Design Centrado no Humano",
+      icone: <FaUniversalAccess size={28} />,
+      descricao: "Criamos experiências que resolvem problemas reais através de pesquisas com usuários.",
+      entregaveis: [
+        "Pesquisa de experiência",
+        "Testes de usabilidade remotos",
+        "Prototipagem em alta fidelidade",
+        "Mapas de jornada digital"
+      ],
+      metricas: [
+        "↑ 70% satisfação do usuário",
+        "↓ 40% taxa de erro",
+        "↑ 2x engajamento"
+      ],
+      cta: {
+        texto: "Explorar cases",
+        link: "/cases/ux"
+      }
+    },
+    {
+      id: 2,
+      titulo: "Gestão do Conhecimento",
+      icone: <FaBrain size={28} />,
+      descricao: "Sistematizamos informações para transformar dados em insights acionáveis.",
+      entregaveis: [
+        "Mapeamento de processos",
+        "Sistemas de organização",
+        "Frameworks de inovação",
+        "Indicadores de performance"
+      ],
+      metricas: [
+        "↑ 60% eficiência",
+        "↓ 30% retrabalho",
+        "↑ 90% recuperação de informação"
+      ],
+      cta: {
+        texto: "Ver metodologia",
+        link: "/metodologia"
+      }
+    },
+    {
+      id: 3,
+      titulo: "Educação em Design",
+      icone: <FaChalkboardTeacher size={28} />,
+      descricao: "Capacitamos times para pensar estrategicamente através do design.",
+      entregaveis: [
+        "Workshops imersivos",
+        "Programas de mentoria",
+        "Treinamentos técnicos",
+        "Certificações"
+      ],
+      metricas: [
+        "↑ 80% aplicação prática",
+        "↓ 50% curva de aprendizado",
+        "↑ 3x ROI em projetos"
+      ],
+      cta: {
+        texto: "Conhecer programas",
+        link: "/cursos"
+      }
+    }
+  ];
+
+  // Dados para soluções personalizadas
+  const solucoes = [
+    {
+      titulo: "Design Systems",
+      icone: <FaPuzzlePiece />,
+      itens: [
+        "Bibliotecas de componentes",
+        "Documentação interativa",
+        "Governança de design",
+        "Integração com dev"
+      ]
+    },
+    {
+      titulo: "UX Research",
+      icone: <FaSearch />,
+      itens: [
+        "Testes de usabilidade",
+        "Análise heurística",
+        "Mapas de calor",
+        "Personas estratégicas"
+      ]
+    },
+    {
+      titulo: "Branding",
+      icone: <FaPalette />,
+      itens: [
+        "Identidade visual",
+        "Sistemas de marca",
+        "Diretrizes de aplicação",
+        "Arquitetura de marca"
+      ]
+    },
+    {
+      titulo: "Acessibilidade",
+      icone: <FaUniversalAccess />,
+      itens: [
+        "Auditoria WCAG e NBR",
+        "Design inclusivo",
+        "Treinamentos",
+        "Implementação"
+      ]
+    }
+  ];
+
   // Componente HeroSection
   const HeroSection = ({ items }) => {
     const [activeIndex, setActiveIndex] = React.useState(0);
@@ -246,48 +307,70 @@ export default function Servicos() {
   // Componente EspecialidadesSection
   const EspecialidadesSection = ({ areas }) => {
     return (
-      <section className="especialidades-section section"
-        aria-labelledby="especialidades-heading">
-        <div className="container" >
+      <section className="especialidades-section">
+        <div className="decorative-circle circle-1"></div>
+        <div className="container">
           <div className="section-header">
-            <h2 id="especialidades-heading">Nossas <span className="text-primary">
-              Especialidades</span></h2>
-            <p>Oferecemos soluções completas em design estratégico, desde a concepção 
-              até a implementação</p>
+            <h2>Nossas Expertises</h2>
+            <p className="lead">Na LeFul Design House, unimos estratégia, criatividade e inclusão para transformar ideias em experiências significativas.</p>
           </div>
           
-          <div className="especialidades-grid" aria-describedby="especialidades-desc">
-          {areas.map((area) => (
-            <article 
-              key={area.id} 
-              className="especialidade-card" 
-              aria-labelledby={`especialidade-${area.id}-title`}
-            >
-              <div className="card-header mb-3">
-                <div className="card-icon" aria-hidden="true">{area.icone}</div>
-                <h3 id={`especialidade-${area.id}-title`}>{area.titulo}</h3>
-              </div>
-              <div className="card-body">
-                <p>{area.descricao}</p>
+          <div className="especialidades-grid">
+            {areas.map((area) => (
+              <div key={area.id} className="especialidade-card">
+                <div className="card-icon">{area.icone}</div>
+                <h3 className="card-title">{area.titulo}</h3>
+                <p className="card-desc">{area.descricao}</p>
                 
-                <div className="card-features">
-                  <h4>Principais benefícios:</h4>
+                <div className="feature-list">
+                  <h4 className="feature-title">Principais entregas:</h4>
                   <ul>
-                    {area.beneficios.map((beneficio, i) => (
-                      <li key={i}>{beneficio}</li>
+                    {area.entregaveis.map((item, i) => (
+                      <li key={i} className="feature-item">{item}</li>
                     ))}
                   </ul>
                 </div>
-                  
-                <Link 
-                  to={area.cta.link} 
-                  className="btn btn-outline-primary"
-                  aria-label={`${area.cta.texto} - ${area.titulo}`}
-                >
-                  {area.cta.texto} <FaArrowRight aria-hidden="true" />
+                
+                <div className="metrics">
+                  {area.metricas.map((metrica, i) => (
+                    <span key={i} className="metric-badge">{metrica}</span>
+                  ))}
+                </div>
+                
+                <Link to={area.cta.link} className="btn btn-primary">
+                  {area.cta.texto} <FaArrowRight />
                 </Link>
               </div>
-            </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  // Componente SolucoesSection
+  const SolucoesSection = ({ solucoes }) => {
+    return (
+      <section className="solucoes-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>Soluções Sob Medida</h2>
+            <p className="lead">Projetos personalizados para desafios específicos</p>
+          </div>
+          
+          <div className="solucoes-grid">
+            {solucoes.map((solucao, index) => (
+              <div key={index} className="solucao-card">
+                <div className="solucao-icon">
+                  {solucao.icone}
+                </div>
+                <h4 className="solucao-title">{solucao.titulo}</h4>
+                <ul className="solucao-list">
+                  {solucao.itens.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
@@ -444,7 +527,7 @@ export default function Servicos() {
             <p className="lead">Vamos conversar sobre como podemos ajudar seu projeto a alcançar seu potencial máximo</p>
             
             <div className="cta-buttons">
-            <Link to="/orcamento" className="btn btn-primary text-light px-4 py-3">
+              <Link to="/orcamento" className="btn btn-primary text-light px-4 py-3">
                 Solicitar orçamento
               </Link>
               <Link to="/contato" className="btn btn-outline-primary px-4 py-3">
@@ -460,7 +543,8 @@ export default function Servicos() {
   return (
     <main className="servicos-page" aria-label="Página de Serviços">
       <HeroSection items={heroItems} />
-      <EspecialidadesSection areas={areasAtuacao} />
+      <EspecialidadesSection areas={areasAtuacaoData} />
+      <SolucoesSection solucoes={solucoes} />
       <ProcessoSection processos={processos} />
       <CasesSection cases={cases} />
       <DepoimentosSection depoimentos={depoimentos} />

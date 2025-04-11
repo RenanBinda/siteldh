@@ -196,8 +196,8 @@ function Home() {
                 ></div>
                 
                 <p className="text-start text-md-start text-grey mt-3" style={{ fontSize: '1.1rem' }}>
-                  Temos um foco claro em <strong className="fw-bold">pesquisa, desenvolvimento e inovação.</strong>
-                  Nosso objetivo é ajuda-lo a se destacar, <strong className="fw-bold">criando soluções de design</strong> com qualidade de interação. Trabalhamos para <strong className="fw-bold">criar </strong>produtos e serviços <strong className="fw-bold">focados na experiência de uso</strong>.
+                  Temos um foco claro em <strong className="fw-bold">pesquisa, desenvolvimento e inovação</strong>
+                  . Nosso objetivo é ajuda-lo a se destacar, <strong className="fw-bold">criando soluções de design</strong> com qualidade de interação. Trabalhamos para <strong className="fw-bold">criar </strong>produtos e serviços <strong className="fw-bold">focados na experiência de uso</strong>.
                 </p>
                 
                 <div className="col mt-5 text-center text-md-start">
@@ -412,7 +412,7 @@ function Home() {
               {/* Cabeçalho com animação sutil */}
               <div className="mb-8" data-aos="fade-up">
                 <h3 id="cta-heading" className="fs-1 fw-normal mb-5 text-center">
-                  Pronto para transformar ideias em <span className="text-primary fw-bold">experiências memoráveis</span>?
+                  Pronto para transformar ideias em <span className="text-primary fw-bold">experiências impactantes</span>?
                 </h3>
                 
                 <p className="fs-5 text-muted mb-6">
