@@ -132,3 +132,102 @@ exports.sendContactEmail = functions.runWith({
     }
   });
 });
+
+exports.sendAgendamento = functions.runWith({
+  timeoutSeconds: 60,
+  memory: '512MB'
+}).https.onRequest(async (req, res) => {
+  cors(req, res, async () => {
+    try {
+      if (req.method !== 'POST') {
+        return res.status(405).send('Method Not Allowed');
+      }
+
+      const { nome, email, telefone, tipoConsulta, descricaoProjeto, data, horario, recaptchaToken } = req.body;
+      
+      // Validação dos campos
+      if (!nome || !email || !telefone || !tipoConsulta || !descricaoProjeto || !data || !horario) {
+        return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
+      }
+
+      // Validação do reCAPTCHA
+      if (recaptchaToken) {
+        const recaptchaResponse = await axios.post(
+          'https://www.google.com/recaptcha/api/siteverify',
+          `secret=${functions.config().recaptcha.secret}&response=${recaptchaToken}`,
+          {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            }
+          }
+        );
+        
+        if (!recaptchaResponse.data.success) {
+          return res.status(400).json({ error: 'Validação reCAPTCHA falhou' });
+        }
+      }
+
+      // Salva no Realtime Database
+      const agendamentoRef = admin.database().ref('agendamentos').push();
+      await agendamentoRef.set({
+        nome,
+        email,
+        telefone,
+        tipoConsulta,
+        descricaoProjeto,
+        data,
+        horario,
+        status: 'pendente',
+        createdAt: admin.database.ServerValue.TIMESTAMP
+      });
+
+      // Envia e-mail de confirmação
+      const transporter = await createTransporter();
+      
+      const mailOptions = {
+        from: `Agendamento LeFul <${functions.config().gmail.email}>`,
+        to: email,
+        subject: `Confirmação de Agendamento - ${data} às ${horario}`,
+        html: `
+          <h2>Agendamento Confirmado!</h2>
+          <p>Olá ${nome},</p>
+          <p>Seu agendamento para consultoria de <strong>${tipoConsulta}</strong> foi confirmado para:</p>
+          <p><strong>Data:</strong> ${data}</p>
+          <p><strong>Horário:</strong> ${horario}</p>
+          <p>Você receberá um link para a reunião via Zoom/Google Meet em breve.</p>
+          <p>Caso precise reagendar ou cancelar, responda este e-mail.</p>
+          <p>Atenciosamente,<br>Equipe LeFul Design</p>
+        `
+      };
+
+      await transporter.sendMail(mailOptions);
+
+      // Envia notificação para o admin
+      await transporter.sendMail({
+        from: `Agendamento LeFul <${functions.config().gmail.email}>`,
+        to: functions.config().gmail.email,
+        subject: `Novo Agendamento: ${nome} - ${data} às ${horario}`,
+        html: `
+          <h2>Novo Agendamento Recebido</h2>
+          <p><strong>Nome:</strong> ${nome}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Telefone:</strong> ${telefone}</p>
+          <p><strong>Tipo de Consultoria:</strong> ${tipoConsulta}</p>
+          <p><strong>Data:</strong> ${data}</p>
+          <p><strong>Horário:</strong> ${horario}</p>
+          <p><strong>Descrição do Projeto:</strong></p>
+          <p>${descricaoProjeto}</p>
+        `
+      });
+
+      return res.status(200).json({ success: true });
+
+    } catch (error) {
+      console.error('Erro no processo de agendamento:', error);
+      return res.status(500).json({ 
+        error: 'Erro interno ao processar seu agendamento',
+        details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      });
+    }
+  });
+});

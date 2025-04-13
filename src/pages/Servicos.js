@@ -12,19 +12,37 @@ export default function Servicos() {
       id: 1,
       title: "Design que Transforma Negócios",
       description: "Soluções criativas e estratégicas para negócios que querem se destacar",
-      buttonText: "Design Solutions",
-      link: "/solutions",
+      buttonText: "Como fazemos",
+      link: "/DesignTransformador",
       bgClass: "bg-primary",
       image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsolution2.jpg?alt=media&token=bb48cd48-68f6-4305-a86d-873386e05e5b"
     },
     {
       id: 2,
       title: "Experiências Digitais Impactantes",
-      description: "Criamos jornadas de usuário que encantam e convertem",
-      buttonText: "Ver projetos",
-      link: "/projetos",
+      description: "UX que gera resultados: de testes de usabilidade a design system escalável",
+      buttonText: "Veja essa experiência",
+      link: "/ExperienciasDigitais",
       bgClass: "bg-secondary",
       image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsolution.jpg?alt=media&token=492a0763-e0b0-41e4-8e00-960402aa4c7c"
+    },
+    {
+      id: 3,
+      title: "Desenvolvimento de Marca",
+      description: "Branding com propósito: identidades que conectam e comunicam",
+      buttonText: "Explore soluções",
+      link: "/BrandingPage",
+      bgClass: "bg-alert",
+      image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fpartner.jpg?alt=media&token=a4c93359-5582-4107-8cb4-ca498777dbd2"
+    },
+    {
+      id: 4,
+      title: "Programa de Cursos",
+      description: "Workshops e Treinamentos: Conhecimento Estratégico",
+      buttonText: "Veja os Programas",
+      link: "/TreinamentosPage",
+      bgClass: "bg-alert",
+      image: "https://firebasestorage.googleapis.com/v0/b/portifolio-renan.appspot.com/o/imagens%2FID_Olhares_GEO_03.jpg?alt=media&token=6a9b9276-cb62-4a93-9693-d2afdb99ac78"
     }
   ];
 
@@ -79,18 +97,20 @@ export default function Servicos() {
       metrica: {
         valor: "+95%",
         label: "Aumento na sensação de pertencimento"
-      }
+      },
+      link: "/CaseFotografiaEmpodera"
     },
     {
       id: 2,
-      titulo: "Sistema de Saúde Digital",
-      categoria: "UX Research",
-      descricao: "Pesquisa e redesign de plataforma para agendamento de consultas médicas",
-      imagem: "/imagens/case-saude.jpg",
+      titulo: "Sistema de Gerenciamento",
+      categoria: "Design Solution",
+      descricao: "PlaceBe: Empoderamento Comunitário e Transformação Sustentável de Espaços Públicos Através da Gestão do Conhecimento e Placemaking",
+      imagem: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2FPlaceBe.jpg?alt=media&token=efa342ba-d4b5-4710-b9c3-da4a2af09e75",
       metrica: {
         valor: "90%",
-        label: "Satisfação dos usuários"
-      }
+        label: "Engajamento Comunitário e Paraticipação Colaborativa"
+      },
+      link: "/CasePlaceBe"
     }
   ];
 
@@ -104,7 +124,7 @@ export default function Servicos() {
         nome: "Joana Silva",
         cargo: "Diretora de Produto",
         empresa: "EducaTech",
-        foto: "/imagens/avatar-joana.jpg"
+        foto: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fpersona1.jpg?alt=media&token=bfea7706-1c0a-42e3-9539-13c6882c57be"
       }
     },
     {
@@ -115,7 +135,7 @@ export default function Servicos() {
         nome: "Carlos Mendes",
         cargo: "CTO",
         empresa: "HealthPlus",
-        foto: "/imagens/avatar-carlos.jpg"
+        foto: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fpersona2.jpg?alt=media&token=a8acd92f-3a8a-4f5e-a419-43c578a511fe"
       }
     }
   ];
@@ -140,7 +160,7 @@ export default function Servicos() {
       ],
       cta: {
         texto: "Explorar cases",
-        link: "/cases/ux"
+        link: "/DesignCentradoHumano"
       }
     },
     {
@@ -161,7 +181,7 @@ export default function Servicos() {
       ],
       cta: {
         texto: "Ver metodologia",
-        link: "/metodologia"
+        link: "/GestaoConhecimentoPage"
       }
     },
     {
@@ -176,13 +196,13 @@ export default function Servicos() {
         "Certificações"
       ],
       metricas: [
-        "↑ 80% aplicação prática",
+        "↑ 80% prática",
         "↓ 50% curva de aprendizado",
         "↑ 3x ROI em projetos"
       ],
       cta: {
         texto: "Conhecer programas",
-        link: "/cursos"
+        link: "/EducacaoDesignPage"
       }
     }
   ];
@@ -312,7 +332,8 @@ export default function Servicos() {
         <div className="container">
           <div className="section-header">
             <h2>Nossas Expertises</h2>
-            <p className="lead">Na LeFul Design House, unimos estratégia, criatividade e inclusão para transformar ideias em experiências significativas.</p>
+            <p className="lead">Na LeFul Design House, unimos estratégia, criatividade e
+               inclusão para transformar ideias em experiências impactantes.</p>
           </div>
           
           <div className="especialidades-grid">
@@ -463,7 +484,7 @@ export default function Servicos() {
                       <span className="stat-label">{caseItem.metrica.label}</span>
                     </div>
                   </div>
-                  <Link to={`/portfolio/${caseItem.id}`} className="btn btn-link">
+                  <Link to={caseItem.link} className="btn btn-link">
                     Ver estudo de caso <FaArrowRight />
                   </Link>
                 </div>
@@ -472,7 +493,7 @@ export default function Servicos() {
           </div>
           
           <div className="text-center mt-5">
-            <Link to="/portfolio" className="btn btn-primary btn-lg">
+            <Link to="/projetos" className="btn btn-primary btn-lg">
               Ver todos os cases
             </Link>
           </div>
@@ -530,7 +551,7 @@ export default function Servicos() {
               <Link to="/orcamento" className="btn btn-primary text-light px-4 py-3">
                 Solicitar orçamento
               </Link>
-              <Link to="/contato" className="btn btn-outline-primary px-4 py-3">
+              <Link to="/agendamento" className="btn btn-outline-primary px-4 py-3">
                 Agendar consultoria
               </Link>
             </div>

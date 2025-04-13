@@ -19,7 +19,7 @@ export default function Sobre() {
       nome: "Carlos Mendonça",
       cargo: "Diretor de Tecnologia",
       bio: "Engenheiro de Software com foco em soluções acessíveis. Lidera nossa equipe de desenvolvimento garantindo as melhores práticas.",
-      foto: "",
+      foto: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fpersona2.jpg?alt=media&token=a8acd92f-3a8a-4f5e-a419-43c578a511fe",
       especialidades: ["Front-end", "Arquitetura da Informação", "WCAG"]
     },
     {
@@ -27,7 +27,7 @@ export default function Sobre() {
       nome: "Mariana Oliveira",
       cargo: "Gerente de Projetos",
       bio: "Certificada em Gestão Ágil de Projetos. Transforma desafios complexos em jornadas claras e eficientes para nossos clientes.",
-      foto: "/imagens/equipe-mariana.jpg",
+      foto: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fpersona1.jpg?alt=media&token=bfea7706-1c0a-42e3-9539-13c6882c57be",
       especialidades: ["UX Research", "Design Thinking", "Gestão de Conhecimento"]
     }
   ];
@@ -92,8 +92,8 @@ export default function Sobre() {
         <div className="sobre-hero-content">
           <h1>Design com propósito, soluções com impacto</h1>
           <p className="lead">Na LeFul, transformamos desafios complexos em experiências digitais acessíveis e impactantes</p>
-          <Link to="/contato" className="btn btn-primary btn-lg">
-            Fale com nosso time
+          <Link to="/agendamento" className="btn btn-primary btn-lg">
+            Agendar consultoria
           </Link>
         </div>
       </section>
@@ -249,7 +249,7 @@ export default function Sobre() {
             
             <div className="cta-buttons">
               <Link to="/contato" className="btn btn-primary px-4 py-3">
-                Agende uma consultoria
+                Fale com nosso time
               </Link>
               <Link to="/projetos" className="btn btn-outline-primary px-4 py-3">
                 Conheça nosso trabalho

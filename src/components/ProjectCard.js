@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function ProjectCard({ project, className }) {
+export default function ProjectCard({ project }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className={`pentagram-card ${project.aspectRatio}`}>
-      <img src={project.image} alt={project.title} />
-      <div className="project-info">
-        <h3>{project.title}</h3>
-        <p>{project.client} · {project.year}</p>
-        <p className="pentagram-description">{project.description}</p>
+    <article 
+      className={`project-tile ${project.aspectRatio}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="tile-image">
+        <img 
+          src={project.image} 
+          alt={project.title || `Projeto ${project.id}`}
+          loading="lazy"
+        />
       </div>
-    </div>
+      
+      <div className={`tile-overlay ${isHovered ? 'visible' : ''}`}>
+        <div className="overlay-content">
+          <h3>{project.title || `Projeto ${project.year}`}</h3>
+          <div className="project-meta">
+            {project.client && <span>{project.client}</span>}
+            <span>{project.year}</span>
+          </div>
+          <p className="project-description">{project.description}</p>
+          <span className="project-category">{project.category}</span>
+        </div>
+      </div>
+    </article>
   );
 }

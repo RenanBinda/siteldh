@@ -95,7 +95,7 @@ function Login() {
               </div>
 
               <div className="mt-3 text-center">
-                <p>Não tem uma conta? <Link to="/cadastrar-perfil">Cadastre-se</Link></p>
+                {/* <p>Não tem uma conta? <Link to="/cadastrar-perfil">Cadastre-se</Link></p> */}
                 <p><Link to="/recuperar-senha">Esqueci minha senha</Link></p>
               </div>
             </form>

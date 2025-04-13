@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'; 
+import { Link } from 'react-router-dom';
 import { 
   FaPaperPlane, 
   FaUser, 
@@ -177,6 +178,11 @@ function Contato() {
                           <FaInstagram size={20} />
                         </a>
                       </div>
+                    </div>
+                    <div className='mt-5'>
+                      <Link to="/agendamento" className="btn btn-outline-light px-5 py-3">
+                        Agendar consultoria
+                      </Link>
                     </div>
                   </div>
                 </div>
