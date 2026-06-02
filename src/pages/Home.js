@@ -17,7 +17,7 @@ function Home() {
               {/* Imagem Desktop (esquerda) */}
               <div className="col-12 col-md-9 mt-md-5 d-none d-md-block">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fbanner_home.png?alt=media&token=35542088-ab45-4236-aed3-7a9ea547d6f0"
+                  src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fbanner_home.png?alt=media&token=c1e79c93-d29d-4141-98cf-0096354f48c5"
                   className="img-fluid"
                   alt="Nós Criamos Soluções em Design"
                   loading="lazy"
@@ -27,7 +27,7 @@ function Home() {
               {/* Imagem Mobile (full width) */}
               <div className="col-12 col-md-9 mt-md-5 d-md-none">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fbanner_home_mob.png?alt=media&token=e7d84249-bc08-4552-a87b-2b3de1651802"
+                  src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fbanner_home_mob.png?alt=media&token=e7613415-a9cf-412b-bc3a-f77b6291ca5c"
                   className="img-fluid"
                   alt="Nós Criamos Soluções em Design"
                   loading="lazy"
@@ -58,7 +58,7 @@ function Home() {
                 <p className="text-start text-grey mt-3" style={{ fontSize: '1.1rem' }}>
                   Desenvolvemos projetos <strong className="fw-bold">orientados ao conhecimento </strong>
                   e <strong className="fw-bold">transformamos</strong> a maneira como as pessoas 
-                  <strong className="fw-bold">interagem </strong>com o <strong className="fw-bold">mundo digital</strong>.
+                  <strong className="fw-bold"> interagem </strong>com o <strong className="fw-bold">mundo digital</strong>.
                 </p>
                 
                 <br />
@@ -86,7 +86,7 @@ function Home() {
                   <div className="row">
                     <div className="col pe-md-5 pt-4 text-center">
                       <img
-                        src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fvector_home.png?alt=media&token=542d526b-7666-4e22-8377-447f3d530b3f"
+                        src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fvector_home.png?alt=media&token=4024c3fd-e226-4b50-90c3-0ab20f4a88c1"
                         alt="Seta indicativa para scroll"
                         width="34"
                         height="49"
@@ -112,7 +112,7 @@ function Home() {
               <div className="row">
                 <div className="col-12 col-md-4 mb-5 me-md-4">
                   <img
-                    src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fsecao2.png?alt=media&token=5180ab66-1e9b-41c2-b818-deb1f527af94"
+                    src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsecao2.png?alt=media&token=6ba8f0ea-61c0-44a4-a6da-4ff917ea9a56"
                     className="img-fluid"
                     alt="Dois triângulos em direções opostas simbolizando exploração"
                     loading="lazy"
@@ -154,7 +154,7 @@ function Home() {
                       }}
                       aria-label="Veja nossos projetos realizados"
                     >
-                      Conheça Projetos Realizados
+                      Conheça Alguns dos Nossos Produtos
                     </Link>
                   </div>
                 </div>
@@ -173,7 +173,7 @@ function Home() {
             <div className="row align-items-end">
               <div className="col-12 col-md-4 mx-md-5 d-md-none">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fsecao3.png?alt=media&token=9ec221c5-6b17-4a20-b537-2cb2969aecc3"
+                  src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsecao3.png?alt=media&token=0032ebc5-5e3e-42ed-9f00-f127e8f88918"
                   className="img-fluid"
                   alt="Alvo simbolizando foco e precisão"
                   loading="lazy"
@@ -222,7 +222,7 @@ function Home() {
               
               <div className="col-12 col-md-4 mx-md-5 d-none d-md-block">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fsecao3.png?alt=media&token=9ec221c5-6b17-4a20-b537-2cb2969aecc3"
+                  src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsecao3.png?alt=media&token=0032ebc5-5e3e-42ed-9f00-f127e8f88918"
                   className="img-fluid"
                   alt="Alvo simbolizando foco e precisão"
                   loading="lazy"
@@ -299,7 +299,7 @@ function Home() {
               minWidth: '250px'
             }}>
               <img
-                src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2FMarca_LeFul0.png?alt=media&token=2baaca17-03bb-4887-8163-63dae16ebdb8"
+                src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fandroid-chrome-512x512.png?alt=media&token=3f18178d-f743-445f-b7f4-4e8c905e7de2"
                 alt="Identidade Visual da LeFul Design House"
                 style={{
                   width: '100%',

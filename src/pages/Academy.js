@@ -47,19 +47,19 @@ function Academy() {
                 
                 <div className="d-flex gap-3 mt-5">
                   <Link 
-                    to="#metodologia" 
+                    to="/cursoacessibilidade" 
                     className="btn btn-primary px-4 py-3"
                     style={{ backgroundColor: '#EB5F2C', border: 'none' }}
-                    aria-label="Conheça nossa metodologia"
+                    aria-label="Conheça nossos cursos de design"
                   >
-                    Nossa Metodologia
+                    Cursos de Design
                   </Link>
                   <Link 
-                    to="#publicacoes" 
+                    to="/cursogc" 
                     className="btn btn-outline-light px-4 py-3"
                     aria-label="Veja nossas publicações"
                   >
-                    Publicações
+                    Cursos
                   </Link>
                 </div>
               </div>

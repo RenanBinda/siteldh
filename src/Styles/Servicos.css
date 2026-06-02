@@ -16,7 +16,7 @@
 }
 
 .text-primary {
-  color: #EB5F2C;
+  color: #0d6efd;
 }
 
 .bg-primary {
@@ -214,7 +214,7 @@
 
 /*Especialidades Section */
 .especialidades-section {
-  background: linear-gradient(180deg, #f1fbff 0%, #69ccfa73 100%);
+  background: rgba(82, 82, 82, 0.1);
   padding: 6rem 0;
   position: relative;
 }
@@ -231,7 +231,7 @@
   background: white;
   border-radius: 24px;
   padding: 2.5rem;
-  box-shadow: 0 15px 40px -15px rgba(255, 103, 47, 0.15);
+  box-shadow: 0 15px 40px -15px rgba(121, 106, 101, 0.15);
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
   border: 1px solid rgba(235,95,44,0.05);
   position: relative;
@@ -252,7 +252,7 @@
 
 .especialidade-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 25px 60px -15px rgba(235, 181, 161, 0.25);
+  box-shadow: 0 25px 60px -15px rgba(121, 106, 101, 0.25);
 }
 
 .especialidade-card:hover::before {
@@ -262,13 +262,13 @@
 .card-icon {
   width: 72px;
   height: 72px;
-  background: linear-gradient(135deg, rgba(235,95,44,0.1) 0%, rgba(255,138,91,0.1) 100%);
+  background: linear-gradient(135deg, rgba(13,110,253,0.05) 0%, rgba(128,163,216,0.1) 100%);
   border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  color: #EB5F2C;
+  color: #0d6efd;
   font-size: 1.75rem;
 }
 
@@ -316,8 +316,8 @@
 }
 
 .metric-badge {
-  background: rgba(236, 156, 127, 0.1);
-  color: #EB5F2C;
+  background: rgba(13,110,253,0.05);
+  color: #0d6efd;
   padding: 4px 10px;
   border-radius: 5px;
   font-size: 0.8rem;
@@ -348,20 +348,20 @@
 
 .solucao-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px -15px rgba(235,95,44,0.15);
-  border-color: rgba(235,95,44,0.2);
+  box-shadow: 0 20px 40px -15px rgba(13,110,253,0.15);
+  border-color: #0d6efd;
 }
 
 .solucao-icon {
   width: 60px;
   height: 60px;
   margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, rgba(235,95,44,0.1) 0%, rgba(255,138,91,0.1) 100%);
+  background: linear-gradient(135deg, rgba(13,110,253,0.05) 0%, rgba(128,163,216,0.1) 100%);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #EB5F2C;
+  color: #0d6efd;
   font-size: 1.5rem;
 }
 
@@ -369,7 +369,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #EB5F2C;
+  color: #0d6efd;
 }
 
 .solucao-list {
@@ -497,7 +497,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #EB5F2C;
+  background: #0d6efd;
 }
 
 /*Cases Section */
@@ -587,7 +587,7 @@
   display: block;
   font-size: 2rem;
   font-weight: bold;
-  color: #EB5F2C;
+  color: #0d6efd;
 }
 
 .stat-label {

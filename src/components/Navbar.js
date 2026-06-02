@@ -19,7 +19,7 @@ function Navbar() {
       <div className="container-fluid container">
         <Link className="navbar-brand" style={{ color: '#FFFFFF' }} to="/">
           <img 
-            src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fandroid-chrome-512x512.png?alt=media&token=e685157b-f9af-48f3-b516-23f0ce239d2f"
+            src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2FMarca_LeFul0.png?alt=media&token=20be889f-00bd-4f86-9a31-d72ea8a196fb"
             alt="Identidade visual da LeFul Design House" 
             width="50" 
             height="50" 

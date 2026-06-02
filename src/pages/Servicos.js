@@ -15,7 +15,7 @@ export default function Servicos() {
       buttonText: "Como fazemos",
       link: "/DesignTransformador",
       bgClass: "bg-primary",
-      image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsolution2.jpg?alt=media&token=bb48cd48-68f6-4305-a86d-873386e05e5b"
+      image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fcreative.jpg?alt=media&token=cfab8447-dc67-40f5-bcfd-72a89bf2def2"
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ export default function Servicos() {
       buttonText: "Veja essa experiência",
       link: "/ExperienciasDigitais",
       bgClass: "bg-secondary",
-      image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsolution.jpg?alt=media&token=492a0763-e0b0-41e4-8e00-960402aa4c7c"
+      image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fglowing.jpg?alt=media&token=ae80055b-75ed-4344-ad94-4c9d5a246c63"
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ export default function Servicos() {
       buttonText: "Explore soluções",
       link: "/BrandingPage",
       bgClass: "bg-alert",
-      image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fpartner.jpg?alt=media&token=a4c93359-5582-4107-8cb4-ca498777dbd2"
+      image: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fbusinessman.jpg?alt=media&token=f5cea9b4-c157-42ae-b883-8e36cff0f1f3"
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ export default function Servicos() {
       buttonText: "Veja os Programas",
       link: "/TreinamentosPage",
       bgClass: "bg-alert",
-      image: "https://firebasestorage.googleapis.com/v0/b/portifolio-renan.appspot.com/o/imagens%2FID_Olhares_GEO_03.jpg?alt=media&token=6a9b9276-cb62-4a93-9693-d2afdb99ac78"
+      image: "src=../../images/06.jpg"
     }
   ];
 
@@ -331,7 +331,7 @@ export default function Servicos() {
         <div className="decorative-circle circle-1"></div>
         <div className="container">
           <div className="section-header">
-            <h2>Nossas Expertises</h2>
+            <h2>Nossas <span className="text-primary">Expertises</span></h2>
             <p className="lead">Na LeFul Design House, unimos estratégia, criatividade e
                inclusão para transformar ideias em experiências impactantes.</p>
           </div>
@@ -375,7 +375,7 @@ export default function Servicos() {
       <section className="solucoes-section">
         <div className="container">
           <div className="section-header">
-            <h2>Soluções Sob Medida</h2>
+            <h2><span className="text-primary">Soluções </span>Sob Medida</h2>
             <p className="lead">Projetos personalizados para desafios específicos</p>
           </div>
           
@@ -544,7 +544,7 @@ export default function Servicos() {
       <section className="cta-section section" aria-labelledby="cta-heading">
         <div className="container">
           <div className="cta-content">
-            <h2 id="cta-heading">Pronto para transformar sua marca?</h2>
+            <h2 id="cta-heading">Pronto para <span className="text-primary">transformar </span>sua marca?</h2>
             <p className="lead">Vamos conversar sobre como podemos ajudar seu projeto a alcançar seu potencial máximo</p>
             
             <div className="cta-buttons">

@@ -16,9 +16,22 @@ import EducacaoDesignPage from './pages/Servicos/EducacaoDesignPage';
 import Projetos from './pages/Projetos';
 import CaseFotografiaEmpodera from './pages/Projetos/CaseFotografiaEmpodera';
 import CasePlaceBe from './pages/Projetos/CasePlaceBe';
+import CaseLivro from './pages/Projetos/CaseLivro';
 
 import Sobre from './pages/Sobre';
 import Academy from './pages/Academy';
+import CursoGC from './pages/Academy/CursoGC';
+import Modulo1GC from './pages/Academy/curso-gc/Modelo1GC';
+import Modulo2GC from './pages/Academy/curso-gc/Modulo2GC';
+import Modulo3GC from './pages/Academy/curso-gc/Modulo3GC';
+import Modulo4GC from './pages/Academy/curso-gc/Modulo4GC';
+import Modulo5GC from './pages/Academy/curso-gc/Modulo5GC';
+import InscricaoGC from './pages/Academy/curso-gc/InscricaoGC';
+
+import CursoAcessibilidade from './pages/Academy/CursoAcessibilidade';
+import Unidade1Curso from './pages/Academy/curso-acessibilidade/Unidade1Curso';
+import Unidade2Curso from './pages/Academy/curso-acessibilidade/Unidade2Curso';
+
 import Contato from './pages/Contato';
 import Agendamento from './pages/Agendamento';
 import Manifesto from './pages/Manifesto';
@@ -41,6 +54,7 @@ function App() {
             <Route path="/projetos" element={<Projetos />} />
             <Route path="/CaseFotografiaEmpodera" element={<CaseFotografiaEmpodera />} />
             <Route path="/CasePlaceBe" element={<CasePlaceBe />} />
+            <Route path="/CaseLivro" element={<CaseLivro />} />
 
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/ExperienciasDigitais" element={<ExperienciasDigitais />} />
@@ -52,6 +66,18 @@ function App() {
             <Route path="/EducacaoDesignPage" element={<EducacaoDesignPage />} />
             
             <Route path="/academy" element={<Academy />} />
+            <Route path="/cursogc" element={<CursoGC />} />
+            <Route path="/modulo1gc" element={<Modulo1GC />} />
+            <Route path="/modulo2gc" element={<Modulo2GC />} />
+            <Route path="/modulo3gc" element={<Modulo3GC />} />
+            <Route path="/modulo4gc" element={<Modulo4GC />} />
+            <Route path="/modulo5gc" element={<Modulo5GC />} />
+            <Route path="/InscricaoGC" element={<InscricaoGC />} />
+
+            <Route path="/cursoacessibilidade" element={<CursoAcessibilidade />} />
+            <Route path="/unidade1curso" element={<Unidade1Curso />} />
+            <Route path="/unidade2curso" element={<Unidade2Curso />} />
+            
             <Route path="/contato" element={<Contato />} />
             <Route path="/Agendamento" element={<Agendamento />} />
             <Route path="/manifesto" element={<Manifesto />} />
