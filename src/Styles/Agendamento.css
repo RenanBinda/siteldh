@@ -1,0 +1,372 @@
+/* Estilos base */
+.agendamento-page {
+    font-family: 'Inter', sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .section {
+    padding: 80px 0;
+  }
+  
+  .text-primary {
+    color: #EB5F2C;
+  }
+  
+  .bg-primary {
+    background-color: #EB5F2C;
+  }
+  
+  .bg-light {
+    background-color: #f8f9fa;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #EB5F2C;
+    color: white;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #D84315;
+    transform: translateY(-2px);
+  }
+  
+  /* Hero Section */
+  .agendamento-hero-section {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    background: linear-gradient(135deg, rgba(235, 95, 44, 0.8) 0%, rgba(255, 138, 91, 0.8) 100%), 
+                url('https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2F0flat-lay-calendar-headphones-copy-space.jpg?alt=media&token=ceb1d9ed-9447-4c7f-9817-583990bf36f5');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  
+  .agendamento-hero-content {
+    max-width: 600px;
+  }
+  
+  .agendamento-hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .agendamento-hero-content .lead {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Form Section */
+  .agendamento-form-section {
+    background-color: white;
+  }
+  
+  .form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: -80px;
+  }
+  
+  .form-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .form-section:last-child {
+    border-bottom: none;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #EB5F2C;
+    display: flex;
+    align-items: center;
+  }
+  
+  .section-title .icon {
+    margin-right: 15px;
+  }
+  
+  .section-description {
+    color: #6a6a6a;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: #EB5F2C;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(235, 95, 44, 0.2);
+  }
+  
+  .form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  /* Consultoria Grid */
+  .consultoria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .consultoria-card {
+    padding: 25px 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .consultoria-card:hover {
+    border-color: #EB5F2C;
+  }
+  
+  .consultoria-card.selected {
+    background-color: rgba(235, 95, 44, 0.05);
+    border-color: #EB5F2C;
+  }
+  
+  .consultoria-icon {
+    color: #EB5F2C;
+    margin-bottom: 15px;
+  }
+  
+  .consultoria-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .consultoria-card .tempo {
+    display: block;
+    color: #EB5F2C;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .consultoria-card p {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .outro-option {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .outro-option input {
+    margin-right: 10px;
+  }
+  
+  .outro-group {
+    margin-top: 20px;
+  }
+  
+  /* Dicas Box */
+  .dicas-box {
+    background-color: #f9f9f9;
+    border-left: 4px solid #EB5F2C;
+    padding: 20px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 20px;
+  }
+  
+  .dicas-box h4 {
+    margin-top: 0;
+    color: #EB5F2C;
+  }
+  
+  .dicas-box ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+  }
+  
+  .dicas-box li {
+    margin-bottom: 8px;
+  }
+  
+  /* Agendamento Grid */
+  .agendamento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Form Submit */
+  .form-submit {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .form-submit .btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+  }
+  
+  .disclaimer {
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* Expect Section */
+  .expect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .expect-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .expect-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .expect-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: rgba(235, 95, 44, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #EB5F2C;
+  }
+  
+  .expect-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 992px) {
+    .agendamento-hero-content h1 {
+      font-size: 2.5rem;
+    }
+    
+    .agendamento-hero-content .lead {
+      font-size: 1.2rem;
+    }
+    
+    .form-container {
+      padding: 30px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .agendamento-hero-section {
+      height: 40vh;
+      min-height: 350px;
+    }
+    
+    .agendamento-hero-content h1 {
+      font-size: 2rem;
+    }
+    
+    .section {
+      padding: 60px 0;
+    }
+    
+    .form-container {
+      top: -60px;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .agendamento-hero-section {
+      height: 35vh;
+      min-height: 300px;
+    }
+    
+    .agendamento-hero-content h1 {
+      font-size: 1.8rem;
+    }
+    
+    .form-container {
+      padding: 20px;
+    }
+    
+    .consultoria-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .section {
+      padding: 50px 0;
+    }
+  }

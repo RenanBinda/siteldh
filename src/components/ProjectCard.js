@@ -1,17 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../Styles/ProjectCard.css'; // Adicione esta linha
+import React, { useState } from 'react';
 
-const ProjectCard = ({ project }) => {
+export default function ProjectCard({ project }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="project-card">
-      <h3>{project.title}</h3>
-      <p>Categoria: {project.category}</p>
-      <Link to={`/projeto/${project.id}`} className="project-link">
-        Ver detalhes
-      </Link>
-    </div>
+    <article 
+      className={`project-tile ${project.aspectRatio}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="tile-image">
+        <img 
+          src={project.image} 
+          alt={project.title || `Projeto ${project.id}`}
+          loading="lazy"
+        />
+      </div>
+      
+      <div className={`tile-overlay ${isHovered ? 'visible' : ''}`}>
+        <div className="overlay-content">
+          <h3>{project.title || `Projeto ${project.year}`}</h3>
+          <div className="project-meta">
+            {project.client && <span>{project.client}</span>}
+            <span>{project.year}</span>
+          </div>
+          <p className="project-description">{project.description}</p>
+          <span className="project-category">{project.category}</span>
+        </div>
+      </div>
+    </article>
   );
-};
-
-export default ProjectCard;
+}

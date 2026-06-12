@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; 
+import { Link } from 'react-router-dom';
 import { 
   FaPaperPlane, 
   FaUser, 
@@ -8,8 +9,10 @@ import {
   FaMapMarkerAlt,
   FaLinkedin,
   FaInstagram,
-  FaCheckCircle
+  FaCheckCircle,
+  FaExclamationTriangle
 } from 'react-icons/fa';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 function Contato() {
   const [formData, setFormData] = useState({
@@ -21,6 +24,27 @@ function Contato() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
+  const [recaptchaError, setRecaptchaError] = useState('');
+
+  useEffect(() => {
+    const loadRecaptcha = () => {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    };
+  
+    loadRecaptcha();
+  
+    return () => {
+      const script = document.querySelector('script[src="https://www.google.com/recaptcha/api.js"]');
+      if (script) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +52,7 @@ function Contato() {
       ...prev,
       [name]: value
     }));
-    // Clear error when user types
+    // Limpa erro quando o usuário digita
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -39,11 +63,18 @@ function Contato() {
     return re.test(String(email).toLowerCase());
   };
 
+  const handleRecaptchaChange = (token) => {
+    setRecaptchaToken(token);
+    setRecaptchaError('');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrors({});
+    setRecaptchaError('');
     
-    // Validate form
+    // Validação do formulário
     const newErrors = {};
     if (!formData.contactname.trim()) newErrors.contactname = 'Nome é obrigatório';
     if (!formData.email.trim()) {
@@ -52,25 +83,53 @@ function Contato() {
       newErrors.email = 'Por favor, insira um email válido';
     }
     if (!formData.mensagem.trim()) newErrors.mensagem = 'Mensagem é obrigatória';
+    if (!recaptchaToken) {
+      setRecaptchaError('Por favor, confirme que você não é um robô');
+    }
     
-    if (Object.keys(newErrors).length > 0) {
+    if (Object.keys(newErrors).length > 0 || !recaptchaToken) {
       setErrors(newErrors);
       setIsSubmitting(false);
-      // Focus on first error field
+      // Foca no primeiro campo com erro
       const firstError = Object.keys(newErrors)[0];
-      document.querySelector(`[name="${firstError}"]`).focus();
+      if (firstError) {
+        document.querySelector(`[name="${firstError}"]`).focus();
+      }
       return;
     }
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log('Form submitted:', formData);
+      const response = await fetch(
+        'https://us-central1-lefulsite-aaafc.cloudfunctions.net/sendContactEmail',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nome: formData.contactname,
+            email: formData.email,
+            mensagem: formData.mensagem,
+            recaptchaToken
+          })
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao enviar mensagem');
+      }
+
       setSubmitSuccess(true);
       setFormData({ contactname: '', email: '', mensagem: '' });
-      setErrors({});
+      setRecaptchaToken(null);
+      if (window.grecaptcha) {
+        window.grecaptcha.reset();
+      }
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error('Erro:', error);
+      setErrors({ 
+        submit: error.message || 'Erro ao enviar mensagem. Tente novamente mais tarde.'
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -82,8 +141,8 @@ function Contato() {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="text-center mb-5">
-              <h1 id="contact-heading" className="display-5 fw-bold mb-3">
-                Vamos criar algo <span className="text-primary">juntos!</span>
+              <h1 id="contact-heading" className="display-5 fw-bold mb-3 text-dark">
+                Vamos construir algo <span className="text-primary">incrível juntos!</span>
               </h1>
               <p className="lead text-muted">
                 Preencha o formulário abaixo e entraremos em contato o mais breve possível
@@ -109,16 +168,21 @@ function Contato() {
                         São Paulo, SP
                       </li>
                     </ul>
-                    <div className="mt-4">
+                    <div className="mt-4 text-start">
                       <h3 className="h5 mb-3">Nos siga nas redes sociais</h3>
                       <div className="d-flex gap-3">
-                        <a href="http://linkedin.com/company/leful-designhouse" className="text-white" aria-label="LinkedIn">
+                        <a href="http://linkedin.com/company/leful-designhouse" className="text-white" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                           <FaLinkedin size={20} />
                         </a>
-                        <a href="https://www.instagram.com/leful.designhouse/" className="text-white" aria-label="Instagram">
+                        <a href="https://www.instagram.com/leful.designhouse/" className="text-white" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                           <FaInstagram size={20} />
                         </a>
                       </div>
+                    </div>
+                    <div className='mt-5'>
+                      <Link to="/agendamento" className="btn btn-outline-light px-5 py-3">
+                        Agendar consultoria
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -140,7 +204,14 @@ function Contato() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} noValidate>
-                      <div className="mb-4">
+                      {errors.submit && (
+                        <div className="alert alert-danger d-flex align-items-center mb-4" role="alert">
+                          <FaExclamationTriangle className="me-2" />
+                          <div>{errors.submit}</div>
+                        </div>
+                      )}
+
+                      <div className="mb-4 text-start">
                         <label htmlFor="contactname" className="form-label fw-semibold">
                           <FaUser className="me-2 text-primary" />
                           Nome completo
@@ -155,6 +226,7 @@ function Contato() {
                           onChange={handleChange}
                           aria-describedby="nameError"
                           aria-invalid={!!errors.contactname}
+                          maxLength="100"
                         />
                         {errors.contactname && (
                           <div id="nameError" className="invalid-feedback">
@@ -163,7 +235,7 @@ function Contato() {
                         )}
                       </div>
 
-                      <div className="mb-4">
+                      <div className="mb-4 text-start">
                         <label htmlFor="email" className="form-label fw-semibold">
                           <FaEnvelope className="me-2 text-primary" />
                           Email
@@ -178,6 +250,7 @@ function Contato() {
                           onChange={handleChange}
                           aria-describedby="emailError"
                           aria-invalid={!!errors.email}
+                          maxLength="100"
                         />
                         {errors.email && (
                           <div id="emailError" className="invalid-feedback">
@@ -186,7 +259,7 @@ function Contato() {
                         )}
                       </div>
 
-                      <div className="mb-4">
+                      <div className="mb-4 text-start">
                         <label htmlFor="mensagem" className="form-label fw-semibold">
                           <FaComment className="me-2 text-primary" />
                           Sua mensagem
@@ -201,11 +274,22 @@ function Contato() {
                           onChange={handleChange}
                           aria-describedby="messageError"
                           aria-invalid={!!errors.mensagem}
+                          maxLength="1000"
                         ></textarea>
                         {errors.mensagem && (
                           <div id="messageError" className="invalid-feedback">
                             {errors.mensagem}
                           </div>
+                        )}
+                      </div>
+
+                      <div className="mb-4">
+                        <ReCAPTCHA
+                          sitekey="6LexmBMrAAAAAEHVY99FDI7nfU7b3iMzr3kBZGwz"
+                          onChange={handleRecaptchaChange}
+                        />
+                        {recaptchaError && (
+                          <div className="text-danger small mt-2">{recaptchaError}</div>
                         )}
                       </div>
 

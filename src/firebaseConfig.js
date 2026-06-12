@@ -3,6 +3,8 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import { connectAuthEmulator } from "firebase/auth";
+import { connectFirestoreEmulator } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDWfwBNZrUrnXEKtNOdQOLpNhAdJyGCnl4",
@@ -24,3 +26,9 @@ const storage = getStorage(app, "gs://lefulsite-aaafc.firebasestorage.app");
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export { storage }; // Certifique-se que está exportando
+
+if (process.env.NODE_ENV === 'development') {
+  console.log('Modo desenvolvimento ativo');
+  connectAuthEmulator(auth, "http://localhost:9099");
+  connectFirestoreEmulator(db, 'localhost', 8080);
+}

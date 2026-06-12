@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perspectivas da Inclusão: Acessibilidade Digital, Tecnologia e Educação</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #17a2b8;
+            --accent-color: #28a745;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .book-cover {
+            width: 200px;
+            height: 280px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .organizers {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .publication-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .highlight-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Chapters Section */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .chapter-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 1.2rem;
+            transition: var(--transition);
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .chapter-card:hover {
+            background-color: #e9f5ff;
+        }
+
+        .chapter-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        /* License Section */
+        .license {
+            background-color: #e8f5e9;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .license h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .book-cover {
+                width: 150px;
+                height: 210px;
+            }
+            
+            .publication-info {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+
+        /* Accessibility Features */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #004494;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #138496;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+
+        .btn-accent:hover {
+            background-color: #218838;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <header>
+        <div class="container header-content">
+            <div class="book-cover">
+                <span>Capa do Livro</span>
+            </div>
+            <h1>Perspectivas da Inclusão</h1>
+            <div class="subtitle">Acessibilidade Digital, Tecnologia e Educação</div>
+            <div class="organizers">
+                Organizadores: Vania Ulbricht, Tarcísio Vanzin, Renan Binda, Nanci Veras
+            </div>
+            <div class="publication-info">
+                <div class="info-item">
+                    <i class="fas fa-book"></i>
+                    <span>Florianópolis: Publicações UFSC, 2025</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-barcode"></i>
+                    <span>ISBN: 978-85-XXX-XXXX-X</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="container">
+            <section class="section">
+                <h2>Sobre o Livro</h2>
+                <div class="summary">
+                    <p>O livro <strong>Perspectivas da Inclusão: Acessibilidade Digital, Tecnologia e Educação</strong> nasce do movimento contínuo de reflexão e prática do Laboratório de Mídia e Inclusão Digital (LaMiD) da Universidade Federal de Santa Catarina. A obra reúne contribuições de pesquisadores que abordam a acessibilidade sob diferentes dimensões — técnica, pedagógica, comunicacional e política.</p>
+                    <p>Os capítulos traduzem o diálogo entre teoria e prática, apresentando experiências, metodologias e soluções que evidenciam o papel da universidade como agente de transformação social. Publicada com o selo editorial do Centro Tecnológico (CTC/UFSC), esta obra representa um marco na trajetória do LaMiD em prol da democratização do conhecimento e do fortalecimento de uma cultura de inclusão.</p>
+                </div>
+                
+                <div class="highlights">
+                    <div class="highlight-card">
+                        <h3><i class="fas fa-universal-access"></i> Acessibilidade Digital</h3>
+                        <p>Abordagens técnicas e práticas para garantir ambientes digitais acessíveis a todos.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3><i class="fas fa-graduation-cap"></i> Educação Inclusiva</h3>
+                        <p>Metodologias e estratégias para promover a inclusão no ambiente educacional.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3><i class="fas fa-microchip"></i> Tecnologias Assistivas</h3>
+                        <p>Inovações tecnológicas que auxiliam pessoas com deficiência em seu dia a dia.</p>
+                    </div>
+                </div>
+                
+                <div class="btn-container">
+                    <a href="#" class="btn">Baixar o Livro</a>
+                    <a href="#" class="btn btn-secondary">Comprar Versão Impressa</a>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Sumário</h2>
+                <div class="chapters-grid">
+                    <div class="chapter-card">
+                        <span class="chapter-number">1.</span> Tecnologias Assistivas em Ambientes Virtuais de Aprendizagem para Pessoas com Deficiência Visual
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">2.</span> Integração da Norma ABNT NBR 17225:2025 e o CADUX: Caminhos para a Inclusão e Experiência de Uso
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">3.</span> Educação Ambiental em HQ em Português para Surdos: Atenção, Meditação e Cronotipo Via EEG
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">4.</span> Jogos Digitais para o Aprendizado de Alunos Surdos: Uma Revisão Sistemática de Literatura
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">5.</span> Estratégias para o Desenvolvimento de Jogos de Aprendizagem Inclusivos para Deficientes Auditivos e Visuais
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">6.</span> A Intencionalidade e a Comunicação da Ironia em Línguas de Sinais
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">7.</span> Acessibilidade em Plataformas de Prototipação: O Caso Figma e Alternativas Inclusivas
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">8.</span> Concepção de Recomendações para um Game Design Emocionalmente Acessível a Indivíduos Surdos
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">9.</span> A Neurociência e as Tecnologias Digitais na Aprendizagem de Matemática
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">10.</span> Uma Revisão Integrativa de Literatura sobre Jogos Digitais para Educação Inclusiva de Surdos
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">11.</span> Reflexões sobre Ações de Equidade Realizadas por uma Estudante do Curso de Licenciatura em Física
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-number">12.</span> Avatares e Educação Inclusiva no Metaverso: Corporeidade, Identidade e Presença Digital
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Licença de Uso</h2>
+                <div class="license">
+                    <h3><i class="fab fa-creative-commons"></i> Creative Commons</h3>
+                    <p>Esta obra é licenciada sob uma Licença Creative Commons - Utilize à Vontade.</p>
+                    <p>Essa licença permite download, copiar e redistribuir o material em qualquer suporte ou formato. Você deve dar o crédito apropriado, não pode usar o material para fins comerciais e se você remixar, transformar ou criar a partir do material, você não pode distribuir o material modificado.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Organizadores</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">VU</div>
+                        <h3>Vania Ulbricht</h3>
+                        <p>Professora e Coordenadora do LaMiD</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">TV</div>
+                        <h3>Tarcísio Vanzin</h3>
+                        <p>Professor e Coordenador do LaMiD</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">RB</div>
+                        <h3>Renan Binda</h3>
+                        <p>Pesquisador e Designer</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">NV</div>
+                        <h3>Nanci Veras</h3>
+                        <p>Pesquisadora e Revisora Técnica</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Laboratório de Mídia e Inclusão Digital (LaMiD)</h2>
+                <p>O Laboratório de Mídia e Inclusão Digital - LaMiD, sob coordenação da Profª Vania Ulbricht, Profª Luciane Fadel e do Profº Tarcísio Vanzin está vinculado ao Departamento de Engenharia do Conhecimento da Universidade Federal de Santa Catarina.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Campus Reitor João David Ferreira Lima, s/n – Trindade, Florianópolis – SC, CEP: 88040-900</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://lamid.paginas.ufsc.br" target="_blank">lamid.paginas.ufsc.br</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:lamid.ufsc@gmail.com">lamid.ufsc@gmail.com</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Como Citar</h2>
+                <div style="background-color: #f0f7ff; padding: 1.5rem; border-radius: var(--border-radius); border-left: 4px solid var(--primary-color);">
+                    <p>Ulbricht, Vania; Vanzin, Tarcísio; Binda, Renan; Veras, Nanci. <strong>Perspectivas da Inclusão: Acessibilidade Digital, Tecnologia e Educação</strong>. Florianópolis: Selo CTC, 2025.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2025 Laboratório de Mídia e Inclusão Digital - LaMiD/UFSC. Todos os direitos reservados.</p>
+            <p>Este livro está licenciado sob a Licença Creative Commons Atribuição-NãoComercial-SemDerivações 4.0 Internacional.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for accessibility and interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add print functionality
+            const printButton = document.createElement('button');
+            printButton.textContent = 'Imprimir Página';
+            printButton.className = 'btn btn-secondary';
+            printButton.style.position = 'fixed';
+            printButton.style.bottom = '20px';
+            printButton.style.right = '20px';
+            printButton.style.zIndex = '1000';
+            printButton.addEventListener('click', () => window.print());
+            document.body.appendChild(printButton);
+        });
+    </script>
+</body>
+</html>
