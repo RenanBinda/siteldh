@@ -1,4 +1,4 @@
-import React, { useEffect, useState, handleTextareaChange } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../Styles/CursoGC.css';
 import ePub from 'epubjs';
