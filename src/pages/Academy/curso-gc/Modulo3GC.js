@@ -103,7 +103,9 @@ function Modulo3GC() {
       <header className="module-header" style={{ marginTop: '80px' }}>
         <div className="container">
           <nav className="breadcrumb">
-            <Link to="/cursogc">Curso</Link> > <Link to="cursogc/#modulos">Módulos</Link> > <span>Módulo 3</span>
+            <Link to="/cursogc">Curso</Link> 
+            <Link to="cursogc/#modulos">Módulos</Link>
+            <span>Módulo 3</span>
           </nav>
           <h1>Gestão do Conhecimento no Setor Público Brasileiro</h1>
           <p>História, conceitos e práticas da GC na administração pública brasileira</p>
