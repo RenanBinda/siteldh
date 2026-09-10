@@ -1,9 +1,23 @@
 
+npm install -g firebase-tools    
+
 npx firebase login
 
 npx firebase init hosting
 
 npx firebase deploy --only hosting
+
+
+npm install -g expo-cli
+npm run build
+
+npm install-scripts approve --all
+npm audit fix --force
+
+ls node_modules/.bin
+rm -r -force node_modules                                                                 
+rm package-lock.json
+
 
 
 
