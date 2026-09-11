@@ -1,442 +1,398 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { 
+  FaBook, 
+  FaUniversity, 
+  FaChalkboardTeacher, 
+  FaAward, 
+  FaExternalLinkAlt, 
+  FaFileAlt, 
+  FaDiceD6, 
+  FaBrain 
+} from 'react-icons/fa';
 import '../Styles/Academy.css';
 
 function Academy() {
+  // Publicações Reais extraídas do Currículo Lattes e Periódicos Qualis A
+  const publicacoes = [
+    {
+      tipo: "Artigo em Periódico (Qualis A)",
+      ano: "2025",
+      titulo: "Theoretical Model and Playful Practice: A Pathway to Digital Accessibility",
+      veiculo: "Infodesign - Revista Brasileira de Design da Informação (SBDI)",
+      descricao: "Articulação entre Design Science Research, o modelo multidimensional de 5 dimensões e a gamificação aplicada no jogo analógico e digital Jornada da Acessibilidade.",
+      link: "https://doi.org/10.51358/id.v22i2.1124",
+      destaque: "Qualis A1"
+    },
+    {
+      tipo: "Livro Publicado",
+      ano: "2026",
+      titulo: "Janelas para o Futuro: Acessibilidade Digital e Tecnologias para a Inclusão",
+      veiculo: "UFSC (170 p. il., gráfis)",
+      descricao: "Obra de referência com prefácio de Reinaldo Ferraz (NIC.br/W3C). Sistematiza a Mídia do Conhecimento e a Engenharia da Mediação desenvolvidas no LaMiD/PPGEGC/UFSC.",
+      link: "https://lamid.paginas.ufsc.br/janelas-para-o-futuro/",
+      destaque: "Prefácio NIC.br"
+    },
+    {
+      tipo: "Capítulo de Livro",
+      ano: "2025",
+      titulo: "Integração da Norma ABNT NBR 17225:2025 e o CADUX: Caminhos para a Inclusão e Experiência de Uso",
+      veiculo: "Perspectivas da Inclusão (Editora Pimenta Cultural)",
+      descricao: "Mapeamento prescritivo que traduz os 156 critérios da norma técnica nacional em requisitos de experiência do usuário (UX) nas cartas metodológicas.",
+      link: "https://www.pimentacultural.com/livro/perspectivas-inclusao/",
+      destaque: "Norma ABNT"
+    },
+    {
+      tipo: "Artigo em Periódico",
+      ano: "2024",
+      titulo: "CADUX - Cartas de Acessibilidade Digital para Experiência de Uso",
+      veiculo: "Revista Brasileira de Expressão Gráfica (RBEG)",
+      descricao: "Validação do framework conceitual registrado junto ao INPI (Reg. 934006750), detalhando as heurísticas de aplicação para criadores de recursos digitais.",
+      link: "https://rbeg.net/index.php/rbeg/article/view/193/314",
+      destaque: "INPI 934006750"
+    }
+  ];
+
+  // Eixos Metodológicos e Pesquisa Aplicada
+  const modelos = [
+    {
+      numero: "01",
+      titulo: "Framework CADUX (5 Dimensões de UX)",
+      descricao: "Experiência inclusiva além da conformidade técnica através de 5 dimensões integradas: Acessibilidade, Usabilidade, Funcionalidade, Emoção e Valor. Registro concedido no INPI.",
+      aplicacao: "Auditorias de experiência, discovery de produto e esteira de UI/UX corporativa."
+    },
+    {
+      numero: "02",
+      titulo: "Sistemas Inteligentes de Mediação (SIM)",
+      descricao: "Modelagem da Mídia do Conhecimento dotada de autonomia processual (tríade Sensação, Associação e Síntese), em que a acessibilidade é a medida de inteligência do sistema.",
+      aplicacao: "Ambientes virtuais de aprendizagem acessíveis, governança para Web Agêntica e agentes de IA."
+    },
+    {
+      numero: "03",
+      titulo: "Design Science Research (DSR)",
+      descricao: "Abordagem metodológica orientada à criação e avaliação de artefatos prescritivos e tecnológicos que resolvem problemas reais de exclusão digital na sociedade.",
+      aplicacao: "Validação empírica de protótipos, teses aplicadas e transferência de tecnologia UFSC."
+    }
+  ];
+
   return (
     <main>
       <div role="main">
-        {/* Hero Section - Academy */}
+        {/* Hero Section - LeFul Academy */}
         <section 
           id="academy-hero" 
           className="text-white" 
-          style={{ background: 'rgba(51, 51, 51, 1)', padding: '5rem 0 7rem' }}
+          style={{ 
+            background: 'linear-gradient(135deg, #1E2229 0%, #2B2E34 60%, #1A2634 100%)', 
+            padding: '5rem 0 6rem',
+            borderBottom: '4px solid #009FE3'
+          }}
           aria-labelledby="academy-heading"
         >
           <div className="container container-fluid">
             <div className="row align-items-center">
-              <div className="col-12 col-md-6 order-md-2">
+              <div className="col-12 col-md-6 order-md-2 text-center">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/portifolio-renan.appspot.com/o/imagens%2Facademy2.png?alt=media&token=c9b16c0d-93b9-4980-9473-0e7c1d5d9f3e"
+                  src='https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/QR_code.png'
                   className="img-fluid"
-                  alt="Ilustração abstrata representando pesquisa e inovação"
+                  alt="LeFul Academy - Núcleo de Pesquisa, Desenvolvimento e Extensão Científica"
+                  style={{ maxHeight: '620px' }}
                   loading="lazy"
                 />
               </div>
               
               <div className="col-12 col-md-6 order-md-1 mt-5 mt-md-0">
-                <h1 id="academy-heading" className="display-4 mb-4">
-                  <span style={{ color: '#EB5F2C' }}>LeFul Academy</span><br />
-                  Pesquisa & Inovação em Design
+                <div className="d-inline-flex align-items-center gap-2 px-3 py-1 mb-3 rounded-pill border"
+                     style={{ backgroundColor: 'rgba(0, 159, 227, 0.12)', borderColor: 'rgba(0, 159, 227, 0.35)' }}>
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#009FE3' }}></span>
+                  <span style={{ fontSize: '0.8rem', letterSpacing: '1.2px', fontWeight: '700', color: '#70D0FB', textTransform: 'uppercase' }}>
+                    Pesquisa Aplicada & P&D em Acessibilidade
+                  </span>
+                </div>
+
+                <h1 id="academy-heading" className="display-4 fw-bold mb-3">
+                  <span style={{ color: '#009FE3' }}>LeFul</span> Academy<br />
+                  <span style={{ fontSize: '2.2rem', color: '#FFF' }}>Ciência Aberta e Inteligência Inclusiva</span>
                 </h1>
                 
                 <div 
                   role="separator" 
                   aria-hidden="true"
-                  style={{ 
-                    margin: '1.5rem 0', 
-                    color: 'rgba(235, 95, 44, 1)', 
-                    width: '150px', 
-                    border: '0', 
-                    borderTop: '3px solid' 
-                  }}
+                  style={{ margin: '1.2rem 0', width: '90px', borderTop: '3px solid #EB5F2C' }}
                 ></div>
                 
-                <p className="lead" style={{ fontSize: '1.25rem', lineHeight: '1.6' }}>
-                  Nosso núcleo de pesquisa desenvolve metodologias e frameworks para criar experiências digitais inclusivas e centradas no usuário.
+                <p className="lead text-light" style={{ fontSize: '1.15rem', lineHeight: '1.7', color: '#CBD5E1' }}>
+                  O braço de pesquisa e transferência de conhecimento da LeFul Design House. Conectamos investigações 
+                  de ponta do <strong>LaMiD / PPGEGC / UFSC</strong> à esteira do mercado corporativo, transformando 
+                  métodos científicos e normas técnicas em ferramentas práticas de capacitação e inovação.
                 </p>
                 
-                <div className="d-flex gap-3 mt-5">
-                  <Link 
-                    to="/cursoacessibilidade" 
-                    className="btn btn-primary px-4 py-3"
-                    style={{ backgroundColor: '#EB5F2C', border: 'none' }}
-                    aria-label="Conheça nossos cursos de design"
+                <div className="d-flex flex-wrap gap-3 mt-4">
+                  <a 
+                    href="#publicacoes" 
+                    className="btn px-4 py-3 fw-bold shadow-sm"
+                    style={{ backgroundColor: '#009FE3', borderColor: '#009FE3', color: '#FFF', borderRadius: '4px' }}
                   >
-                    Cursos de Design
-                  </Link>
-                  <Link 
-                    to="/cursogc" 
-                    className="btn btn-outline-light px-4 py-3"
-                    aria-label="Veja nossas publicações"
+                    <FaBook className="me-2" /> Publicações & Livros
+                  </a>
+                  <a 
+                    href="#workshops" 
+                    className="btn px-4 py-3 fw-semibold"
+                    style={{ backgroundColor: 'transparent', borderColor: '#64748B', color: '#F8FAFC', borderRadius: '4px' }}
                   >
-                    Cursos
-                  </Link>
+                    <FaChalkboardTeacher className="me-2" /> Workshops CADUX
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Seção Metodologia */}
+        {/* Seção Metodologia Científica (DSR & Engenharia da Mediação) */}
         <section 
           id="metodologia"
-          className="split-section"
+          className="py-5"
+          style={{ backgroundColor: '#F8FAFC' }}
           aria-labelledby="metodologia-heading"
         >
-          <div className="split-container">
-            <div className="split-image">
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fmetodologia-academy.png?alt=media&token=87654321-efgh-4236-aed3-7a9ea547d6f0"
-                alt="Diagrama da metodologia de pesquisa da LeFul"
-                loading="lazy"
-                aria-describedby="metodologia-image-desc"
-              />
-              <span id="metodologia-image-desc" className="sr-only">Diagrama mostrando o ciclo de pesquisa: imersão, prototipação, avaliação e documentação</span>
-            </div>
+          <div className="container py-4">
+            <div className="row align-items-center g-5">
+              <div className="col-12 col-lg-6">
+                <h2 id="metodologia-heading" className="fw-bold mb-3" style={{ color: '#1E293B' }}>
+                  A Metodologia <span style={{ color: '#009FE3' }}>Design Science Research</span>
+                </h2>
+                
+                <div style={{ width: '70px', height: '3px', backgroundColor: '#EB5F2C', marginBottom: '1.5rem' }}></div>
+                
+                <p className="lead text-dark fs-6" style={{ lineHeight: '1.7' }}>
+                  Diferente de abordagens opinativas de agências, a LeFul Academy opera sob os três ciclos da 
+                  <strong> Design Science Research (Dresch et al., 2015)</strong>: Relevância, Rigor e Design. Projetamos e 
+                  avaliamos artefatos prescritivos que solucionam desafios complexos de exclusão e navegabilidade.
+                </p>
 
-            <div className="split-content">
-              <h2 id="metodologia-heading" className="split-title">
-                Nossa <span className="split-highlight">Metodologia</span> de Pesquisa
-              </h2>
-              
-              <div className="split-divider" role="separator" aria-hidden="true"></div>
-              
-              <p className="split-text">
-                Desenvolvemos projetos através de um processo cíclico que integra <strong>teoria e prática</strong>, garantindo soluções baseadas em evidências e alinhadas com as necessidades reais dos usuários.
-              </p>
-              
-              <ul className="split-list" aria-label="Etapas da metodologia">
-                <li>• <strong>Imersão Contextual</strong> - Pesquisa etnográfica e análise de stakeholders</li>
-                <li>• <strong>Prototipação Iterativa</strong> - Desenvolvimento em ciclos rápidos com validação contínua</li>
-                <li>• <strong>Avaliação de Acessibilidade</strong> - Testes com usuários diversos e especialistas</li>
-                <li>• <strong>Gestão do Conhecimento</strong> - Documentação sistemática e reutilização de insights</li>
-              </ul>
-              
-              <div className="mt-4">
-                <Link 
-                  to="/metodologia-completa" 
-                  className="btn btn-outline-dark btn-lg px-4 py-2"
-                  aria-label="Saiba mais sobre nossa metodologia"
-                >
-                  Veja Nossa Metodologia →
-                </Link>
+                <div className="mt-4">
+                  <div className="p-3 mb-3 bg-white rounded shadow-sm border-start border-primary border-4">
+                    <h3 className="h6 fw-bold mb-1 text-dark">1. Ciclo de Relevância (Contexto & Problema Real)</h3>
+                    <p className="small text-muted mb-0">
+                      Mapeamento de barreiras atitudinais, sensoriais e comunicacionais vivenciadas por pessoas com deficiência e identificação de riscos do Art. 63 da LBI.
+                    </p>
+                  </div>
+
+                  <div className="p-3 mb-3 bg-white rounded shadow-sm border-start border-info border-4">
+                    <h3 className="h6 fw-bold mb-1 text-dark">2. Ciclo de Rigor (Bases Teóricas & Normas ABNT)</h3>
+                    <p className="small text-muted mb-0">
+                      Fundamentação nos 156 critérios da ABNT NBR 17225:2025, padrões WCAG 2.2 e na epistemologia da Mídia do Conhecimento.
+                    </p>
+                  </div>
+
+                  <div className="p-3 mb-3 bg-white rounded shadow-sm border-start border-warning border-4">
+                    <h3 className="h6 fw-bold mb-1 text-dark">3. Ciclo de Design (Construção & Validação Pragmática)</h3>
+                    <p className="small text-muted mb-0">
+                      Projetação de artefatos funcionais (CADUX, CoIn e Jornada da Acessibilidade) validados empiricamente com personas e especialistas em testes simulados.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-12 col-lg-6 text-center">
+                <div className="p-4 bg-white rounded shadow-sm border">
+                  <h3 className="h5 fw-bold text-dark mb-3">Ciclo da Espiral do Conhecimento Inclusivo</h3>
+                  <p className="small text-muted mb-4">
+                    Aplicação da matriz SECI (Nonaka & Takeuchi, 1995) para transformar o saber tácito da exclusão em competência explícita de engenharia de software:
+                  </p>
+                  <div className="row g-2 text-start">
+                    <div className="col-6 p-2 bg-light rounded border">
+                      <strong className="text-primary small d-block">Socialização:</strong>
+                      <span className="small text-muted" style={{ fontSize: '0.78rem' }}>Co-design e vivência direta com pessoas usuárias com deficiência.</span>
+                    </div>
+                    <div className="col-6 p-2 bg-light rounded border">
+                      <strong className="text-primary small d-block">Externalização:</strong>
+                      <span className="small text-muted" style={{ fontSize: '0.78rem' }}>Sistematização de heurísticas em modelos visuais e cartas conceituais.</span>
+                    </div>
+                    <div className="col-6 p-2 bg-light rounded border">
+                      <strong className="text-primary small d-block">Combinação:</strong>
+                      <span className="small text-muted" style={{ fontSize: '0.78rem' }}>Cruzamento das dimensões de UX com os requisitos da NBR 17225.</span>
+                    </div>
+                    <div className="col-6 p-2 bg-light rounded border">
+                      <strong className="text-primary small d-block">Internalização:</strong>
+                      <span className="small text-muted" style={{ fontSize: '0.78rem' }}>Adoção natural da acessibilidade nos Design Systems pelas equipes.</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Seção Modelos de Pesquisa */}
+        {/* Seção Modelos e Frameworks Proprietários */}
         <section 
           id="modelos"
-          style={{ 
-            padding: '6rem 0',
-            backgroundColor: 'rgba(51, 51, 51, 1)',
-            color: 'white'
-          }}
+          style={{ padding: '5rem 0', backgroundColor: '#2B2E34', color: 'white' }}
           aria-labelledby="modelos-heading"
         >
           <div className="container">
-            <div className="text-center mb-6">
-              <h2 id="modelos-heading" className="display-5 mb-4">
-                Nossos <span style={{ color: '#EB5F2C' }}>Modelos</span> de Pesquisa
+            <div className="text-center mb-5">
+              <span className="text-uppercase fw-bold text-info small letter-spacing-1">Propriedade Intelectual & Ciência</span>
+              <h2 id="modelos-heading" className="display-5 fw-bold text-white mb-2">
+                Frameworks e <span style={{ color: '#009FE3' }}>Modelos Conceituais</span>
               </h2>
-              <p className="lead mx-auto" style={{ maxWidth: '700px' }}>
-                Frameworks desenvolvidos para guiar nossos projetos de inovação em design
+              <p className="lead mx-auto text-light opacity-75" style={{ maxWidth: '750px', fontSize: '1.05rem' }}>
+                Artefatos metodológicos desenvolvidos em programas de doutorado e pós-doutorado, registrados no INPI e aplicados em consultorias de alta complexidade.
               </p>
             </div>
             
             <div className="row g-4">
-              {/* Modelo 1 */}
-              <div className="col-md-4">
-                <div className="card h-100 border-0" style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
-                  <div className="card-body p-4">
-                    <div className="mb-4" style={{ color: '#EB5F2C', fontSize: '2.5rem' }}>01</div>
-                    <h3 className="h4 mb-3">Visualização do Conhecimento</h3>
-                    <p>
-                      Modelo para representação interativa de informações complexas, tornando dados acessíveis e compreensíveis através de interfaces intuitivas.
+              {modelos.map((item, idx) => (
+                <div key={idx} className="col-md-4">
+                  <div className="card h-100 border-0 shadow-sm p-4 text-dark" style={{ backgroundColor: '#FFFFFF', borderRadius: '6px' }}>
+                    <div className="d-flex align-items-center justify-content-between mb-3">
+                      <span className="display-6 fw-bold" style={{ color: '#009FE3' }}>{item.numero}</span>
+                      <span className="badge bg-light text-muted border">Metodologia Validada</span>
+                    </div>
+                    <h3 className="h5 fw-bold mb-3">{item.titulo}</h3>
+                    <p className="small text-muted mb-3" style={{ lineHeight: '1.6' }}>
+                      {item.descricao}
                     </p>
-                    <div className="mt-4 pt-2">
-                      <Link 
-                        to="/modelo-visualizacao" 
-                        className="text-decoration-none"
-                        style={{ color: '#EB5F2C' }}
-                        aria-label="Saiba mais sobre o modelo de visualização"
-                      >
-                        Saiba mais →
-                      </Link>
+                    <div className="mt-auto pt-3 border-top">
+                      <strong className="small text-uppercase text-dark d-block mb-1" style={{ fontSize: '0.75rem' }}>Aplicação Direta:</strong>
+                      <span className="small text-secondary" style={{ fontSize: '0.8rem' }}>{item.aplicacao}</span>
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Modelo 2 */}
-              <div className="col-md-4">
-                <div className="card h-100 border-0" style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
-                  <div className="card-body p-4">
-                    <div className="mb-4" style={{ color: '#EB5F2C', fontSize: '2.5rem' }}>02</div>
-                    <h3 className="h4 mb-3">Inclusão Digital</h3>
-                    <p>
-                      Framework para desenvolvimento de experiências digitais acessíveis, considerando diversidade funcional, cultural e tecnológica dos usuários.
-                    </p>
-                    <div className="mt-4 pt-2">
-                      <Link 
-                        to="/modelo-inclusao" 
-                        className="text-decoration-none"
-                        style={{ color: '#EB5F2C' }}
-                        aria-label="Saiba mais sobre o modelo de inclusão"
-                      >
-                        Saiba mais →
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Modelo 3 */}
-              <div className="col-md-4">
-                <div className="card h-100 border-0" style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
-                  <div className="card-body p-4">
-                    <div className="mb-4" style={{ color: '#EB5F2C', fontSize: '2.5rem' }}>03</div>
-                    <h3 className="h4 mb-3">Gestão do Conhecimento</h3>
-                    <p>
-                      Abordagem sistemática para capturar, organizar e reutilizar conhecimentos em projetos de design, criando um ciclo virtuoso de aprendizado.
-                    </p>
-                    <div className="mt-4 pt-2">
-                      <Link 
-                        to="/modelo-gestao" 
-                        className="text-decoration-none"
-                        style={{ color: '#EB5F2C' }}
-                        aria-label="Saiba mais sobre o modelo de gestão"
-                      >
-                        Saiba mais →
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Seção Publicações */}
+        {/* Seção Publicações de Alto Impacto (Lattes Validado) */}
         <section 
           id="publicacoes"
-          className="py-8"
-          style={{ backgroundColor: '#f8f8f8', padding: '8rem' }}
+          className="py-5"
+          style={{ backgroundColor: '#FFFFFF' }}
           aria-labelledby="publicacoes-heading"
         >
-          <div className="container">
-            <div className="row align-items-end mb-6">
+          <div className="container py-4">
+            <div className="row align-items-end mb-4">
               <div className="col-md-8">
-                <h2 id="publicacoes-heading" className="display-5 mb-3">
-                  Publicações & <span style={{ color: '#EB5F2C' }}>Conteúdo</span>
+                <span className="text-uppercase fw-bold text-primary small letter-spacing-1">Produção Intelectual Qualificada</span>
+                <h2 id="publicacoes-heading" className="display-5 fw-bold mb-2">
+                  Publicações Científicas & <span style={{ color: '#009FE3' }}>Livros</span>
                 </h2>
-                <div 
-                  role="separator" 
-                  aria-hidden="true"
-                  style={{ 
-                    width: '100px', 
-                    height: '3px', 
-                    backgroundColor: '#EB5F2C',
-                    margin: '1.5rem 0'
-                  }}
-                ></div>
+                <div style={{ width: '80px', height: '3px', backgroundColor: '#EB5F2C', margin: '0.8rem 0' }}></div>
               </div>
               <div className="col-md-4 text-md-end mb-3">
-                <Link 
-                  to="/todas-publicacoes" 
-                  className="btn btn-outline-dark px-4"
-                  aria-label="Ver todas as publicações"
+                <a 
+                  href="https://orcid.org/0000-0003-3432-2668" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-dark px-3 py-2 fw-semibold small"
                 >
-                  Ver Todos
-                </Link>
+                  <FaExternalLinkAlt className="me-2" /> Currículo Lattes / ORCID
+                </a>
               </div>
             </div>
             
             <div className="row g-4">
-              {/* Artigo 1 */}
-              <div className="col-md-6 col-lg-4">
-                <div className="card h-100 border-0 shadow-sm p-4">
-                  <img
-                    src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fartigo1-academy.png?alt=media&token=13579246-ijkl-4236-aed3-7a9ea547d6f0"
-                    className="card-img-top"
-                    alt="Visualização de dados acessíveis"
-                    loading="lazy"
-                  />
-                  <div className="card-body">
-                    <div className="d-flex gap-2 mb-3">
-                      <span className="badge bg-primary">Artigo Científico</span>
-                      <span className="text-muted">2023</span>
+              {publicacoes.map((pub, idx) => (
+                <div key={idx} className="col-md-6">
+                  <div className="card h-100 border rounded shadow-sm p-4 bg-light">
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <span className="badge bg-primary text-white">{pub.tipo}</span>
+                      <span className="badge bg-white text-dark border fw-bold">{pub.destaque}</span>
+                      <span className="text-muted small fw-bold">{pub.ano}</span>
                     </div>
-                    <h3 className="h5">Visualização do Conhecimento</h3>
-                    <p className="card-text">
-                      Métodos para representação interativa de informações complexas para usuários com diferentes habilidades.
+                    <h3 className="h6 fw-bold mb-2 text-dark" style={{ minHeight: '44px' }}>{pub.titulo}</h3>
+                    <p className="small text-primary fw-semibold mb-2">{pub.veiculo}</p>
+                    <p className="small text-muted mb-3" style={{ lineHeight: '1.5' }}>
+                      {pub.descricao}
                     </p>
-                  </div>
-                  <div className="card-footer bg-transparent border-0">
-                    <Link 
-                      to="/artigo-visualizacao" 
-                      className="text-decoration-none"
-                      style={{ color: '#EB5F2C' }}
-                      aria-label="Ler artigo sobre visualização de dados"
-                    >
-                      Ler Artigo →
-                    </Link>
+                    <div className="mt-auto">
+                      <a 
+                        href={pub.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-decoration-none fw-bold small"
+                        style={{ color: '#009FE3' }}
+                      >
+                        Acessar Documento Oficial <FaExternalLinkAlt className="ms-1" size={11} />
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Artigo 2 */}
-              <div className="col-md-6 col-lg-4">
-                <div className="card h-100 border-0 shadow-sm p-4">
-                  <img
-                    src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fartigo2-academy.png?alt=media&token=24681357-mnop-4236-aed3-7a9ea547d6f0"
-                    className="card-img-top"
-                    alt="Design inclusivo para plataformas digitais"
-                    loading="lazy"
-                  />
-                  <div className="card-body">
-                    <div className="d-flex gap-2 mb-3">
-                      <span className="badge bg-primary">Estudo de Caso</span>
-                      <span className="text-muted">2022</span>
-                    </div>
-                    <h3 className="h5">Design Inclusivo na Prática</h3>
-                    <p className="card-text">
-                      Abordagens práticas para desenvolvimento de plataformas digitais acessíveis desde a concepção.
-                    </p>
-                  </div>
-                  <div className="card-footer bg-transparent border-0">
-                    <Link 
-                      to="/artigo-inclusivo" 
-                      className="text-decoration-none"
-                      style={{ color: '#EB5F2C' }}
-                      aria-label="Ler estudo de caso sobre design inclusivo"
-                    >
-                      Ler Estudo →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Artigo 3 */}
-              <div className="col-md-6 col-lg-4">
-                <div className="card h-100 border-0 shadow-sm p-4">
-                  <img
-                    src="https://firebasestorage.googleapis.com/v0/b/leful-design-house-4b637.appspot.com/o/site_leful_heroku%2Fimagens%2Fartigo3-academy.png?alt=media&token=35792468-qrst-4236-aed3-7a9ea547d6f0"
-                    className="card-img-top"
-                    alt="Gestão do conhecimento em projetos de UX"
-                    loading="lazy"
-                  />
-                  <div className="card-body">
-                    <div className="d-flex gap-2 mb-3">
-                      <span className="badge bg-primary">White Paper</span>
-                      <span className="text-muted">2023</span>
-                    </div>
-                    <h3 className="h5">Gestão do Conhecimento em UX</h3>
-                    <p className="card-text">
-                      Como implementar práticas sistemáticas de documentação e reutilização de conhecimentos em projetos de design.
-                    </p>
-                  </div>
-                  <div className="card-footer bg-transparent border-0">
-                    <Link 
-                      to="/whitepaper-gestao" 
-                      className="text-decoration-none"
-                      style={{ color: '#EB5F2C' }}
-                      aria-label="Baixar white paper sobre gestão do conhecimento"
-                    >
-                      Baixar PDF →
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Seção Eventos */}
+        {/* Seção Workshops e Capacitações In-Company */}
         <section 
-          id="eventos"
-          style={{ padding: '8rem' }}
-          aria-labelledby="eventos-heading"
+          id="workshops"
+          className="py-5"
+          style={{ backgroundColor: '#F4F8FA' }}
+          aria-labelledby="workshops-heading"
         >
-          <div className="container">
-            <h2 id="eventos-heading" className="display-5 mb-5 text-center">
-              Eventos & <span style={{ color: '#EB5F2C' }}>Workshops</span>
-            </h2>
+          <div className="container py-4">
+            <div className="text-center mb-5">
+              <span className="text-uppercase fw-bold text-primary small letter-spacing-1">Transferência Tecnológica</span>
+              <h2 id="workshops-heading" className="display-5 fw-bold mb-2">
+                Capacitação Corporativa & <span style={{ color: '#009FE3' }}>Workshops CADUX</span>
+              </h2>
+              <p className="lead mx-auto text-muted" style={{ maxWidth: '780px', fontSize: '1.05rem' }}>
+                Formações práticas desenhadas para nivelar times de Produto, UX e Engenharia de Software frente aos requisitos da ABNT NBR 17225:2025.
+              </p>
+            </div>
             
-            <div className="row g-4">
-              {/* Evento 1 */}
+            <div className="row g-4 justify-content-center">
+              {/* Workshop 1 */}
               <div className="col-lg-6">
-                <div className="card border-0 shadow-sm h-100">
-                  <div className="row g-0 h-100">
-                    <div className="col-md-5" style={{ backgroundColor: '#EB5F2C' }}>
-                      <div className="h-100 d-flex flex-column justify-content-center p-4 text-white">
-                        <div className="mb-3">
-                          <span className="badge bg-white text-dark">Workshop</span>
-                        </div>
-                        <h3 className="h4 mb-3">Inovação em Acessibilidade Digital</h3>
-                        <div className="d-flex align-items-center">
-                          <i className="bi bi-calendar-event"></i>
-                          <span>15 Nov 2023</span>
-                        </div>
-                        <div className="d-flex align-items-center">
-                          <i className="bi bi-clock"></i>
-                          <span>14:00 - 17:00 (GMT-3)</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-7">
-                      <div className="card-body p-4">
-                        <p className="card-text">
-                          Workshop prático sobre desenvolvimento de interfaces acessíveis, com foco em WCAG 2.2 e Design Universal. Inclui estudos de caso reais e sessão hands-on.
-                        </p>
-                        <ul className="mb-4">
-                          <li>Técnicas avançadas de acessibilidade</li>
-                          <li>Ferramentas de avaliação</li>
-                          <li>Testes com usuários diversos</li>
-                        </ul>
-                        <Link 
-                          to="/workshop-acessibilidade" 
-                          className="btn btn-outline-primary"
-                          aria-label="Inscreva-se no workshop de acessibilidade"
-                        >
-                          Inscreva-se
-                        </Link>
-                      </div>
-                    </div>
+                <div className="card border-0 shadow-sm h-100 rounded overflow-hidden">
+                  <div className="p-4" style={{ backgroundColor: '#2B2E34', color: 'white' }}>
+                    <span className="badge bg-primary mb-2">Formação In-Company (4h ou 8h)</span>
+                    <h3 className="h4 fw-bold text-white mb-2">Implementando a ABNT NBR 17225 com o Framework CADUX</h3>
+                    <p className="small text-light opacity-75 mb-0">
+                      Capacitação prática para times de Produto, Design System e Engenharia de Software.
+                    </p>
+                  </div>
+                  <div className="card-body p-4 bg-white">
+                    <ul className="small text-muted mb-4 ps-3" style={{ lineHeight: '1.7' }}>
+                      <li>Desdobramento dos 156 critérios da norma nacional em requisitos de backlog (Jira/GitHub).</li>
+                      <li>Simulação de barreiras com personas cegas, surdas, neurodivergentes e idosas.</li>
+                      <li>Aplicação do baralho físico ou digital CADUX nas 5 dimensões de experiência inclusiva.</li>
+                      <li>Análise e refatoração de código ao vivo (HTML5 semântico e atributos WAI-ARIA).</li>
+                    </ul>
+                    <Link 
+                      to="/contato" 
+                      className="btn btn-outline-primary btn-sm px-4 py-2 fw-bold"
+                    >
+                      Solicitar Proposta de Treinamento
+                    </Link>
                   </div>
                 </div>
               </div>
               
-              {/* Evento 2 */}
+              {/* Workshop 2 */}
               <div className="col-lg-6">
-                <div className="card border-0 shadow-sm h-100">
-                  <div className="row g-0 h-100">
-                    <div className="col-md-5" style={{ backgroundColor: '#333333' }}>
-                      <div className="h-100 d-flex flex-column justify-content-center p-4 text-white">
-                        <div className="mb-3">
-                          <span className="badge bg-white text-dark">Palestra</span>
-                        </div>
-                        <h3 className="h4 mb-3">Design Thinking & Gestão do Conhecimento</h3>
-                        <div className="d-flex align-items-center">
-                          <i className="bi bi-calendar-event"></i>
-                          <span>28 Nov 2023</span>
-                        </div>
-                        <div className="d-flex align-items-center">
-                          <i className="bi bi-clock"></i>
-                          <span>10:00 - 12:00 (GMT-3)</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-7">
-                      <div className="card-body p-4">
-                        <p className="card-text">
-                          Como integrar práticas de gestão do conhecimento em processos criativos de design. Apresentação do modelo LeFul com demonstração de casos reais.
-                        </p>
-                        <ul className="mb-4">
-                          <li>Frameworks de documentação</li>
-                          <li>Sistemas de recuperação de conhecimento</li>
-                          <li>Métricas de eficácia</li>
-                        </ul>
-                        <Link 
-                          to="/palestra-gestao" 
-                          className="btn btn-outline-dark"
-                          aria-label="Inscreva-se na palestra sobre gestão do conhecimento"
-                        >
-                          Inscreva-se
-                        </Link>
-                      </div>
-                    </div>
+                <div className="card border-0 shadow-sm h-100 rounded overflow-hidden">
+                  <div className="p-4" style={{ backgroundColor: '#009FE3', color: 'white' }}>
+                    <span className="badge bg-dark mb-2">Simulação Interativa (Serious Game)</span>
+                    <h3 className="h4 fw-bold text-white mb-2">Simulador Gamificado 'Jornada da Acessibilidade'</h3>
+                    <p className="small text-white opacity-90 mb-0">
+                      Dinâmica contemplada no Edital Fábrica de Jogos da SINOVA/UFSC para sensibilização e tomada de decisão ágil.
+                    </p>
+                  </div>
+                  <div className="card-body p-4 bg-white">
+                    <ul className="small text-muted mb-4 ps-3" style={{ lineHeight: '1.7' }}>
+                      <li>Modo multiplayer em tempo real com facilitação técnica e agentes autônomos.</li>
+                      <li>Resolução colaborativa de 36 cenários-desafio reais de interfaces digitais.</li>
+                      <li>Cálculo dinâmico do Índice de Inclusão da equipe e emissão de laudo de sessão.</li>
+                      <li>Vivência empática e eliminação do capacitismo estrutural em processos de ideação.</li>
+                    </ul>
+                    <Link 
+                      to="/contato" 
+                      className="btn btn-outline-primary btn-sm px-4 py-2 fw-bold"
+                    >
+                      Agendar Dinâmica para Equipe
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -444,38 +400,41 @@ function Academy() {
           </div>
         </section>
 
-        {/* CTA Final */}
+        {/* CTA Institucional / Cooperação Científica */}
         <section 
           id="academy-cta"
           style={{ 
-            padding: '6rem 0',
-            background: 'linear-gradient(135deg, rgba(51, 51, 51, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%)',
+            padding: '5rem 0',
+            background: 'linear-gradient(135deg, #1E2229 0%, #2B2E34 100%)',
             color: 'white'
           }}
           aria-labelledby="academy-cta-heading"
         >
-          <div className="container text-center">
-            <h2 id="academy-cta-heading" className="display-5 mb-4">
-              Colabore com Nossa <span style={{ color: '#EB5F2C' }}>Pesquisa</span>
+          <div className="container text-center" style={{ maxWidth: '800px' }}>
+            <span className="badge bg-primary text-white px-3 py-1 mb-3 text-uppercase fw-bold small">
+              Parcerias de P&D & Extensão
+            </span>
+            <h2 id="academy-cta-heading" className="display-5 fw-bold mb-3 text-white">
+              Conecte sua Instituição ao Estado da Arte da Pesquisa
             </h2>
-            <p className="lead mb-5 mx-auto" style={{ maxWidth: '700px' }}>
-              Se você é pesquisador, designer ou entusiasta de inovação, junte-se a nós para desenvolver soluções que transformam a experiência digital.
+            <p className="lead mb-4 text-light opacity-75" style={{ fontSize: '1.1rem' }}>
+              Colaboramos com universidades corporativas, centros de P&D, polos tecnológicos e agências públicas 
+              na formulação de políticas de acessibilidade digital e desenvolvimento de projetos subsidiados.
             </p>
-            <div className="d-flex flex-column flex-md-row justify-content-center gap-3">
+            <div className="d-flex flex-wrap justify-content-center gap-3">
               <Link 
                 to="/contato" 
-                className="btn btn-primary px-5 py-3"
-                style={{ backgroundColor: '#EB5F2C', border: 'none' }}
-                aria-label="Entre em contato com a equipe da Academy"
+                className="btn px-4 py-3 fw-bold"
+                style={{ backgroundColor: '#009FE3', borderColor: '#009FE3', color: '#FFF', borderRadius: '4px' }}
               >
-                Fale com a Equipe
+                Propor Projeto Conjunto de P&D
               </Link>
               <Link 
-                to="/trabalhe-conosco" 
-                className="btn btn-outline-light px-5 py-3"
-                aria-label="Candidate-se para trabalhar na LeFul Academy"
+                to="/sobre" 
+                className="btn px-4 py-3 fw-semibold"
+                style={{ backgroundColor: 'transparent', borderColor: '#64748B', color: '#F8FAFC', borderRadius: '4px' }}
               >
-                Candidate-se
+                Conhecer Liderança Técnica
               </Link>
             </div>
           </div>

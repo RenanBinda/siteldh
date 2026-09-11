@@ -10,6 +10,7 @@ npx firebase deploy --only hosting
 
 npm install -g expo-cli
 npm run build
+npm start
 
 npm install-scripts approve --all
 npm audit fix --force
@@ -19,6 +20,21 @@ rm -r -force node_modules
 rm package-lock.json
 
 
+npm install --legacy-peer-deps
+
+
+npm install react-scripts --save
+
+
+
+# 1. Instala um servidor estático leve no seu PC
+npm install -g serve
+
+# 2. Gera a nova build com o código atual
+npm run build
+
+# 3. Roda a build localmente
+serve -s build
 
 
 

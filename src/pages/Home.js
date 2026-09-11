@@ -5,7 +5,7 @@ function Home() {
   return (
     <main>
       <div role="main">
-        {/* Seção Início - EXATAMENTE IGUAL AO ORIGINAL */}
+        {/* Seção Início: Hero Section de Alta Autoridade */}
         <section 
           id="inicio" 
           className="text-white" 
@@ -17,9 +17,9 @@ function Home() {
               {/* Imagem Desktop (esquerda) */}
               <div className="col-12 col-md-9 mt-md-5 d-none d-md-block">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fbanner_home.png?alt=media&token=c1e79c93-d29d-4141-98cf-0096354f48c5"
+                  src='https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/banner_home.png'
                   className="img-fluid"
-                  alt="Nós Criamos Soluções em Design"
+                  alt="LeFul Design House - Consultoria Especializada em Acessibilidade Digital e UX"
                   loading="lazy"
                 />
               </div>
@@ -27,9 +27,9 @@ function Home() {
               {/* Imagem Mobile (full width) */}
               <div className="col-12 col-md-9 mt-md-5 d-md-none">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fbanner_home_mob.png?alt=media&token=e7613415-a9cf-412b-bc3a-f77b6291ca5c"
+                  src='https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/banner_home_mob.png'
                   className="img-fluid"
-                  alt="Nós Criamos Soluções em Design"
+                  alt="LeFul Design House - Consultoria Especializada em Acessibilidade Digital e UX"
                   loading="lazy"
                 />
               </div>
@@ -40,7 +40,7 @@ function Home() {
                 <h1 id="inicio-heading" className="text-start mt-4" style={{ fontSize: '1.75rem' }}>
                   A <span style={{ color: '#EB5F2C' }}>LeFul Design House</span>
                   <br />
-                  têm um foco claro na <span style={{ color: '#EB5F2C' }}>criatividade e inovação.</span>
+                  projeta <span style={{ color: '#EB5F2C' }}>acessibilidade digital para experiência inclusiva.</span>
                 </h1>
                 
                 <div 
@@ -55,38 +55,40 @@ function Home() {
                   }}
                 ></div>
                 
-                <p className="text-start text-grey mt-3" style={{ fontSize: '1.1rem' }}>
-                  Desenvolvemos projetos <strong className="fw-bold">orientados ao conhecimento </strong>
-                  e <strong className="fw-bold">transformamos</strong> a maneira como as pessoas 
-                  <strong className="fw-bold"> interagem </strong>com o <strong className="fw-bold">mundo digital</strong>.
+                <p className="text-start text-grey mt-3" style={{ fontSize: '1.05rem', lineHeight: '1.5' }}>
+                  Unimos <strong className="fw-bold">pesquisa aplicada (UFSC)</strong>, 
+                  autoridade técnica na elaboração da <strong className="fw-bold">ABNT NBR 17225</strong> e 
+                  <strong className="fw-bold"> engenharia prescritiva</strong> para blindar produtos digitais 
+                  contra riscos legais e transformá-los em experiências inclusivas.
                 </p>
                 
                 <br />
                 
                 <div className="row">
-                  <div className="col mt-5 text-md-start text-center">
+                  <div className="col mt-3 text-md-start text-center">
                     <Link 
                       to="/manifesto" 
                       className="shadow" 
                       style={{ 
                         backgroundColor: '#DD5321', 
-                        padding: '15px 32px', 
+                        padding: '14px 28px', 
                         border: 'none', 
                         borderRadius: '4px', 
                         textDecoration: 'none', 
                         color: 'white',
-                        display: 'inline-block'
+                        display: 'inline-block',
+                        fontWeight: '600'
                       }}
-                      aria-label="Leia nosso manifesto de design"
+                      aria-label="Leia nosso manifesto de design e engenharia da mediação"
                     >
-                      Manifesto de Design
+                      Manifesto Metodológico
                     </Link>
                   </div>
                   
                   <div className="row">
                     <div className="col pe-md-5 pt-4 text-center">
                       <img
-                        src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fvector_home.png?alt=media&token=4024c3fd-e226-4b50-90c3-0ab20f4a88c1"
+                        src='https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/vector_home.png'
                         alt="Seta indicativa para scroll"
                         width="34"
                         height="49"
@@ -100,7 +102,7 @@ function Home() {
           </div>
         </section>
 
-        {/* Seção Fundamental */}
+        {/* Seção Fundamental: Mitigação de Riscos e Auditoria */}
         <section 
           id="fundamental" 
           className="fundamental fundamental-md pb-md-5" 
@@ -112,15 +114,17 @@ function Home() {
               <div className="row">
                 <div className="col-12 col-md-4 mb-5 me-md-4">
                   <img
-                    src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsecao2.png?alt=media&token=6ba8f0ea-61c0-44a4-a6da-4ff917ea9a56"
+                    src='https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/secao2.png'
                     className="img-fluid"
-                    alt="Dois triângulos em direções opostas simbolizando exploração"
+                    alt="Estrutura e foco em conformidade e validação"
                     loading="lazy"
                   />
                 </div>
                 
-                <div className="col-12 col-md-4">
-                  <h2 id="fundamental-heading" className="text-start" style={{ fontSize: '1.75rem' }}>EXPLORE POSSIBILIDADES</h2>
+                <div className="col-12 col-md-7 col-lg-6">
+                  <h2 id="fundamental-heading" className="text-start" style={{ fontSize: '1.75rem' }}>
+                    CONFORMIDADE LEGAL & EXPERIÊNCIA DE USO
+                  </h2>
                   
                   <div 
                     role="separator" 
@@ -134,27 +138,33 @@ function Home() {
                     }}
                   ></div>
                   
-                  <p className="text-start text-grey mt-3" style={{ fontSize: '1.1rem' }}>
-                    Incentivamos a <strong className="fw-bold">criatividade</strong> e a <strong className="fw-bold">inovação</strong> para transformar suas ideias em <strong className="fw-bold">experiências impactantes. </strong>
-                    Acreditamos que isso é <strong className="fw-bold">fundamental </strong> para o sucesso dos <strong className="fw-bold">projetos orientados ao conhecimento</strong>.
+                  <p className="text-start text-grey mt-3" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
+                    Com a vigência obrigatória da <strong className="fw-bold">ABNT NBR 17225:2025</strong> e a aplicação 
+                    do <strong className="fw-bold">Artigo 63 da Lei Brasileira de Inclusão (LBI)</strong>, interfaces inacessíveis 
+                    representam passivos jurídicos e perdas imediatas no funil de conversão.
+                  </p>
+                  <p className="text-start text-grey" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
+                    Nossa atuação substitui checklists automatizados por <strong className="fw-bold">auditorias periciais</strong>, 
+                    laudos com fundamentação técnica e entrega de correções em código HTML5 e WAI-ARIA para times de engenharia.
                   </p>
                   
-                  <div className="col mt-5 text-center text-md-start">
+                  <div className="col mt-4 text-center text-md-start">
                     <Link 
                       to="/projetos" 
                       className="shadow" 
                       style={{ 
                         backgroundColor: '#28A7EF', 
-                        padding: '15px 32px', 
+                        padding: '14px 28px', 
                         border: 'none', 
                         borderRadius: '4px', 
                         textDecoration: 'none', 
                         color: 'white',
-                        display: 'inline-block'
+                        display: 'inline-block',
+                        fontWeight: '600'
                       }}
-                      aria-label="Veja nossos projetos realizados"
+                      aria-label="Conheça nossas soluções em auditoria e produtos proprietários"
                     >
-                      Conheça Alguns dos Nossos Produtos
+                      Auditoria NBR 17225 & Soluções
                     </Link>
                   </div>
                 </div>
@@ -163,25 +173,27 @@ function Home() {
           </div>
         </section>
 
-        {/* Seção Clareza */}
+        {/* Seção Clareza: Rigor Científico e Ferramentas Próprias */}
         <section 
           id="secao3" 
           style={{ padding: '8rem 0' }}
           aria-labelledby="clareza-heading"
         >
-          <div className="offset-md-5 container container-fluid">
-            <div className="row align-items-end">
-              <div className="col-12 col-md-4 mx-md-5 d-md-none">
+          <div className="offset-md-1 container container-fluid">
+            <div className="row align-items-center">
+              <div className="col-12 col-md-4 mx-md-4 d-md-none">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsecao3.png?alt=media&token=0032ebc5-5e3e-42ed-9f00-f127e8f88918"
+                  src='https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/secao2.png'
                   className="img-fluid"
                   alt="Alvo simbolizando foco e precisão"
                   loading="lazy"
                 />
               </div>
               
-              <div className="col-12 col-md-4">
-                <h2 id="clareza-heading" className="text-start text-md-start" style={{ fontSize: '1.75rem' }}>CLAREZA NO FOCO</h2>
+              <div className="col-12 col-md-6 col-lg-5">
+                <h2 id="clareza-heading" className="text-start text-md-start" style={{ fontSize: '1.75rem' }}>
+                  RIGOR METODOLÓGICO & INOVAÇÃO
+                </h2>
                 
                 <div 
                   role="separator" 
@@ -195,36 +207,41 @@ function Home() {
                   }}
                 ></div>
                 
-                <p className="text-start text-md-start text-grey mt-3" style={{ fontSize: '1.1rem' }}>
-                  Temos um foco claro em <strong className="fw-bold">pesquisa, desenvolvimento e inovação</strong>
-                  . Nosso objetivo é ajuda-lo a se destacar, <strong className="fw-bold">criando soluções de design</strong> com qualidade de interação. Trabalhamos para <strong className="fw-bold">criar </strong>produtos e serviços <strong className="fw-bold">focados na experiência de uso</strong>.
+                <p className="text-start text-md-start text-grey mt-3" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
+                  Desenvolvemos e aplicamos frameworks próprios validados por <strong className="fw-bold">Design Science Research (PPGEGC/UFSC)</strong> e 
+                  registrados no INPI, como o método <strong className="fw-bold">CADUX</strong> e o simulador interativo <strong className="fw-bold">Jornada da Acessibilidade</strong>.
+                </p>
+                <p className="text-start text-md-start text-grey" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
+                  Atuamos na vanguarda da <strong className="fw-bold">Web Agêntica e Inteligência Artificial</strong>, integrando a acessibilidade 
+                  como critério de inteligência e usabilidade em sistemas complexos, AVEAs e plataformas B2B.
                 </p>
                 
-                <div className="col mt-5 text-center text-md-start">
+                <div className="col mt-4 text-center text-md-start">
                   <Link 
                     to="/academy" 
                     className="shadow" 
                     style={{ 
                       backgroundColor: '#333333', 
-                      padding: '16px 32px', 
+                      padding: '14px 28px', 
                       border: 'none', 
                       borderRadius: '4px', 
                       textDecoration: 'none', 
                       color: 'white',
-                      display: 'inline-block'
+                      display: 'inline-block',
+                      fontWeight: '600'
                     }}
-                    aria-label="Conheça nossas pesquisas em design"
+                    aria-label="Conheça nossas metodologias e pesquisa aplicada"
                   >
-                    Conheça Nossas Pesquisas
+                    Metodologia CADUX & Pesquisas
                   </Link>
                 </div>
               </div>
               
-              <div className="col-12 col-md-4 mx-md-5 d-none d-md-block">
+              <div className="col-12 col-md-5 col-lg-5 mx-md-4 d-none d-md-block">
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fsecao3.png?alt=media&token=0032ebc5-5e3e-42ed-9f00-f127e8f88918"
+                  src='https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/secao3.png'
                   className="img-fluid"
-                  alt="Alvo simbolizando foco e precisão"
+                  alt="Precisão metodológica e design centrado no usuário"
                   loading="lazy"
                 />
               </div>
@@ -232,33 +249,34 @@ function Home() {
           </div>
         </section>
 
-        {/* Seção 4: Inclusão */}
+        {/* Seção 4: Posicionamento Normativo */}
         <section 
           id="inclusao"
           className="text-center text-white" 
-          style={{ padding: '7rem 0', background: 'rgba(51, 51, 51, 1)' }}
+          style={{ padding: '6rem 0', background: 'rgba(51, 51, 51, 1)' }}
           aria-labelledby="inclusao-heading"
         >
           <div className="container">
             <div className="row justify-content-center">
-              <div className="col-9 col-lg-8">
+              <div className="col-10 col-lg-9">
                 <div 
                   role="separator" 
                   aria-hidden="true"
                   style={{ 
                     width: '100%',
                     height: '1px',
-                    backgroundColor: '#fff',
-                    margin: '0 auto 3rem'
+                    backgroundColor: 'rgba(255,255,255,0.3)',
+                    margin: '0 auto 2.5rem'
                   }}
                 ></div>
                 
-                <h3 id="inclusao-heading" className="display-6 mb-4">
-                  <strong>Somos inclusivos</strong>. Nosso compromisso com a <strong>inclusão digital</strong> é refletido em cada projeto.
+                <h3 id="inclusao-heading" className="fs-2 mb-3 fw-bold">
+                  Acessibilidade é mais que conformidade técnica: é a medida de inteligência da sua interface.
                 </h3>
                 
-                <p className="display-6">
-                  Oferecemos consultoria em <strong>Design Inclusivo</strong> e <strong>Acessibilidade Digital</strong>.
+                <p className="fs-5 text-grey">
+                  Consultoria técnica liderada por membro do <strong>Comitê ABNT/CB-040</strong>, 
+                  estruturando produtos em conformidade com as <strong>WCAG 2.2</strong> e a <strong>ABNT NBR 17225:2025</strong>.
                 </p>
                 <div 
                   role="separator" 
@@ -266,8 +284,8 @@ function Home() {
                   style={{ 
                     width: '100%',
                     height: '1px',
-                    backgroundColor: '#fff',
-                    margin: '3rem auto 1rem'
+                    backgroundColor: 'rgba(255,255,255,0.3)',
+                    margin: '2.5rem auto 1rem'
                   }}
                 ></div>
               </div>
@@ -275,7 +293,7 @@ function Home() {
           </div>
         </section>
 
-        {/* Seção 5: Sobre */}
+        {/* Seção 5: Sobre e Eixos de Serviço */}
         <section 
           id="sobre"
           style={{ 
@@ -299,7 +317,7 @@ function Home() {
               minWidth: '250px'
             }}>
               <img
-                src="https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fandroid-chrome-512x512.png?alt=media&token=3f18178d-f743-445f-b7f4-4e8c905e7de2"
+                src='https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/android-chrome-512x512.png'
                 alt="Identidade Visual da LeFul Design House"
                 style={{
                   width: '100%',
@@ -310,7 +328,7 @@ function Home() {
                 loading="lazy"
                 aria-describedby="image-description"
               />
-              <span id="image-description" className="sr-only">Logotipo abstrato da LeFul Design House com formas geométricas modernas</span>
+              <span id="image-description" className="sr-only">Logotipo oficial da LeFul Design House</span>
             </div>
 
             {/* Parte direita - Conteúdo */}
@@ -318,13 +336,13 @@ function Home() {
               flex: '1 1 500px'
             }}>
               <h2 id="sobre-heading" style={{
-                fontSize: 'clamp(1.5rem, 4vw, 2rem)', /* 50% menor */
+                fontSize: 'clamp(1.5rem, 4vw, 2rem)',
                 fontWeight: '700',
                 lineHeight: '1.3',
                 marginBottom: '1.5rem',
                 color: '#1a1a1a'
               }}>
-                Da ideia à experiência: <span style={{ color: '#D84315' }}>juntos nessa jornada</span>.
+                Engenharia da Mediação: <span style={{ color: '#D84315' }}>da conformidade à experiência</span>.
               </h2>
               
               <div 
@@ -339,24 +357,32 @@ function Home() {
               ></div>
               
               <p style={{
-                fontSize: '1.1rem',
+                fontSize: '1.05rem',
                 lineHeight: '1.6',
                 marginBottom: '1.5rem',
                 color: '#333'
               }}>
-                Somos uma <strong style={{ fontWeight: 'bold' }}>casa de design orientada ao conhecimento</strong>
-                . Oferecemos serviços que vão desde criação de sistemas de identidade visual até projetos completos de:
+                Somos uma <strong style={{ fontWeight: 'bold' }}>consultoria especializada em Design Inclusivo, Acessibilidade Digital e UX</strong>. 
+                Atuamos estrategicamente na capacitação de equipes e adequação técnica de produtos em quatro frentes principais:
               </p>
               
               <ul style={{
                 margin: '1.5rem 0',
-                paddingLeft: '1.5rem',
+                paddingLeft: '0.5rem',
                 listStyleType: 'none'
-              }} aria-label="Nossos serviços">
-                <li style={{ marginBottom: '0.8rem', fontSize: '1.1rem' }}>• Treinamentos e Consultoria</li>
-                <li style={{ marginBottom: '0.8rem', fontSize: '1.1rem' }}>• Produtos digitais e aplicativos</li>
-                <li style={{ marginBottom: '0.8rem', fontSize: '1.1rem' }}>• Modelagem de serviços</li>
-                <li style={{ marginBottom: '0.8rem', fontSize: '1.1rem' }}>• Recursos educacionais digitais</li>
+              }} aria-label="Nossos serviços especializados">
+                <li style={{ marginBottom: '0.8rem', fontSize: '1.05rem', color: '#1a1a1a' }}>
+                  • <strong>Auditoria Express & Laudos Técnicos:</strong> Varredura pericial de conformidade ABNT NBR 17225 e Art. 63 LBI com matriz de severidade em código.
+                </li>
+                <li style={{ marginBottom: '0.8rem', fontSize: '1.05rem', color: '#1a1a1a' }}>
+                  • <strong>Workshops Corporativos CADUX:</strong> Capacitação prática in-company para times de Produto, Design e Engenharia.
+                </li>
+                <li style={{ marginBottom: '0.8rem', fontSize: '1.05rem', color: '#1a1a1a' }}>
+                  • <strong>Design Systems Inclusivos:</strong> Arquitetura e padronização de bibliotecas de componentes semânticos, acessíveis e escaláveis.
+                </li>
+                <li style={{ marginBottom: '0.8rem', fontSize: '1.05rem', color: '#1a1a1a' }}>
+                  • <strong>Recursos Educacionais Digitais (RDA):</strong> Modelagem e validação de ambientes virtuais e plataformas de ensino acessíveis.
+                </li>
               </ul>
               
               <div style={{
@@ -366,71 +392,71 @@ function Home() {
                 marginTop: '2rem'
               }}>
                 <Link 
-                  to="/politica" 
+                  to="/servicos"
                   style={{
                     background: '#D84315',
                     color: 'white',
-                    padding: '1rem 2rem',
-                    borderRadius: '8px',
+                    padding: '0.9rem 1.8rem',
+                    borderRadius: '6px',
                     textDecoration: 'none',
-                    fontWeight: '500',
+                    fontWeight: '600',
                     transition: 'all 0.3s ease'
                   }}
-                  aria-label="Leia nossa política de design"
+                  aria-label="Conheça nossas consultorias e serviços"
                 >
-                  Nossa Política →
+                  Conheça Nossos Serviços
                 </Link>
                 <Link 
-                  to="/servicos"
+                  to="/politica" 
                   style={{
                     border: '1px solid #1a1a1a',
-                    padding: '1rem 2rem',
-                    borderRadius: '8px',
+                    padding: '0.9rem 1.8rem',
+                    borderRadius: '6px',
                     textDecoration: 'none',
-                    fontWeight: '500',
+                    fontWeight: '600',
                     transition: 'all 0.3s ease',
                     color: '#1a1a1a'
                   }}
-                  aria-label="Conheça nossos serviços"
+                  aria-label="Leia nossa política e compromisso com a acessibilidade"
                 >
-                  Conheça Nossos Serviços
+                  Nossa Política de Acessibilidade
                 </Link>
               </div>
             </div>
           </div>
         </section>
 
-       {/* Seção 6: CTA - Versão Otimizada */}
+        {/* Seção 6: CTA Executivo */}
         <section 
           id="cta"
-          style={{ padding: '7rem 0' }}
+          style={{ padding: '6rem 0' }}
           className="py-10 py-lg-12"
           aria-labelledby="cta-heading"
         >
           <div className="container px-4">
-            <div className="mx-auto" style={{ maxWidth: '800px' }}>
-              {/* Cabeçalho com animação sutil */}
-              <div className="mb-8" data-aos="fade-up">
-                <h3 id="cta-heading" className="fs-1 fw-normal mb-5 text-center">
-                  Pronto para transformar ideias em <span className="text-primary fw-bold">experiências impactantes</span>?
+            <div className="mx-auto text-center" style={{ maxWidth: '850px' }}>
+              <div className="mb-6" data-aos="fade-up">
+                <h3 id="cta-heading" className="fs-1 fw-bold mb-4">
+                  Elimine riscos legais e impulsione a <span className="text-primary">experiência do seu produto</span>.
                 </h3>
                 
-                <p className="fs-5 text-muted mb-6">
-                  Design estratégico começa com diálogo. Vamos conversar sobre como podemos criar <strong>soluções inteligentes</strong> para o seu negócio.
+                <p className="fs-5 text-muted mb-5">
+                  Agende uma conversa técnica com nossos especialistas e descubra como adequar suas interfaces 
+                  às normas vigentes com agilidade e alto impacto de negócio.
                 </p>
               </div>
 
-              {/* Grupo de botões com hover effects */}
+              {/* Grupo de botões */}
               <div 
-                className="d-flex flex-column flex-md-row justify-content-center gap-4"
+                className="d-flex flex-column flex-md-row justify-content-center gap-3"
                 data-aos="fade-up" 
                 data-aos-delay="100"
-                style={{ padding: '3rem 0' }}
+                style={{ padding: '1.5rem 0' }}
               >
                 <Link 
                   to="/contato" 
-                  className="btn btn-primary fs-6 px-4 py-3 shadow-lg-hover fw-semibold"
-                  aria-label="Fale conosco sobre seu projeto"
+                  className="btn btn-primary fs-6 px-4 py-3 shadow-lg-hover fw-bold"
+                  aria-label="Fale conosco sobre auditoria ou consultoria técnica"
                   style={{
                     transition: 'all 0.3s ease',
                     transform: 'translateY(0)'
@@ -438,7 +464,7 @@ function Home() {
                   onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
                   onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
                 >
-                  <i className="bi bi-chat-left-text me-2"></i> Fale com nosso time
+                  <i className="bi bi-chat-left-text me-2"></i> Solicitar Diagnóstico de Conformidade
                 </Link>
                 
                 <a 
@@ -450,14 +476,15 @@ function Home() {
                 </a>
               </div>
 
-              {/* Elemento decorativo opcional */}
-              <div className="mt-10 text-center" style={{ padding: '2rem 0' }}>
-                <p className="small text-muted mb-2">NOSSOS PARCEIROS</p>
-                <div className="d-flex justify-content-center gap-4 opacity-75">
-                  {/* Logos de parceiros ou selos de qualidade */}
-                  <span className="text-muted">Reference Minds</span>
-                  <span className="text-muted">LaMiD</span>
-                  <span className="text-muted">Santa i/o</span>
+              {/* Selos / Ecossistema Institucional */}
+              <div className="mt-8 text-center" style={{ padding: '2rem 0' }}>
+                <p className="small text-muted mb-3 letter-spacing-1">ECOSSISTEMA DE PESQUISA, DESENVOLVIMENTO E PARCERIAS</p>
+                <div className="d-flex justify-content-center align-items-center gap-4 opacity-75 flex-wrap">
+                  <span className="badge bg-light text-dark px-3 py-2 border">PPGEGC / UFSC</span>
+                  <span className="badge bg-light text-dark px-3 py-2 border">LaMiD</span>
+                  <span className="badge bg-light text-dark px-3 py-2 border">ABNT CB-040</span>
+                  <span className="badge bg-light text-dark px-3 py-2 border">SINOVA</span>
+                  <span className="badge bg-light text-dark px-3 py-2 border">Projeto CADUX</span>
                 </div>
               </div>
             </div>
