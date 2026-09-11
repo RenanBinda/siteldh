@@ -1,3 +1,10 @@
+npm install
+
+npm run build 
+serve -s build  
+ou
+npm start
+
 
 npm install -g firebase-tools    
 
@@ -11,6 +18,8 @@ npx firebase deploy --only hosting
 npm install -g expo-cli
 npm run build
 npm start
+
+npm run build -- --clear-cache     
 
 npm install-scripts approve --all
 npm audit fix --force
@@ -28,7 +37,11 @@ npm install react-scripts --save
 
 npm install @supabase/supabase-js
 
+npm install supabase --save-dev
+npx supabase init
 
+npx supabase functions deploy resend-email --no-verify-jwt
+npx supabase functions download resend-email --project-ref uycxgjzhawzvblaqlpdc
 
 # 1. Instala um servidor estático leve no seu PC
 npm install -g serve
