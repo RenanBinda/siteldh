@@ -41,7 +41,7 @@ export default function Servicos() {
     {
       id: 3,
       title: "Design Systems Acessíveis & UI/UX",
-      description: "Padronização de componentes reutilizáveis em conformidade nativa com WCAG 2.2 e ABNT NBR 17225, eliminando retrabalho na engenharia.",
+      description: "Padronização de componentes reutilizáveis em conformidade com WCAG 2.2 e ABNT NBR 17225, eliminando retrabalho na engenharia.",
       buttonText: "Estruturar Design System",
       link: "/contato",
       bgClass: "bg-dark",
@@ -50,11 +50,11 @@ export default function Servicos() {
     {
       id: 4,
       title: "Consultoria em Web Agêntica e IA",
-      description: "Preparação de ecossistemas digitais e recursos de aprendizagem para a mediação por agentes inteligentes de IA livres de alucinações técnicas.",
+      description: "Preparação de ecossistemas digitais e recursos de aprendizagem para a mediação por agentes inteligentes de IA.",
       buttonText: "Inovação em Web Agêntica",
       link: "/contato",
       bgClass: "bg-alert",
-      image: "https://firebasestorage.googleapis.com/v0/b/portifolio-renan.appspot.com/o/imagens%2Facademy2.png?alt=media&token=c9b16c0d-93b9-4980-9473-0e7c1d5d9f3e"
+      image: "https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/03.jpg"
     }
   ];
 
@@ -65,7 +65,7 @@ export default function Servicos() {
       descricao: "Mapeamento minucioso de vulnerabilidades",
       detalhes: [
         "Varredura Semântica: Inspeção algorítmica e heurística do DOM frente aos 156 critérios da ABNT NBR 17225:2025 e WCAG 2.2.",
-        "Testes de Jornada Real: Avaliação comportamental com leitores de tela (NVDA/TalkBack), navegação estrita por teclado e ampliadores.",
+        "Testes de Jornada: Avaliação comportamental com leitores de tela (NVDA/TalkBack), navegação estrita por teclado e ampliadores.",
         "Matriz de Severidade: Categorização de barreiras impeditivas de conversão, alertas preventivos e conformidades existentes."
       ]
     },
@@ -102,10 +102,10 @@ export default function Servicos() {
   const cases = [
     {
       id: 1,
-      titulo: "Plataforma CoIn & Auditoria MEC RED",
+      titulo: "Plataforma CoIn & Auditoria",
       categoria: "Auditoria Automatizada & IA",
-      descricao: "Varredura algorítmica e heurística de 112 nós estruturais com diagnóstico pericial e prescrição de código semântico baseada na ABNT NBR 17225:2025.",
-      imagem: "https://firebasestorage.googleapis.com/v0/b/portifolio-renan.appspot.com/o/imagens%2Facademy2.png?alt=media&token=c9b16c0d-93b9-4980-9473-0e7c1d5d9f3e",
+      descricao: "Varredura algorítmica e heurística nós estruturais com diagnóstico pericial e prescrição de código semântico baseada na ABNT NBR 17225:2025.",
+      imagem: "https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/App_CoIn.png",
       metrica: {
         valor: "156 Critérios",
         label: "Norma ABNT NBR 17225:2025"
@@ -116,8 +116,8 @@ export default function Servicos() {
       id: 2,
       titulo: "Jornada da Acessibilidade & CADUX ®",
       categoria: "Gamificação & Inovação Social",
-      descricao: "Simulador colaborativo em tempo real e framework de cartas com 5 dimensões de UX, validado por DSR/UFSC e premiado no Edital Fábrica de Jogos da SINOVA.",
-      imagem: "https://firebasestorage.googleapis.com/v0/b/lefulsite-aaafc.firebasestorage.app/o/Images_Site%2Fcreative.jpg?alt=media&token=cfab8447-dc67-40f5-bcfd-72a89bf2def2",
+      descricao: "Simulador colaborativo em tempo real e framework de cartas com dimensões de UX, contemplado no Edital Fábrica de Jogos da SINOVA/UFSC.",
+      imagem: "https://uycxgjzhawzvblaqlpdc.supabase.co/storage/v1/object/public/img/POST1.jpg",
       metrica: {
         valor: "INPI Concedido",
         label: "Marca e Metodologia Registradas"
@@ -133,15 +133,15 @@ export default function Servicos() {
       texto: "Iniciativas como as da LeFul são essenciais para que pessoas com deficiência sejam consideradas como parte do processo desde o início, eliminando a necessidade de adaptações tardias e garantindo o desenho universal na prática.",
       avaliacao: 5,
       autor: {
-        nome: "Reinaldo Ferraz",
+        nome: "R. F.",
         cargo: "Especialista em Acessibilidade Digital",
-        empresa: "NIC.br / W3C Brasil",
+        empresa: " / ",
         foto: "https://firebasestorage.googleapis.com/v0/b/portifolio-renan.appspot.com/o/imagens%2FRenan_Site.png?alt=media&token=d4201e0f-1112-43c4-bd7d-0a2b85793135"
       }
     },
     {
       id: 2,
-      texto: "A articulação entre a norma ABNT NBR 17225 e a metodologia CADUX representa uma virada metodológica: transforma requisitos legais complexos em ferramentas intuitivas de engenharia e experiência de uso.",
+      texto: "A articulação entre a norma ABNT NBR 17225 e o Framework CADUX representa uma virada metodológica: transforma requisitos legais complexos em ferramentas intuitivas de engenharia e experiência de uso.",
       avaliacao: 5,
       autor: {
         nome: "Profa. Dra. Vania Ribas Ulbricht",
@@ -246,7 +246,7 @@ export default function Servicos() {
       titulo: "Conformidade Legal & LBI",
       icone: <FaFileContract />,
       itens: [
-        "Laudos periciais para Ministério Público",
+        "Laudos técnicos para Ministério Público",
         "Adequação compulsória ao Art. 63 da LBI",
         "Auditoria técnica em funil de vendas e checkout",
         "Autodeclaração formal de acessibilidade"
@@ -292,12 +292,12 @@ export default function Servicos() {
     const prevSlide = () => setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
 
     useEffect(() => {
-      const interval = setInterval(nextSlide, 6000);
+      const interval = setInterval(nextSlide, 8000);
       return () => clearInterval(interval);
     }, [activeIndex]);
 
     return (
-      <section className="hero-section" aria-label="Apresentação dos serviços especializados LeFul">
+      <section className="hero-section" style={{padding: '0', maxHeight: '600px'}} aria-label="Apresentação dos serviços especializados LeFul">
         <div className="hero-slides" role="group" aria-roledescription="carousel" aria-live="polite">
           {items.map((item, index) => (
             <div 
@@ -356,12 +356,12 @@ export default function Servicos() {
   // Especialidades / Ofertas Centrais
   const EspecialidadesSection = ({ areas }) => (
     <section className="especialidades-section py-5">
-      <div className="container">
+      <div className="container mt-5 mb-5">
         <div className="section-header text-center mb-5">
           <span className="text-uppercase fw-bold text-primary small letter-spacing-1">Nossas Frentes de Atuação</span>
-          <h2 className="display-5 fw-bold mb-3">Consultoria de <span className="text-primary">Alto Valor e Impacto</span></h2>
+          <h2 className="display-5 fw-bold mb-3 mt-2">Consultoria de <span className="text-primary">Alto Valor e Impacto</span></h2>
           <p className="lead text-muted mx-auto" style={{ maxWidth: '820px' }}>
-            Na LeFul Design House, unimos o rigor normativo da ABNT, a fundamentação científica da UFSC e a engenharia prescritiva para entregar conformidade real e usabilidade de alta conversão.
+            Na LeFul Design House, unimos o rigor normativo da ABNT, a fundamentação científica da UFSC e a engenharia prescritiva para entregar conformidade e usabilidade de alta conversão.
           </p>
         </div>
         
@@ -407,11 +407,11 @@ export default function Servicos() {
   // Soluções Sob Medida
   const SolucoesSection = ({ solucoes }) => (
     <section className="solucoes-section py-5 bg-light">
-      <div className="container">
+      <div className="container mt-5 mb-5">
         <div className="section-header text-center mb-5">
           <span className="text-uppercase fw-bold text-primary small letter-spacing-1">Expertise Específica</span>
-          <h2 className="display-5 fw-bold"><span className="text-primary">Soluções</span> para Desafios Complexos</h2>
-          <p className="lead text-muted">Pacotes sob medida para engenharia de software, jurídico corporativo e times de produto</p>
+          <h2 className="display-5 fw-bold mt-2"><span className="text-primary">Soluções</span> para Desafios Complexos</h2>
+          <p className="lead text-muted">Pacotes sob medida para engenharia de software, jurídico e times de produto</p>
         </div>
         
         <div className="row g-4">
@@ -445,11 +445,11 @@ export default function Servicos() {
   
     return (
       <section className="processo-section section py-5 bg-white" aria-labelledby="processo-heading">
-        <div className="container">
+        <div className="container mt-5 mb-5">
           <div className="section-header text-center mb-5">
             <span className="text-uppercase fw-bold text-primary small letter-spacing-1">Metodologia Prescritiva</span>
-            <h2 id="processo-heading" className="display-5 fw-bold">Como Conduzimos Nossas <span className="text-primary">Consultorias</span></h2>
-            <p className="lead text-muted">Estrutura baseada em Design Science Research (DSR) e na Engenharia da Mediação</p>
+            <h2 id="processo-heading" className="display-5 fw-bold mt-2">Como Conduzimos Nossas <span className="text-primary">Consultorias</span></h2>
+            <p className="lead text-muted">Estrutura baseada em Design Science Research e na Engenharia da Mediação</p>
           </div>
           
           <div className="processo-container">
@@ -480,7 +480,7 @@ export default function Servicos() {
             </div>
             
             <div className="step-content p-4 bg-light rounded border shadow-sm" id={`step-content-${activeStep}`}>
-              <h4 className="fw-bold h5 mb-3 text-dark">
+              <h4 className="fw-bold h5 mb-4 text-dark">
                 Etapas Detalhadas: {processos[activeStep].titulo}
               </h4>
               <ul className="list-unstyled mb-0">
@@ -510,10 +510,10 @@ export default function Servicos() {
   // Cases Reais
   const CasesSection = ({ cases }) => (
     <section className="cases-section section py-5 bg-light" aria-labelledby="cases-heading">
-      <div className="container">
+      <div className="container mt-5 mb-5">
         <div className="section-header text-center mb-5">
           <span className="text-uppercase fw-bold text-primary small letter-spacing-1">Validação Pragmática</span>
-          <h2 id="cases-heading" className="display-5 fw-bold">Artefatos e <span className="text-primary">Projetos de Referência</span></h2>
+          <h2 id="cases-heading" className="display-5 fw-bold mt-2">Artefatos e <span className="text-primary">Projetos de Referência</span></h2>
           <p className="lead text-muted">Soluções desenvolvidas e homologadas pela LeFul Design House</p>
         </div>
         
@@ -559,10 +559,10 @@ export default function Servicos() {
   // Depoimentos Qualificados
   const DepoimentosSection = ({ depoimentos }) => (
     <section className="depoimentos-section section py-5 text-white" style={{ backgroundColor: '#2B2E34' }} aria-labelledby="depoimentos-heading">
-      <div className="container">
+      <div className="container mt-5 mb-5">
         <div className="section-header text-center mb-5">
           <span className="text-uppercase fw-bold text-info small letter-spacing-1">Reconhecimento Técnico</span>
-          <h2 id="depoimentos-heading" className="display-5 fw-bold text-white">Chancela de <span style={{ color: '#009FE3' }}>Especialistas</span></h2>
+          <h2 id="depoimentos-heading" className="display-5 fw-bold text-white mt-2">Chancela de <span style={{ color: '#009FE3' }}>Especialistas</span></h2>
           <p className="lead text-light opacity-75">O que dizem as principais referências nacionais em acessibilidade digital</p>
         </div>
         
@@ -595,11 +595,11 @@ export default function Servicos() {
   // CTA Comercial
   const CTASection = () => (
     <section className="cta-section section py-5 bg-white" aria-labelledby="cta-heading">
-      <div className="container text-center" style={{ maxWidth: '820px' }}>
-        <h2 id="cta-heading" className="display-5 fw-bold mb-3">
+      <div className="container text-center mt-5 mb-5" style={{ maxWidth: '820px' }}>
+        <h2 id="cta-heading" className="display-6 fw-bold mb-3">
           Pronto para Adequar seu Produto Digital à <span className="text-primary">ABNT NBR 17225</span>?
         </h2>
-        <p className="lead text-muted mb-4">
+        <p className="lead text-muted mb-5">
           Converse diretamente com o Dr. Renan de Paula Binda e solicite uma proposta para a Auditoria Express ou Workshop Metodológico CADUX ®.
         </p>
         

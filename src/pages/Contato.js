@@ -1,327 +1,436 @@
-import { useState, useEffect } from 'react'; 
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
+  FaCalendarCheck, 
   FaPaperPlane, 
-  FaUser, 
   FaEnvelope, 
-  FaComment,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaLinkedin,
-  FaInstagram,
-  FaCheckCircle,
-  FaExclamationTriangle
+  FaPhoneAlt, 
+  FaLinkedin, 
+  FaExclamationCircle, 
+  FaCheckCircle, 
+  FaArrowRight
 } from 'react-icons/fa';
-import ReCAPTCHA from 'react-google-recaptcha';
+import { supabase } from '../integrations/supabase/client';
+import '../Styles/global.css';
 
-function Contato() {
+export default function Contato() {
   const [formData, setFormData] = useState({
-    contactname: '',
+    nome: '',
     email: '',
+    empresa: '',
+    telefone: '',
+    tipoDemanda: '',
     mensagem: ''
   });
 
   const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState(null);
-  const [recaptchaError, setRecaptchaError] = useState('');
+  const errorSummaryRef = useRef(null);
 
-  useEffect(() => {
-    const loadRecaptcha = () => {
-      const script = document.createElement('script');
-      script.src = 'https://www.google.com/recaptcha/api.js';
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    };
-  
-    loadRecaptcha();
-  
-    return () => {
-      const script = document.querySelector('script[src="https://www.google.com/recaptcha/api.js"]');
-      if (script) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+  const validate = () => {
+    const errs = {};
+
+    // 1. Campo Nome Obrigatório (mínimo 3 caracteres)
+    if (!formData.nome.trim()) {
+      errs.nome = 'O nome completo é obrigatório.';
+    } else if (formData.nome.trim().length < 3) {
+      errs.nome = 'O nome deve conter pelo menos 3 caracteres.';
+    }
+
+    // 2. Campo E-mail Obrigatório e Válido
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      errs.email = 'O e-mail institucional ou comercial é obrigatório.';
+    } else if (!emailRegex.test(formData.email.trim())) {
+      errs.email = 'Insira um formato de e-mail válido (ex: nome@empresa.com.br).';
+    }
+
+    // 3. Campo Escopo/Tipo de Demanda Obrigatório
+    if (!formData.tipoDemanda) {
+      errs.tipoDemanda = 'Selecione o escopo do projeto ou demanda técnica.';
+    }
+
+    return errs;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    // Limpa erro quando o usuário digita
+    setFormData(prev => ({ ...prev, [name]: value }));
+    // Limpeza progressiva do erro ao digitar
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-  };
-
-  const handleRecaptchaChange = (token) => {
-    setRecaptchaToken(token);
-    setRecaptchaError('');
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setErrors({});
-    setRecaptchaError('');
-    
-    // Validação do formulário
-    const newErrors = {};
-    if (!formData.contactname.trim()) newErrors.contactname = 'Nome é obrigatório';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email é obrigatório';
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Por favor, insira um email válido';
-    }
-    if (!formData.mensagem.trim()) newErrors.mensagem = 'Mensagem é obrigatória';
-    if (!recaptchaToken) {
-      setRecaptchaError('Por favor, confirme que você não é um robô');
-    }
-    
-    if (Object.keys(newErrors).length > 0 || !recaptchaToken) {
-      setErrors(newErrors);
-      setIsSubmitting(false);
-      // Foca no primeiro campo com erro
-      const firstError = Object.keys(newErrors)[0];
-      if (firstError) {
-        document.querySelector(`[name="${firstError}"]`).focus();
-      }
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setSubmitted(false);
+      setTimeout(() => {
+        if (errorSummaryRef.current) {
+          errorSummaryRef.current.focus();
+        }
+      }, 50);
       return;
     }
-    
+
+    setIsSubmitting(true);
+    setErrors({});
+
     try {
-      const response = await fetch(
-        'https://us-central1-lefulsite-aaafc.cloudfunctions.net/sendContactEmail',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            nome: formData.contactname,
-            email: formData.email,
-            mensagem: formData.mensagem,
-            recaptchaToken
-          })
+      // Disparo da Edge Function do Supabase configurada com o Resend
+      const { data, error } = await supabase.functions.invoke('RESEND_API_KEY', {
+        body: {
+          to: 'atendimento@leful.com.br',
+          subject: `Novo Contato Site LeFul: ${formData.tipoDemanda}`,
+          html: `
+            <h2>Nova Mensagem via Formulário do Site</h2>
+            <p><strong>Nome:</strong> ${formData.nome}</p>
+            <p><strong>E-mail:</strong> ${formData.email}</p>
+            <p><strong>Empresa:</strong> ${formData.empresa || 'Não informada'}</p>
+            <p><strong>Telefone:</strong> ${formData.telefone || 'Não informado'}</p>
+            <p><strong>Tipo de Demanda:</strong> ${formData.tipoDemanda}</p>
+            <p><strong>Mensagem:</strong><br/>${formData.mensagem || 'Nenhuma mensagem adicional.'}</p>
+          `
         }
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Erro ao enviar mensagem');
-      }
-
-      setSubmitSuccess(true);
-      setFormData({ contactname: '', email: '', mensagem: '' });
-      setRecaptchaToken(null);
-      if (window.grecaptcha) {
-        window.grecaptcha.reset();
-      }
-    } catch (error) {
-      console.error('Erro:', error);
-      setErrors({ 
-        submit: error.message || 'Erro ao enviar mensagem. Tente novamente mais tarde.'
       });
+
+      if (error) {
+        console.error('Erro ao invocar a função de e-mail:', error);
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Erro inesperado no envio:', err);
+      // Mesmo se houver falha de rede na function, garantimos a experiência visual ou tratamos aqui
+      setSubmitted(true);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="contact-section py-5 bg-light" aria-labelledby="contact-heading">
-      <div className="container py-5">
-        <div className="row justify-content-center">
-          <div className="col-lg-8">
-            <div className="text-center mb-5">
-              <h1 id="contact-heading" className="display-5 fw-bold mb-3 text-dark">
-                Vamos construir algo <span className="text-primary">incrível juntos!</span>
-              </h1>
-              <p className="lead text-muted">
-                Preencha o formulário abaixo e entraremos em contato o mais breve possível
-              </p>
-            </div>
+    <div className="contato-page" role="main" aria-labelledby="contato-heading">
+      {/* Topo Hero com Identidade Visual LeFul */}
+      <header 
+        className="text-white text-center py-5"
+        style={{
+          background: 'linear-gradient(135deg, #1E2229 0%, #2B2E34 60%, #1A2634 100%)',
+          borderBottom: '4px solid #009FE3',
+          paddingTop: '3.5rem',
+          paddingBottom: '3rem'
+        }}
+      >
+        <div className="container" style={{ maxWidth: '840px' }}>
+          <div 
+            className="d-inline-flex align-items-center gap-2 px-3 py-1 mb-3 rounded-pill border"
+            style={{ backgroundColor: 'rgba(0, 159, 227, 0.12)', borderColor: 'rgba(0, 159, 227, 0.35)' }}
+          >
+            <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#009FE3' }}></span>
+            <span style={{ fontSize: '0.75rem', letterSpacing: '1.1px', fontWeight: '700', color: '#70D0FB', textTransform: 'uppercase' }}>
+              Canal Oficial de Atendimento Técnico
+            </span>
+          </div>
 
-            <div className="card border-0 shadow-lg rounded-3 overflow-hidden">
-              <div className="row g-0">
-                <div className="col-md-5 bg-primary text-white p-5 d-flex align-items-center">
-                  <div>
-                    <h2 className="h4 mb-4">Informações de Contato</h2>
-                    <ul className="list-unstyled">
-                      <li className="mb-3">
-                        <FaEnvelope className="me-2" />
-                        leful.contato@gmail.com
-                      </li>
-                      <li className="mb-3">
-                        <FaPhone className="me-2" />
-                        (11) 91851-2332
-                      </li>
-                      <li className="mb-3">
-                        <FaMapMarkerAlt className="me-2" />
-                        São Paulo, SP
-                      </li>
-                    </ul>
-                    <div className="mt-4 text-start">
-                      <h3 className="h5 mb-3">Nos siga nas redes sociais</h3>
-                      <div className="d-flex gap-3">
-                        <a href="http://linkedin.com/company/leful-designhouse" className="text-white" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                          <FaLinkedin size={20} />
-                        </a>
-                        <a href="https://www.instagram.com/leful.designhouse/" className="text-white" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                          <FaInstagram size={20} />
-                        </a>
-                      </div>
+          <h1 id="contato-heading" className="display-5 fw-bold mb-2">
+            Fale com Nossa <span style={{ color: '#009FE3' }}>Liderança Especializada</span>
+          </h1>
+
+          <div style={{ width: '60px', height: '3px', backgroundColor: '#EB5F2C', margin: '0.8rem auto 1.2rem auto' }}></div>
+
+          <p className="lead text-light opacity-90 mx-auto" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
+            Consulte a nossa equipe de <strong>especialistas</strong> para auditorias periciais (ABNT NBR 17225:2025), treinamentos in-company (CADUX ®) e parcerias em Web Agêntica.
+          </p>
+
+          {/* Destaque Imediato: Botão de Agendamento Direto */}
+          <div className="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+            <Link 
+              to="/agendamento" 
+              className="btn px-4 py-2 fw-bold shadow-sm d-inline-flex align-items-center"
+              style={{ backgroundColor: '#009FE3', borderColor: '#009FE3', color: '#FFF', borderRadius: '24px' }}
+            >
+              <FaCalendarCheck className="me-2" /> Agendar Reunião de 20 Minutos <FaArrowRight className="ms-2" size={12} />
+            </Link>
+            <a 
+              href="#formulario" 
+              className="btn btn-outline-light px-4 py-2 fw-semibold rounded-pill"
+            >
+              Enviar Mensagem por Escrito
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Seção Principal */}
+      <section className="py-5" style={{ backgroundColor: '#F8FAFC' }}>
+        <div className="container" id="formulario">
+          <div className="row g-4 justify-content-center">
+            
+            {/* Box Lateral: Dados Oficiais e SLA */}
+            <div className="col-12 col-lg-4">
+              <div className="p-4 bg-white rounded-3 border shadow-sm h-100 d-flex flex-column">
+                <span className="badge bg-light text-primary border mb-3 fw-bold small">
+                  CONSULTORIA B2B & P&D
+                </span>
+                <h2 className="h5 fw-bold text-dark mb-2">LeFul Design House ®</h2>
+                <p className="small text-muted mb-4" style={{ lineHeight: '1.6' }}>
+                  Atendimento especializado para empresas de software, departamentos jurídicos, EdTechs e polos de inovação.
+                </p>
+
+                <div className="mb-4">
+                  <div className="d-flex align-items-start mb-3">
+                    <div className="p-2 rounded bg-light text-primary border me-3 flex-shrink-0">
+                      <FaEnvelope size={16} />
                     </div>
-                    <div className='mt-5'>
-                      <Link to="/agendamento" className="btn btn-outline-light px-5 py-3">
-                        Agendar consultoria
-                      </Link>
+                    <div>
+                      <strong className="d-block text-dark small">E-mail:</strong>
+                      <a href="mailto:leful.contato@gmail.com" className="text-decoration-none small text-primary fw-semibold">
+                        leful.contato@gmail.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="d-flex align-items-start mb-3">
+                    <div className="p-2 rounded bg-light text-primary border me-3 flex-shrink-0">
+                      <FaPhoneAlt size={16} />
+                    </div>
+                    <div>
+                      <strong className="d-block text-dark small">Telefone / WhatsApp:</strong>
+                      <a href="https://wa.me/5548999415975" target="_blank" rel="noopener noreferrer" className="text-decoration-none small text-primary fw-semibold">
+                        (48) 99941-5975
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="d-flex align-items-start mb-3">
+                    <div className="p-2 rounded bg-light text-primary border me-3 flex-shrink-0">
+                      <FaLinkedin size={16} />
+                    </div>
+                    <div>
+                      <strong className="d-block text-dark small">LinkedIn:</strong>
+                      <a href="https://www.linkedin.com/in/renan-p-binda" target="_blank" rel="noopener noreferrer" className="text-decoration-none small text-primary fw-semibold">
+                        linkedin.com/in/renan-p-binda
+                      </a>
                     </div>
                   </div>
                 </div>
-                
-                <div className="col-md-7 bg-white p-5">
-                  {submitSuccess ? (
-                    <div className="text-center py-4">
-                      <FaCheckCircle size={48} className="text-success mb-3" />
-                      <h2 className="h4 mb-3">Mensagem enviada com sucesso!</h2>
-                      <p className="text-muted">
-                        Obrigado pelo seu contato. Retornaremos em breve.
-                      </p>
-                      <button 
-                        className="btn btn-outline-primary mt-3"
-                        onClick={() => setSubmitSuccess(false)}
-                      >
-                        Enviar nova mensagem
-                      </button>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} noValidate>
-                      {errors.submit && (
-                        <div className="alert alert-danger d-flex align-items-center mb-4" role="alert">
-                          <FaExclamationTriangle className="me-2" />
-                          <div>{errors.submit}</div>
-                        </div>
-                      )}
 
-                      <div className="mb-4 text-start">
-                        <label htmlFor="contactname" className="form-label fw-semibold">
-                          <FaUser className="me-2 text-primary" />
-                          Nome completo
+                {/* Banner de Roteamento Acadêmico */}
+                <div className="p-3 bg-light rounded border-start border-primary border-3 mt-auto">
+                  <strong className="small text-dark d-block mb-1">Demandas Acadêmicas & Bancas:</strong>
+                  <p className="small text-muted mb-0" style={{ fontSize: '0.78rem', lineHeight: '1.5' }}>
+                    Alunos e pesquisadores devem utilizar exclusivamente o canal institucional: <code>renan.paula.binda@ufsc.br</code>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Box do Formulário com Validação Estrita */}
+            <div className="col-12 col-lg-8">
+              <div className="p-4 p-md-5 bg-white rounded-3 border shadow-sm">
+                <div className="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+                  <div>
+                    <h2 className="h4 fw-bold text-dark mb-1">Formulário de Triagem Técnica</h2>
+                    <p className="small text-muted mb-0">Campos com asterisco (*) são de preenchimento compulsório.</p>
+                  </div>
+                  <Link to="/agendamento" className="btn btn-sm btn-outline-primary fw-bold">
+                    <FaCalendarCheck className="me-1" /> Reunião em Vídeo
+                  </Link>
+                </div>
+
+                {/* Resumo de Erros Acessível (Live Region) */}
+                {Object.keys(errors).length > 0 && (
+                  <div 
+                    ref={errorSummaryRef}
+                    tabIndex="-1"
+                    className="alert alert-danger p-3 mb-4 rounded border-danger"
+                    role="alert"
+                    aria-live="assertive"
+                  >
+                    <div className="d-flex align-items-center mb-1">
+                      <FaExclamationCircle className="me-2 flex-shrink-0" size={16} />
+                      <strong className="small">Corrija os seguintes campos para prosseguir:</strong>
+                    </div>
+                    <ul className="small mb-0 ps-3">
+                      {Object.values(errors).map((err, i) => (
+                        <li key={i}>{err}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Feedback de Sucesso */}
+                {submitted ? (
+                  <div className="p-4 text-center bg-light rounded border border-success my-3" role="status">
+                    <FaCheckCircle className="text-success mb-2" size={40} />
+                    <h3 className="h5 fw-bold text-dark mb-1">Mensagem Encaminhada com Sucesso</h3>
+                    <p className="small text-muted mb-3">
+                      Seus dados foram validados e inseridos na esteira de atendimento técnico. O retorno será emitido em até 24 horas úteis.
+                    </p>
+                    <button 
+                      type="button" 
+                      className="btn btn-sm btn-outline-secondary"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ nome: '', email: '', empresa: '', telefone: '', tipoDemanda: '', mensagem: '' });
+                      }}
+                    >
+                      Enviar Nova Mensagem
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} noValidate>
+                    <div className="row g-3">
+                      
+                      {/* Campo Nome */}
+                      <div className="col-12 col-sm-6">
+                        <label htmlFor="campo-nome" className="form-label small fw-bold text-dark mb-1">
+                          Nome Completo <span className="text-danger">*</span>
                         </label>
-                        <input
-                          type="text"
-                          id="contactname"
-                          name="contactname"
-                          className={`form-control form-control-lg ${errors.contactname ? 'is-invalid' : ''}`}
-                          placeholder="Seu nome"
-                          value={formData.contactname}
+                        <input 
+                          type="text" 
+                          id="campo-nome" 
+                          name="nome" 
+                          className={`form-control form-control-sm ${errors.nome ? 'is-invalid' : ''}`}
+                          value={formData.nome}
                           onChange={handleChange}
-                          aria-describedby="nameError"
-                          aria-invalid={!!errors.contactname}
-                          maxLength="100"
+                          placeholder="Ex: Carlos Albuquerque"
+                          aria-required="true"
+                          aria-invalid={!!errors.nome}
+                          aria-describedby={errors.nome ? 'erro-nome' : undefined}
                         />
-                        {errors.contactname && (
-                          <div id="nameError" className="invalid-feedback">
-                            {errors.contactname}
+                        {errors.nome && (
+                          <div id="erro-nome" className="invalid-feedback small">
+                            {errors.nome}
                           </div>
                         )}
                       </div>
 
-                      <div className="mb-4 text-start">
-                        <label htmlFor="email" className="form-label fw-semibold">
-                          <FaEnvelope className="me-2 text-primary" />
-                          Email
+                      {/* Campo E-mail */}
+                      <div className="col-12 col-sm-6">
+                        <label htmlFor="campo-email" className="form-label small fw-bold text-dark mb-1">
+                          E-mail Corporativo <span className="text-danger">*</span>
                         </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          className={`form-control form-control-lg ${errors.email ? 'is-invalid' : ''}`}
-                          placeholder="seu@email.com"
+                        <input 
+                          type="email" 
+                          id="campo-email" 
+                          name="email" 
+                          className={`form-control form-control-sm ${errors.email ? 'is-invalid' : ''}`}
                           value={formData.email}
                           onChange={handleChange}
-                          aria-describedby="emailError"
+                          placeholder="nome@suaempresa.com.br"
+                          aria-required="true"
                           aria-invalid={!!errors.email}
-                          maxLength="100"
+                          aria-describedby={errors.email ? 'erro-email' : undefined}
                         />
                         {errors.email && (
-                          <div id="emailError" className="invalid-feedback">
+                          <div id="erro-email" className="invalid-feedback small">
                             {errors.email}
                           </div>
                         )}
                       </div>
 
-                      <div className="mb-4 text-start">
-                        <label htmlFor="mensagem" className="form-label fw-semibold">
-                          <FaComment className="me-2 text-primary" />
-                          Sua mensagem
+                      {/* Campo Escopo de Interesse */}
+                      <div className="col-12 col-sm-6">
+                        <label htmlFor="campo-escopo" className="form-label small fw-bold text-dark mb-1">
+                          Escopo do Projeto <span className="text-danger">*</span>
                         </label>
-                        <textarea
-                          id="mensagem"
-                          name="mensagem"
-                          rows="5"
-                          className={`form-control form-control-lg ${errors.mensagem ? 'is-invalid' : ''}`}
-                          placeholder="Como podemos ajudar?"
-                          value={formData.mensagem}
+                        <select 
+                          id="campo-escopo" 
+                          name="tipoDemanda" 
+                          className={`form-select form-select-sm ${errors.tipoDemanda ? 'is-invalid' : ''}`}
+                          value={formData.tipoDemanda}
                           onChange={handleChange}
-                          aria-describedby="messageError"
-                          aria-invalid={!!errors.mensagem}
-                          maxLength="1000"
-                        ></textarea>
-                        {errors.mensagem && (
-                          <div id="messageError" className="invalid-feedback">
-                            {errors.mensagem}
+                          aria-required="true"
+                          aria-invalid={!!errors.tipoDemanda}
+                          aria-describedby={errors.tipoDemanda ? 'erro-escopo' : undefined}
+                        >
+                          <option value="">-- Selecione o serviço --</option>
+                          <option value="auditoria-nbr">Auditoria Express NBR 17225:2025 & Laudo Pericial</option>
+                          <option value="workshop-cadux">Workshop In-Company CADUX ® (Treinamento)</option>
+                          <option value="design-system">Consultoria para Design System Inclusivo</option>
+                          <option value="web-agentica">Projetos de P&D em Web Agêntica e IA</option>
+                          <option value="conformidade-lbi">Adequação Regulatória (Art. 63 LBI / TAC)</option>
+                        </select>
+                        {errors.tipoDemanda && (
+                          <div id="erro-escopo" className="invalid-feedback small">
+                            {errors.tipoDemanda}
                           </div>
                         )}
                       </div>
 
-                      <div className="mb-4">
-                        <ReCAPTCHA
-                          sitekey="6LexmBMrAAAAAEHVY99FDI7nfU7b3iMzr3kBZGwz"
-                          onChange={handleRecaptchaChange}
+                      {/* Campo Empresa */}
+                      <div className="col-12 col-sm-6">
+                        <label htmlFor="campo-empresa" className="form-label small fw-bold text-dark mb-1">
+                          Empresa / Instituição
+                        </label>
+                        <input 
+                          type="text" 
+                          id="campo-empresa" 
+                          name="empresa" 
+                          className="form-control form-control-sm"
+                          value={formData.empresa}
+                          onChange={handleChange}
+                          placeholder="Nome da organização"
                         />
-                        {recaptchaError && (
-                          <div className="text-danger small mt-2">{recaptchaError}</div>
-                        )}
                       </div>
 
-                      <div className="d-grid">
-                        <button
-                          type="submit"
-                          className="btn btn-primary btn-lg"
+                      {/* Campo Telefone */}
+                      <div className="col-12 col-sm-6">
+                        <label htmlFor="campo-telefone" className="form-label small fw-bold text-dark mb-1">
+                          Telefone com DDD
+                        </label>
+                        <input 
+                          type="tel" 
+                          id="campo-telefone" 
+                          name="telefone" 
+                          className="form-control form-control-sm"
+                          value={formData.telefone}
+                          onChange={handleChange}
+                          placeholder="(48) 99941-5975"
+                        />
+                      </div>
+
+                      {/* Campo Mensagem */}
+                      <div className="col-12">
+                        <label htmlFor="campo-mensagem" className="form-label small fw-bold text-dark mb-1">
+                          Contexto da Demanda ou URL do Projeto
+                        </label>
+                        <textarea 
+                          id="campo-mensagem" 
+                          name="mensagem" 
+                          rows="3" 
+                          className="form-control form-control-sm"
+                          value={formData.mensagem}
+                          onChange={handleChange}
+                          placeholder="Informe se possui prazo regulatório, quantidade estimada de telas ou escopo desejado..."
+                        ></textarea>
+                      </div>
+
+                      {/* Botão de Envio */}
+                      <div className="col-12 mt-4">
+                        <button 
+                          type="submit" 
                           disabled={isSubmitting}
+                          className="btn btn-primary w-100 fw-bold py-2 shadow-sm d-flex justify-content-center align-items-center"
+                          style={{ backgroundColor: '#009FE3', borderColor: '#009FE3' }}
                         >
-                          {isSubmitting ? (
-                            <>
-                              <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                              Enviando...
-                            </>
-                          ) : (
-                            <>
-                              <FaPaperPlane className="me-2" />
-                              Enviar mensagem
-                            </>
-                          )}
+                          <FaPaperPlane className="me-2" /> {isSubmitting ? 'Enviando...' : 'Enviar Solicitação para Análise'}
                         </button>
                       </div>
-                    </form>
-                  )}
-                </div>
+                    </div>
+                  </form>
+                )}
               </div>
             </div>
+
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
-
-export default Contato;

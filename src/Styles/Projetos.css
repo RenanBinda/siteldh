@@ -1,213 +1,176 @@
-/* Estrutura principal */
-.portfolio-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 4rem 1rem;
+/* Topo com Fundo Gradiente e Destaque Institucional */
+.projetos-hero {
+  background: linear-gradient(135deg, #1E2229 0%, #2B2E34 60%, #1A2634 100%) !important;
+  border-bottom: 4px solid #009FE3;
+  padding: 3.5rem 0 2.8rem 0;
 }
 
-/* Header */
-.portfolio-header {
-  margin-bottom: 3rem;
-  text-align: center;
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+  border-radius: 50px;
+  background-color: rgba(0, 159, 227, 0.12);
+  border: 1px solid rgba(0, 159, 227, 0.35);
 }
 
-.header-content h1 {
-  font-size: 3.5rem;
-  color: #333;
-  margin-bottom: 0.5rem;
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #009FE3;
+  display: inline-block;
 }
 
-.subtitle {
-  color: #666;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+.hero-badge-text {
+  font-size: 0.75rem;
+  letter-spacing: 1.1px;
+  font-weight: 700;
+  color: #70D0FB;
+  text-transform: uppercase;
 }
 
-/* Filtros como abas */
-.portfolio-filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 2rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 1rem;
-}
-
-.filter-tab {
-  padding: 0.8rem 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  font-size: 0.95rem;
-  color: #666;
-  transition: all 0.3s ease;
-}
-
-.filter-tab:hover {
-  color: #EB5F2C;
-}
-
-.filter-tab.active {
-  color: #EB5F2C;
-  font-weight: 500;
-}
-
-.indicator {
-  position: absolute;
-  bottom: -1.1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
+.hero-divider-bar {
+  width: 60px;
   height: 3px;
-  background: #EB5F2C;
+  background-color: #EB5F2C;
+  margin: 0.8rem auto 1.2rem auto;
 }
 
-/* Grid de projetos */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  grid-auto-flow: dense; /* Preenche espaços vazios */
-  align-items: start; /* Alinha os itens no topo */
-  
-  /* Masonry layout para browsers modernos */
-  @supports (grid-auto-rows: masonry) {
-    grid-auto-rows: masonry;
-  }
+/* Botões de Filtro Compactos */
+.filter-btn-compact {
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #E2E8F0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.project-tile {
-  position: relative;
-  border-radius: 6px;
+.filter-btn-compact:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.filter-btn-compact.active {
+  background-color: #009FE3 !important;
+  border-color: #009FE3 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 6px rgba(0, 159, 227, 0.35);
+}
+
+/* Padronização Estrita dos Cards */
+.project-card-box {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  break-inside: avoid; /* Evita quebra entre colunas */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Para navegadores que não suportam masonry */
-@supports not (grid-auto-rows: masonry) {
-  .portfolio-grid {
-    column-count: 3;
-    column-gap: 1.5rem;
-  }
-  
-  @media (max-width: 1024px) {
-    .portfolio-grid {
-      column-count: 2;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .portfolio-grid {
-      column-count: 1;
-    }
-  }
+.project-card-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* Ajuste os aspect ratios para preencher melhor */
-.project-tile.wide {
-  grid-column: span 1;
-  aspect-ratio: 16/9;
-}
-
-.project-tile.tall {
-  grid-row: span 2;
-  aspect-ratio: 4/6.5;
-}
-
-.tile-image {
+/* Imagem Fixa e Proporcional para todos os Cards */
+.project-img-wrapper {
+  position: relative;
+  height: 180px;
   width: 100%;
-  height: 100%;
+  overflow: hidden;
+  background-color: #F1F5F9;
 }
 
-.tile-image img {
+.project-img-fixed {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  display: block;
 }
 
-.project-tile:hover .tile-image img {
-  transform: scale(1.05);
-}
-
-/* Overlay com informações */
-.tile-overlay {
+.project-tag-floating {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.8);
+  top: 10px;
+  left: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.4px;
+}
+
+/* Corpo do Card com Flexbox para Alinhamento Perfeito */
+.project-body-content {
+  padding: 1.1rem;
   display: flex;
-  align-items: flex-end;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  padding: 1.5rem;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.tile-overlay.visible {
-  opacity: 1;
+.project-title-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 2px;
 }
 
-.overlay-content {
-  color: white;
-  transform: translateY(20px);
-  transition: transform 0.3s ease;
-}
-
-.tile-overlay.visible .overlay-content {
-  transform: translateY(0);
-}
-
-.overlay-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-.project-meta {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.9rem;
-  color: #ccc;
-  margin-bottom: 1rem;
-}
-
-.project-description {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-.project-category {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  background: rgba(235, 95, 44, 0.9);
-  border-radius: 4px;
+.project-headline-text {
   font-size: 0.8rem;
-  text-transform: capitalize;
+  color: #009FE3;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .project-tile,
-  .project-tile.wide,
-  .project-tile.tall {
-    aspect-ratio: 1/1;
-  }
-  
-  .portfolio-header h1 {
-    font-size: 2rem;
-  }
-  
-  .filter-tab {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
+.project-description-text {
+  font-size: 0.8rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-meta-box {
+  background-color: #F8FAFC;
+  border-left: 3px solid #009FE3;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-bottom: 0.8rem;
+}
+
+.project-inpi-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #0F172A;
+  margin-bottom: 4px;
+}
+
+.project-deliverable-item {
+  font-size: 0.74rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.project-footer-action {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px solid #F1F5F9;
 }
