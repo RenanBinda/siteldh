@@ -26,6 +26,9 @@ npm install --legacy-peer-deps
 npm install react-scripts --save
 
 
+npm install @supabase/supabase-js
+
+
 
 # 1. Instala um servidor estático leve no seu PC
 npm install -g serve
