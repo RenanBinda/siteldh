@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaVideo, FaArrowLeft, FaFileAlt, FaUniversalAccess, FaBook, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaVideo, FaArrowLeft, FaFileAlt, FaUniversalAccess, FaBook, FaExternalLinkAlt, FaQuoteRight } from 'react-icons/fa';
 import '../../Styles/global.css';
 
 export default function ArtigoWebAgentica() {
@@ -34,11 +34,11 @@ export default function ArtigoWebAgentica() {
           </div>
 
           <h1 id="artigo-heading" className="h3 fw-bold mb-3" style={{ lineHeight: '1.4' }}>
-            Acessibilidade Digital: a Web Agêntica e os Sistemas Inteligentes de Mediação no Aplicativo CoIn[cite: 5]
+            Acessibilidade Digital: a Web Agêntica e os Sistemas Inteligentes de Mediação no Aplicativo CoIn
           </h1>
 
           <p className="text-light opacity-90 small mb-2">
-            <strong>Autores:</strong> Renan de Paula Binda & Vania Ribas Ulbricht (Universidade Federal de Santa Catarina - UFSC)[cite: 5].
+            <strong>Autores:</strong> Renan de Paula Binda & Vania Ribas Ulbricht (Universidade Federal de Santa Catarina - UFSC).
           </p>
         </div>
       </header>
@@ -60,7 +60,7 @@ export default function ArtigoWebAgentica() {
                 
                 <h2 className="h5 fw-bold text-dark mb-2">Resumo em Língua de Sinais (Libras)</h2>
                 <p className="text-muted small mb-4 mx-auto" style={{ maxWidth: '600px', lineHeight: '1.5' }}>
-                  Acompanhe a tradução institucional do resumo da pesquisa em vídeo, garantindo acessibilidade comunicacional plena.
+                  Acompanhe a tradução institucional do resumo da pesquisa em vídeo.
                 </p>
 
                 {/* Container Reservado para o Vídeo */}
@@ -80,20 +80,19 @@ export default function ArtigoWebAgentica() {
                   <a 
                     href="#artigo-completo" 
                     className="btn px-4 py-2 fw-bold shadow-sm d-inline-flex align-items-center text-white"
-                    style={{ backgroundColor: '#009FE3', borderColor: '#009FE3', borderRadius: '24px', pointerEvents: 'none', opacity: 0.85 }}
-                    title="Disponível em breve após a publicação oficial"
+                    style={{ backgroundColor: '#009FE3', borderColor: '#009FE3', borderRadius: '24px' }}
                   >
-                    <FaExternalLinkAlt className="me-2" size={14} /> Acessar Artigo Completo (Em Breve)
+                    <FaExternalLinkAlt className="me-2" size={14} /> Acessar Artigo Completo
                   </a>
                   <span className="d-block text-muted mt-2" style={{ fontSize: '0.75rem' }}>
-                    O link de acesso integral será ativado após o lançamento oficial da publicação.
+                    Disponível para leitura e download integral.
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Blocos Inferiores Horizontais: Resumo e Referências Bibliográficas */}
+          {/* Blocos Inferiores Horizontais: Resumo e Referências + Como Citar */}
           <div className="row g-4">
             
             {/* Bloco Esquerdo: Resumo da Pesquisa */}
@@ -105,11 +104,11 @@ export default function ArtigoWebAgentica() {
                 </div>
                 
                 <p className="text-muted small" style={{ lineHeight: '1.7', textAlign: 'justify' }}>
-                  A emergência da Web Agêntica (Agentic Web), caracterizada pela transição de sistemas de Inteligência Artificial Generativa (IA Gen) reativos para arquiteturas autônomas e orientadas a objetivos, reconfigura o ecossistema digital ao delegar tarefas complexas a agentes equipados com Grandes Modelos de Linguagem (LLMs)[cite: 5]. Este artigo analisa as implicações técnicas, éticas e educacionais dessa transição e posiciona os Sistemas Inteligentes de Mediação (SIM) como camada de governança para curadoria e acessibilidade[cite: 5].
+                  A emergência da Web Agêntica (Agentic Web), caracterizada pela transição de sistemas de Inteligência Artificial Generativa (IA Gen) reativos para arquiteturas autônomas e orientadas a objetivos, reconfigura o ecossistema digital ao delegar tarefas complexas a agentes equipados com Grandes Modelos de Linguagem (LLMs). Este artigo analisa as implicações técnicas, éticas e educacionais dessa transição e posiciona os Sistemas Inteligentes de Mediação (SIM) como camada de governança para curadoria e acessibilidade.
                 </p>
 
                 <p className="text-muted small mb-4" style={{ lineHeight: '1.7', textAlign: 'justify' }}>
-                  Para isso, o <strong>CoIn</strong> é apresentado como um SIM voltado à inclusão educacional que utiliza gestão do conhecimento para mitigar alucinações da IA e assegurar conformidade com padrões de acessibilidade[cite: 5]. Os estudos iniciais demonstram que os SIMs constituem infraestruturas emergentes essenciais para a inclusão e autonomia[cite: 5].
+                  Para isso, o <strong>CoIn</strong> é apresentado como um SIM voltado à inclusão educacional que utiliza gestão do conhecimento para mitigar alucinações da IA e assegurar conformidade com padrões de acessibilidade. Os estudos iniciais demonstram que os SIMs constituem infraestruturas emergentes essenciais para a inclusão e autonomia.
                 </p>
 
                 <div className="pt-3 border-top mt-auto">
@@ -125,35 +124,51 @@ export default function ArtigoWebAgentica() {
               </div>
             </div>
 
-            {/* Bloco Direito: Referências Bibliográficas */}
+            {/* Bloco Direito: Como Citar + Referências Bibliográficas */}
             <div className="col-12 col-lg-6">
               <div className="p-4 p-md-4 bg-white rounded-3 border shadow-sm h-100 d-flex flex-column">
+                
+                {/* Seção Como Citar (ABNT) */}
+                <div className="mb-4 pb-3 border-bottom">
+                  <div className="d-flex align-items-center mb-2 text-primary">
+                    <FaQuoteRight className="me-2" size={14} />
+                    <h3 className="h6 fw-bold text-dark mb-0">Como citar (ABNT):</h3>
+                  </div>
+                  <div className="p-3 bg-light rounded-3 border small text-muted font-monospace" style={{ fontSize: '0.78rem', lineHeight: '1.5' }}>
+                    BINDA, Renan de Paula; ULBRICHT, Vania Ribas. Acessibilidade Digital: a Web Agêntica e os Sistemas Inteligentes de Mediação no Aplicativo CoIn. In: [TÍTULO DO LIVRO A DEFINIR]. São Paulo: Pimenta Cultural, 2026.
+                    <div className="mt-2 text-secondary fw-semibold">
+                      DOI: [Inserir DOI] | ISBN: [Inserir ISBN]
+                    </div>
+                  </div>
+                </div>
+
+                {/* Seção Referências Bibliográficas */}
                 <div className="d-flex align-items-center mb-3 text-primary">
                   <FaBook className="me-2" />
                   <h3 className="h6 fw-bold text-dark mb-0">Referências Bibliográficas</h3>
                 </div>
 
-                <div className="text-muted small overflow-auto pe-2" style={{ maxHeight: '320px', lineHeight: '1.6' }}>
+                <div className="text-muted small overflow-auto pe-2" style={{ maxHeight: '220px', lineHeight: '1.6' }}>
                   <p className="mb-2" style={{ textAlign: 'justify' }}>
-                    ACHARYA, D. B.; KUPPAN, K.; DIVYA, B. Agentic AI: Autonomous intelligence for complex goals—a comprehensive survey. <strong>IEEE Access</strong>, v. 13, p. 18912-18936, 2025[cite: 5].
+                    ACHARYA, D. B.; KUPPAN, K.; DIVYA, B. Agentic AI: Autonomous intelligence for complex goals—a comprehensive survey. <strong>IEEE Access</strong>, v. 13, p. 18912-18936, 2025.
                   </p>
                   <p className="mb-2" style={{ textAlign: 'justify' }}>
-                    ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS [ABNT]. <strong>ABNT NBR 17225: Acessibilidade em conteúdo e aplicações web — Requisitos</strong>. ABNT, 2025[cite: 5].
+                    ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS [ABNT]. <strong>ABNT NBR 17225: Acessibilidade em conteúdo e aplicações web — Requisitos</strong>. ABNT, 2025.
                   </p>
                   <p className="mb-2" style={{ textAlign: 'justify' }}>
-                    BINDA, R. P. <strong>Modelo de inclusão e acessibilidade digital para pessoas com deficiência visual e auditiva em recursos digitais de aprendizagem</strong>. 2023. Tese (Doutorado em Engenharia e Gestão do Conhecimento) – Universidade Federal de Santa Catarina, Florianópolis, 2023[cite: 5].
+                    BINDA, R. P. <strong>Modelo de inclusão e acessibilidade digital para pessoas com deficiência visual e auditiva em recursos digitais de aprendizagem</strong>. 2023. Tese (Doutorado em Engenharia e Gestão do Conhecimento) – Universidade Federal de Santa Catarina, Florianópolis, 2023.
                   </p>
                   <p className="mb-2" style={{ textAlign: 'justify' }}>
-                    BINDA, R. P.; ULBRICHT, V. R. Theoretical Model and Playful Practice: A Pathway to Digital Accessibility. <strong>Infodesign</strong>, v. 22, n. 2, p. 01-16, 2025[cite: 5].
+                    BINDA, R. P.; ULBRICHT, V. R. Theoretical Model and Playful Practice: A Pathway to Digital Accessibility. <strong>Infodesign</strong>, v. 22, n. 2, p. 01-16, 2025.
                   </p>
                   <p className="mb-2" style={{ textAlign: 'justify' }}>
-                    FLORIDI, L. The fourth revolution: How the infosphere is reshaping human reality. Oxford University Press, 2014[cite: 5].
+                    FLORIDI, L. The fourth revolution: How the infosphere is reshaping human reality. Oxford University Press, 2014.
                   </p>
                   <p className="mb-2" style={{ textAlign: 'justify' }}>
-                    PATEL, K. et al. A systematic review of generative AI: Importance of industry and startup-centered perspectives, agentic AI, ethical considerations & challenges, and future directions. <strong>Artificial Intelligence Review</strong>, v. 59, n. 7, p. 1-45, 2026[cite: 5].
+                    PATEL, K. et al. A systematic review of generative AI: Importance of industry and startup-centered perspectives, agentic AI, ethical considerations & challenges, and future directions. <strong>Artificial Intelligence Review</strong>, v. 59, n. 7, p. 1-45, 2026.
                   </p>
                   <p className="mb-0" style={{ textAlign: 'justify' }}>
-                    SOUZA, R. P. L. <strong>Mídia do conhecimento: ideias sobre mediação e autonomia</strong>. Florianópolis: SIGMO/UFSC, 2019[cite: 5].
+                    SOUZA, R. P. L. <strong>Mídia do conhecimento: ideias sobre mediação e autonomia</strong>. Florianópolis: SIGMO/UFSC, 2019.
                   </p>
                 </div>
 
