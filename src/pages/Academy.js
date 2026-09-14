@@ -16,13 +16,13 @@ function Academy() {
   // Publicações Reais extraídas do Currículo Lattes e Periódicos Qualis A
   const publicacoes = [
     {
-      tipo: "Artigo em Periódico (Qualis A)",
+      tipo: "Artigo em Periódico (Qualis A2)",
       ano: "2025",
       titulo: "Theoretical Model and Playful Practice: A Pathway to Digital Accessibility",
       veiculo: "Infodesign - Revista Brasileira de Design da Informação (SBDI)",
       descricao: "Articulação entre Design Science Research, o modelo multidimensional de 5 dimensões e a gamificação aplicada no jogo analógico e digital Jornada da Acessibilidade.",
-      link: "https://doi.org/10.51358/id.v22i2.1124",
-      destaque: "Qualis A1"
+      link: "https://www.infodesign.org.br/infodesign/article/view/1238",
+      destaque: "Qualis A2"
     },
     {
       tipo: "Livro Publicado",
@@ -39,16 +39,18 @@ function Academy() {
       titulo: "Integração da Norma ABNT NBR 17225:2025 e o CADUX: Caminhos para a Inclusão e Experiência de Uso",
       veiculo: "Perspectivas da Inclusão (Editora Pimenta Cultural)",
       descricao: "Mapeamento prescritivo que traduz os 156 critérios da norma técnica nacional em requisitos de experiência do usuário (UX) nas cartas metodológicas.",
-      link: "https://www.pimentacultural.com/livro/perspectivas-inclusao/",
+      link:"https://lamid.paginas.ufsc.br/perspectivas-da-inclusao/",
+      //link: "https://www.pimentacultural.com/livro/perspectivas-inclusao/",
       destaque: "Norma ABNT"
     },
     {
-      tipo: "Artigo em Periódico",
+      tipo: "Artigo em Periódico (Qualis A3)",
       ano: "2024",
       titulo: "CADUX - Cartas de Acessibilidade Digital para Experiência de Uso",
       veiculo: "Revista Brasileira de Expressão Gráfica (RBEG)",
       descricao: "Validação do framework conceitual registrado junto ao INPI (Reg. 934006750), detalhando as heurísticas de aplicação para criadores de recursos digitais.",
-      link: "https://rbeg.net/index.php/rbeg/article/view/193/314",
+      link: "https://rbeg.net/index.php/rbeg/article/view/193",
+      //https://rbeg.net/index.php/rbeg/article/view/193/314
       destaque: "INPI 934006750"
     }
   ];

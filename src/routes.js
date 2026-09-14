@@ -21,6 +21,7 @@ const GestaoConhecimentoPage = lazy(() => import('./pages/Sobre/GestaoConhecimen
 const EducacaoDesignPage = lazy(() => import('./pages/Sobre/EducacaoDesignPage'));
 
 const Academy = lazy(() => import('./pages/Academy'));
+const ArtigoWebAgentica = lazy(() => import('./pages/Academy/artigo-web-agentica'));
 const CursoGC = lazy(() => import('./pages/Academy/CursoGC'));
 const Modulo1GC = lazy(() => import('./pages/Academy/curso-gc/Modulo1GC'));
 const Modulo2GC = lazy(() => import('./pages/Academy/curso-gc/Modulo2GC'));
@@ -63,6 +64,7 @@ export const routes = [
   { path: '/EducacaoDesignPage', element: <EducacaoDesignPage /> },
 
   { path: '/academy', element: <Academy /> },
+  { path: '/artigowebagentica', element: <ArtigoWebAgentica /> },
   { path: '/cursogc', element: <CursoGC /> },
   { path: '/modulo1gc', element: <Modulo1GC /> },
   { path: '/modulo2gc', element: <Modulo2GC /> },

@@ -67,60 +67,55 @@ export default function Contato() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
+  e.preventDefault();
+  const validationErrors = validate();
 
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      setSubmitted(false);
-      setTimeout(() => {
-        if (errorSummaryRef.current) {
-          errorSummaryRef.current.focus();
-        }
-      }, 50);
-      return;
-    }
-
-    setIsSubmitting(true);
-    setErrors({});
-
-    try {
-      const { data, error } = await supabase.functions.invoke(EDGE_FUNCTION_NAME, {
-        body: {
-          nome: formData.nome,
-          email: formData.email,
-          empresa: formData.empresa,
-          telefone: formData.telefone,
-          tipoDemanda: formData.tipoDemanda,
-          mensagem: formData.mensagem,
-        },
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_SUPABASE_ANON_KEY}`,
-          apikey: process.env.REACT_APP_SUPABASE_ANON_KEY,
-        },
-      });
-
-      if (error) {
-        throw error;
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    setSubmitted(false);
+    setTimeout(() => {
+      if (errorSummaryRef.current) {
+        errorSummaryRef.current.focus();
       }
+    }, 50);
+    return;
+  }
 
-      setSubmitted(true);
-    } catch (err) {
-      console.error('Erro ao enviar formulário:', err);
-      setErrors({
-        geral:
-          'Não foi possível enviar sua mensagem agora. Tente novamente em instantes ou escreva direto para atendimento@leful.com.br',
-      });
-      setSubmitted(false);
-      setTimeout(() => {
-        if (errorSummaryRef.current) {
-          errorSummaryRef.current.focus();
-        }
-      }, 50);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  setIsSubmitting(true);
+  setErrors({});
+
+  try {
+    // 👇 O SDK do Supabase envia automaticamente:
+    //    - header 'apikey' com a chave do cliente
+    //    - header 'Authorization: Bearer <chave>' quando não há usuário logado
+    const { data, error } = await supabase.functions.invoke(EDGE_FUNCTION_NAME, {
+      body: {
+        nome: formData.nome,
+        email: formData.email,
+        empresa: formData.empresa,
+        telefone: formData.telefone,
+        tipoDemanda: formData.tipoDemanda,
+        mensagem: formData.mensagem,
+      },
+    });
+
+    if (error) throw error;
+
+    setSubmitted(true);
+  } catch (err) {
+    console.error('Erro ao enviar formulário:', err);
+    setErrors({
+      geral:
+        'Não foi possível enviar sua mensagem agora. Tente novamente em instantes ou escreva direto para atendimento@leful.com.br',
+    });
+    setSubmitted(false);
+    setTimeout(() => {
+      if (errorSummaryRef.current) errorSummaryRef.current.focus();
+    }, 50);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <div className="contato-page" role="main" aria-labelledby="contato-heading">
@@ -242,10 +237,10 @@ export default function Contato() {
                         E-mail:
                       </strong>
                       <a
-                        href="mailto:leful.contato@gmail.com"
+                        href="mailto:atendimentoo@leful.com.br"
                         className="text-decoration-none small text-primary fw-semibold"
                       >
-                        leful.contato@gmail.com
+                        atendimento@leful.com.br
                       </a>
                     </div>
                   </div>
@@ -259,12 +254,12 @@ export default function Contato() {
                         Telefone / WhatsApp:
                       </strong>
                       <a
-                        href="https://wa.me/5548999415975"
+                        href="https://wa.me/5511918512332"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-decoration-none small text-primary fw-semibold"
                       >
-                        (48) 99941-5975
+                        (11) 91851-2332
                       </a>
                     </div>
                   </div>
@@ -278,12 +273,12 @@ export default function Contato() {
                         LinkedIn:
                       </strong>
                       <a
-                        href="https://www.linkedin.com/in/renan-p-binda"
+                        href="https://www.linkedin.com/company/leful-designhouse"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-decoration-none small text-primary fw-semibold"
                       >
-                        linkedin.com/in/renan-p-binda
+                        linkedin.com/company/leful-designhouse
                       </a>
                     </div>
                   </div>

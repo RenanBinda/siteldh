@@ -20,6 +20,7 @@ import CaseLivro from './pages/Projetos/CaseLivro';
 
 import Sobre from './pages/Sobre';
 import Academy from './pages/Academy';
+import ArtigoWebAgentica from './pages/Academy/ArtigoWebAgentica';
 import CursoGC from './pages/Academy/CursoGC';
 import Modulo1GC from './pages/Academy/curso-gc/Modelo1GC';
 import Modulo2GC from './pages/Academy/curso-gc/Modulo2GC';
@@ -66,6 +67,7 @@ function App() {
             <Route path="/EducacaoDesignPage" element={<EducacaoDesignPage />} />
             
             <Route path="/academy" element={<Academy />} />
+            <Route path="/artigowebagentica" element={<ArtigoWebAgentica />} />
             <Route path="/cursogc" element={<CursoGC />} />
             <Route path="/modulo1gc" element={<Modulo1GC />} />
             <Route path="/modulo2gc" element={<Modulo2GC />} />

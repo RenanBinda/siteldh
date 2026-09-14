@@ -40,6 +40,13 @@ npm install @supabase/supabase-js
 npm install supabase --save-dev
 npx supabase init
 
+npx supabase login
+npx supabase link --project-ref uycxgjzhawzvblaqlpdc
+npx supabase functions deploy resend-email --no-verify-jwt
+npx supabase functions list
+
+npx supabase secrets list
+
 npx supabase functions deploy resend-email --no-verify-jwt
 npx supabase functions download resend-email --project-ref uycxgjzhawzvblaqlpdc
 
