@@ -1,7 +1,7 @@
 {
   "name": "siteldh",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "/",
   "private": true,
   "dependencies": {
     "20": "^1.0.0",
@@ -15,8 +15,8 @@
     "@types/gsap": "^1.20.2",
     "axios": "^1.8.4",
     "bootstrap": "^5.3.5",
-    "epubjs": "^0.3.93",
-    "firebase": "^11.6.0",
+    "epubjs": "^0.4.2",
+    "firebase": "^9.14.0",
     "googleapis": "^173.0.0",
     "gsap": "^3.12.7",
     "react": "^19.1.0",
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "eslint": "^8.57.1",
-    "eslint-config-react-app": "^7.0.1",
+    "eslint-config-react-app": "^5.2.1",
     "supabase": "^2.117.0"
   },
   "allowScripts": {

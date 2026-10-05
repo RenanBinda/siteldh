@@ -14,6 +14,8 @@ npx firebase init hosting
 
 npx firebase deploy --only hosting
 
+pasta é build e não public ou dist
+
 
 npm install -g expo-cli
 npm run build

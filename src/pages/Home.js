@@ -57,8 +57,8 @@ function Home() {
                 
                 <p className="text-start text-grey mt-3" style={{ fontSize: '1.05rem', lineHeight: '1.5' }}>
                   Unimos <strong className="fw-bold">pesquisa aplicada (UFSC)</strong>, 
-                  autoridade técnica na elaboração da <strong className="fw-bold">ABNT NBR 17225</strong> e 
-                  <strong className="fw-bold"> engenharia prescritiva</strong> para blindar produtos digitais 
+                  conhecimento técnico da <strong className="fw-bold">ABNT NBR 17225</strong> e 
+                  <strong className="fw-bold"> engenharia prescritiva</strong> para proteger produtos digitais 
                   contra riscos legais e transformá-los em experiências inclusivas.
                 </p>
                 
@@ -144,7 +144,7 @@ function Home() {
                     representam passivos jurídicos e perdas imediatas no funil de conversão.
                   </p>
                   <p className="text-start text-grey" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
-                    Nossa atuação substitui checklists automatizados por <strong className="fw-bold">auditorias periciais</strong>, 
+                    Nossa atuação conta com <strong className="fw-bold">auditorias periciais</strong>, 
                     laudos com fundamentação técnica e entrega de correções em código HTML5 e WAI-ARIA para times de engenharia.
                   </p>
                   
@@ -212,7 +212,7 @@ function Home() {
                   registrados no INPI, como o método <strong className="fw-bold">CADUX</strong> e o simulador interativo <strong className="fw-bold">Jornada da Acessibilidade</strong>.
                 </p>
                 <p className="text-start text-md-start text-grey" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
-                  Atuamos na vanguarda da <strong className="fw-bold">Web Agêntica e Inteligência Artificial</strong>, integrando a acessibilidade 
+                  Realizamos pesquisas sobre <strong className="fw-bold">Web Agêntica e Inteligência Artificial</strong>, integrando a acessibilidade 
                   como critério de inteligência e usabilidade em sistemas complexos, AVEAs e plataformas B2B.
                 </p>
                 
@@ -275,7 +275,7 @@ function Home() {
                 </h3>
                 
                 <p className="fs-5 text-grey">
-                  Consultoria técnica liderada por membro do <strong>Comitê ABNT/CB-040</strong>, 
+                  Consultoria técnica liderada por quem integrou o <strong>Comitê ABNT/CB-040</strong>, 
                   estruturando produtos em conformidade com as <strong>WCAG 2.2</strong> e a <strong>ABNT NBR 17225:2025</strong>.
                 </p>
                 <div 
@@ -363,7 +363,7 @@ function Home() {
                 color: '#333'
               }}>
                 Somos uma <strong style={{ fontWeight: 'bold' }}>consultoria especializada em Design Inclusivo, Acessibilidade Digital e UX</strong>. 
-                Atuamos estrategicamente na capacitação de equipes e adequação técnica de produtos em quatro frentes principais:
+                Atuamos na capacitação de equipes e adequação técnica de produtos em quatro frentes principais:
               </p>
               
               <ul style={{
